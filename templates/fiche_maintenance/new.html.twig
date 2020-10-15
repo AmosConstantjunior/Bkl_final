@@ -1,0 +1,237 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New FicheMaintenance
+{% endblock %}
+
+{% block body %}
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+		<section id='formulaire_fiche' class="container-fluid ">
+			<h2 class="pt-2 d-flex justify-content-center">Ajouter de fiche de maintenance</h2>
+			<article id="formulaire_fiche_maintenance" class="mt-4 ml-3 mb-4">
+
+				<div class="container-fluid mt-4  ">
+					<div class="stepwizard mb-4">
+						<div class="stepwizard-row setup-panel">
+							<div class="stepwizard-step col-xs-3">
+								<a href="#step-1" type="button" class="btn text-dark btn-success btn-circle">1</a>
+								<p>
+									<small>Client</small>
+								</p>
+							</div>
+							<div class="stepwizard-step col-xs-3">
+								<a href="#step-2" type="button" class="btn text-dark btn-default btn-circle" disabled="disabled">2</a>
+								<p>
+									<small>Validation de Devis</small>
+								</p>
+							</div>
+							<div class="stepwizard-step col-xs-3">
+								<a href="#step-3" type="button" class="btn text-dark btn-default btn-circle" disabled="disabled">3</a>
+								<p>
+									<small>Notation CQS</small>
+								</p>
+							</div>
+							<div class="stepwizard-step col-xs-3">
+								<a href="#step-4" type="button" class="btn text-dark btn-default btn-circle" disabled="disabled">4</a>
+								<p>
+									<small>L’ATELIER</small>
+								</p>
+							</div>
+							<div class="stepwizard-step col-xs-3">
+								<a href="#step-5" type="button" class="btn text-dark btn-default btn-circle" disabled="disabled">5</a>
+								<p>
+									<small>Signature</small>
+								</p>
+							</div>
+						</div>
+					</div>
+					{{ form_start(form) }}
+					<form role="form">
+						<div class="panel panel-primary setup-content" id="step-1">
+							<div class="panel-heading">
+								<h3 class="panel-title">Les données du client</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label class="control-label">Client</label>
+
+									<input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter First Name"/>
+								</div>
+								<div class="form-group">
+
+									{{form_label(form.atelier, 'Atelier')}}
+									{{form_widget(form.atelier, {'attr':{'class':'form-control','maxlength':"100", 'required':"required" }})}}
+
+								</div>
+								<div class="form-group">
+									{{form_label(form.machine, 'Machine')}}
+									{{form_widget(form.machine, {'attr':{'class':'form-control','maxlength':"100", 'required':"required" }})}}
+
+								</div>
+								<div class="form-group">
+									<label class="control-label">Contacts</label>
+									<select maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name"></select>
+								</div>
+								<button class="btn btn-primary nextBtn pull-right" type="button">Devis</button>
+							</div>
+						</div>
+
+						<div class="panel panel-primary setup-content" id="step-2">
+							<div class="panel-heading">
+								<h3 class="panel-title">VALIDATION DU DEVIS</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									{{form_label(form.CommandeEBP, 'Commande EBP')}}
+									{{form_widget(form.CommandeEBP, {'attr':{'class':'form-control','maxlength':"200", 'required':"required" }})}}
+
+								</div>
+								<div class="form-group">
+									{{form_label(form.montantConsommable, 'Montant Consommable')}}
+									{{form_widget(form.montantConsommable, {'attr':{'class':'form-control','maxlength':"200", 'required':"required" }})}}
+
+								</div>
+								<div class="form-group">
+
+									{{form_label(form.montantHT, 'Montant HT')}}
+									{{form_widget(form.montantHT, {'attr':{'class':'form-control','maxlength':"200", 'required':"required" }})}}
+								</div>
+								<div class="form-group">
+									<label class="control-label">Commentaires</label>
+
+									<textarea maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address"></textarea>
+								</div>
+								<button class="btn btn-primary nextBtn pull-right" type="button">Notation CQS</button>
+							</div>
+						</div>
+
+						<div class="panel panel-primary setup-content" id="step-3">
+							<div class="panel-heading">
+								<h3 class="panel-title">NOTATION CQS
+								</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-row">
+									<div class="form-group col-3 ">
+
+										{{form_label(form.station, 'Station')}}
+										{{form_widget(form.station, {'attr':{'class':'form-control','maxlength':"200", 'required':"required" }})}}
+
+									</div>
+									<div class="form-group col-3">
+
+										{{form_label(form.formation, 'Formation')}}
+										{{form_widget(form.formation, {'attr':{'class':'form-control','maxlength':"200", 'required':"required" }})}}
+									</div>
+									<div class="form-group col-3">
+
+										{{form_label(form.maint, 'Maintenance')}}
+										{{form_widget(form.maint, {'attr':{'class':'form-control','maxlength':"200", 'required':"required" }})}}
+									</div>
+									<div class="form-group col-3">
+
+										{{form_label(form.process, 'Process')}}
+										{{form_widget(form.process, {'attr':{'class':'form-control','maxlength':"200", 'required':"required" }})}}
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Attestation CQS</label>
+									<input maxlength="200" type="text" required="required" class="form-control" placeholder=""/>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Mention :</label>
+									<input maxlength="200" type="text" required="required" class="form-control" placeholder=""/>
+								</div>
+								<button class="btn btn-primary nextBtn pull-right" type="button">Atelier</button>
+							</div>
+						</div>
+
+						<div class="panel panel-primary setup-content" id="step-4">
+							<div class="panel-heading">
+								<h3 class="panel-title">L’ATELIER</h3>
+							</div>
+							<div class="panel-body">
+
+								<div class="form-row">
+									<div class="form-custom-control custom-checkbox col">
+
+										{{form_label(form.valiseCNOMO, 'Présence de la valise CNOMO')}}
+										{{form_widget(form.valiseCNOMO,{'attr':{'class':'form-custom-control-input'}})}}
+									</div>
+									<div class="form-custom-control custom-checkbox col">
+										{{form_label(form.cuproBrasage, 'Utilisation du cupro-brasage')}}
+										{{form_widget(form.cuproBrasage,{'attr':{'class':'form-custom-control-input'}})}}
+									</div>
+
+									<div class="form-custom-control custom-checkbox col">
+										{{form_label(form.besoinFormation, 'Besoin de formation')}}
+										{{form_widget(form.besoinFormation,{'attr':{'class':'form-custom-control-input'}})}}
+									</div>
+									<div class="form-custom-control custom-checkbox col">
+
+										{{form_label(form.sondageMonoFace, 'Soudage mono-face')}}
+										{{form_widget(form.sondageMonoFace,{'attr':{'class':'form-custom-control-input'}})}}
+									</div>
+								</div>
+								<div class="form-group">
+
+									{{form_label(form.QualiteElectrique, "Qualité de la ligne électrique")}}
+									{{form_widget(form.QualiteElectrique, {'attr':{'class':'form-control','maxlength':"200", 'required':"required", 'type':"date" }})}}
+								</div>
+								<button class="btn btn-primary nextBtn pull-right" type="button">Signature</button>
+
+							</div>
+						</div>
+						<div class="panel panel-primary setup-content" id="step-5">
+							<div class="panel-heading">
+								<h3 class="panel-title">Signature</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-row">
+									<div class="form-group col">
+
+										{{form_label(form.dateIntervention, "Date d'intervention")}}
+										{{form_widget(form.dateIntervention, {'attr':{'class':'form-control','maxlength':"200", 'required':"required", 'type':"date" }})}}
+
+
+									</div>
+									<div class="form-group col">
+									<label for="">Prochaine intervention</label>
+									<p>Bonjour</p>
+										{# {{form_label(form.dateProchaine, "Prochaine intervention")}} #}
+										{# {{form_widget(form.dateProchaine, {'attr':{'class':'form-control','maxlength':"200", 'required':"required", 'type':"date" }})}} #}
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col">
+										<label class="control-label">Technicien CQS</label>
+										<Select maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name"></select>
+									</div>
+									<div class="form-group col">
+										{{form_label(form.Technicien, "Technicien")}}
+										{{form_widget(form.Technicien, {'attr':{'class':'form-control','maxlength':"200", 'required':"required", 'type':"date" }})}}
+
+									</div>
+								</div>
+								<div class="custom-control custom-checkbox mb-4">
+									<input type="checkbox" class="custom-control-input" id="customCheck1">
+									<label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+								</div>
+								<button class="btn btn-success nextBtn pull-right">{{ button_label|default('Valider') }}</button>
+							</div>
+						</div>
+
+					</form>
+					{{ form_end(form) }}
+				</div>
+			</article>
+		</section>
+	</main>
+{% endblock %}

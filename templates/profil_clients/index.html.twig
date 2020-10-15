@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilClientsController!
+{% endblock %}
+
+{% block body %}
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{# {% include "Templates_parts/_nav.html.twig" %} #}
+		</nav>
+		<hr>
+		<section id="profile_cote_client" class=" container-fluid">
+			<h2 class="mt-4 ml-4 d-flex justify-content-center">
+				Profile
+			</h2>
+			<article id='donner_profile_cote_client'>
+			
+
+				<div id="donner_profile_cote_client_1">
+				<i class="fa fa-pencil" aria-hidden="true"></i>
+					<header>
+						<img src="{{asset('assets/Img/goku.png')}}" alt="" srcset="">
+					</header>
+					<div id="" class="mt-4 ml-3">
+						<p>Entreprise :   <span>{{app.user.NomClient}}</span></p>
+						<p>TEL : <span> {{app.user.NumClient}}</span>  </p>
+						<p>EMAIL :  <span>{{app.user.email}}</span></p>
+						<p>ADRESSE :  <span>{{app.user.AdresseLieu}}</span></p>
+						<p>VILLE</p>
+					</div>
+				</div>
+				<div id="donner_profile_cote_client_2">
+
+
+					<div id="listes_contact_profil_clients">
+						<h3 class="pt-2 ml-4">Nos représentants
+						</h3>
+						
+						
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Nom </th>
+									<th>Prenom</th>
+									<th>Tel</th>
+									<th>Atelier</th>
+									<th>Poste</th>
+								</tr>
+							</thead>
+							<tbody>
+							{% for contact in app.user.contacts|slice(0, 3) %}
+							
+								<tr>
+									<td> {{contact.NomContact}}</td>
+									<td>{{contact.PrenomContact}}</td>
+									<td>{{contact.TelContact}}</td>
+									<td>{{contact.atelier}}</td>
+									<td>{{contact.poste}}</td>
+								</tr>
+								
+						{% endfor %}
+							</tbody>
+							<tfoot>
+							
+							{% for contact in app.user.contacts %}
+								{% if contact|length > 0 %}
+								<a class="" href="">Bonjour</a>
+								{% endif %}
+							{% endfor %}
+							</tfoot>
+						</table>
+					</div>
+					<div id="listes_ateliers_profil_clients" class="mt-3">
+						<h3 class="pt-2 pl-4">Nos ateliers</h3>
+
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+
+			</article>
+		</section>
+	</main>
+{% endblock %}

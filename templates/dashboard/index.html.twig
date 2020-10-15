@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!
+{% endblock %}
+
+{% block body %}
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+		{% if app.user.roles[0] == "ROLE_ADMIN" %}
+		
+			{% include "Templates_parts/_nav.html.twig" %}
+		{% endif %}
+		
+		</nav>
+		<hr>
+		<h3 id="titre_tableau" class="">Tableau de bord</h3>
+
+		{% if app.user.roles[0] == "ROLE_ADMIN" %}
+		 <section id="tableau_bord_admin" class="mt-4">
+											<article id="intervention_admin" class="ml-4">
+												<h4 class="mt-4 ml-4">Interventions</h4>
+												<div class=""></div>
+											</article>
+											<article id="historique_admin" class="">
+												<h4 class="mt-4 ml-4">Historique</h4>
+												<div>
+													<article>
+														<table id="table_historyque_admin" class="table table-hover  mt-4 ml-2 " style="height:10%;">
+															<thead>
+																<tr>
+																	<th scope="col">#</th>
+																	<th scope="col">First</th>
+																	<th scope="col">Last</th>
+																	<th scope="col">Handle</th>
+																	<th scope="col">Action</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<th scope="row">1</th>
+																	<td>Mark</td>
+																	<td>Otto</td>
+																	<td>@mdo</td>
+																	<td>@mdo</td>
+																</tr>
+																<tr>
+																	<th scope="row">2</th>
+																	<td>Jacob</td>
+																	<td>Thornton</td>
+																	<td>@fat</td>
+																</tr>
+																<tr>
+																	<th scope="row">2</th>
+																	<td>Jacob</td>
+																	<td>Thornton</td>
+																	<td>@fat</td>
+																	<td>@fat</td>
+																</tr>
+																<tr>
+																	<th scope="row">2</th>
+																	<td>Jacob</td>
+																	<td>Thornton</td>
+																	<td>@fat</td>
+																	<td>@fat</td>
+																</tr>
+																<tr>
+																	<th scope="row">3</th>
+																	<td colspan="2">Larry the Bird</td>
+																	<td>@twitter</td>
+																</tr>
+																<tr>
+																	<th scope="row">3</th>
+																	<td colspan="2">Larry the Bird</td>
+																	<td>@twitter</td>
+																</tr>
+																<tr>
+																	<th scope="row">3</th>
+																	<td colspan="2">Larry the Bird</td>
+																	<td>@twitter</td>
+																</tr>
+																
+															</tbody>
+														</table>
+													</article>
+												</div>
+											</article>
+								
+										</section>  {% else %}
+		<section id="tableau_bord_client">
+			<article id="intervention_client" class="ml-3">
+				<h4 class="mt-4 ml-4">Mes rendez-vous</h4>
+				<div></div>
+			</article>
+			<article id="zone_historique_et_indicateur" class="">
+				<article  id="historique_client" class="">
+					<h4 class="mt-4 ml-4">Mon Historique</h4>
+					<div></div>
+				</article>
+				<div id="indicateur_client" class=' '></div>
+			</article>
+		</section>{% endif %}
+	</main>
+{% endblock %}

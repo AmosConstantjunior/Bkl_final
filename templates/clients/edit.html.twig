@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Clients
+{% endblock %}
+
+{% block body %}
+
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+		<section id="ajouter-technicien" class=" container-fluid">
+
+			<a class="btn btn-secondary" href="{{ path('clients_show', {'id': client.id}) }}">
+				<i class="fa fa-chevron-left"></i>
+				Retour</a>
+			<h2 class="mt-4 ml-4 d-flex justify-content-center">Modifier le Client</h2>
+			<article class="mt-4 container-fluid">
+
+				{{ include('clients/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+
+
+				{{ include('clients/_delete_form.html.twig') }}
+			</article>
+		</section>
+	</main>
+{% endblock %}

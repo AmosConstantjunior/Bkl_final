@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FicheMaintenance{% endblock %}
+
+{% block body %}
+    <h1>FicheMaintenance</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fiche_maintenance.id }}</td>
+            </tr>
+            <tr>
+                <th>DateIntervention</th>
+                <td>{{ fiche_maintenance.dateIntervention ? fiche_maintenance.dateIntervention|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>CommandeEBP</th>
+                <td>{{ fiche_maintenance.CommandeEBP }}</td>
+            </tr>
+            <tr>
+                <th>MontantHT</th>
+                <td>{{ fiche_maintenance.montantHT }}</td>
+            </tr>
+            <tr>
+                <th>MontantConsommable</th>
+                <td>{{ fiche_maintenance.montantConsommable }}</td>
+            </tr>
+            <tr>
+                <th>Station</th>
+                <td>{{ fiche_maintenance.station }}</td>
+            </tr>
+            <tr>
+                <th>Formation</th>
+                <td>{{ fiche_maintenance.formation }}</td>
+            </tr>
+            <tr>
+                <th>Maint</th>
+                <td>{{ fiche_maintenance.maint }}</td>
+            </tr>
+            <tr>
+                <th>Process</th>
+                <td>{{ fiche_maintenance.process }}</td>
+            </tr>
+            <tr>
+                <th>ValiseCNOMO</th>
+                <td>{{ fiche_maintenance.valiseCNOMO ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>CuproBrasage</th>
+                <td>{{ fiche_maintenance.cuproBrasage ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>BesoinFormation</th>
+                <td>{{ fiche_maintenance.besoinFormation ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>SondageMonoFace</th>
+                <td>{{ fiche_maintenance.sondageMonoFace ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>QualiteElectrique</th>
+                <td>{{ fiche_maintenance.QualiteElectrique }}</td>
+            </tr>
+            <tr>
+                <th>DateProchaine</th>
+                <td>{{ fiche_maintenance.dateProchaine ? fiche_maintenance.dateProchaine|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('fiche_maintenance_index') }}">back to list</a>
+
+    <a href="{{ path('fiche_maintenance_edit', {'id': fiche_maintenance.id}) }}">edit</a>
+
+    {{ include('fiche_maintenance/_delete_form.html.twig') }}
+{% endblock %}

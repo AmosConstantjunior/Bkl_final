@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AttestationclientController!
+{% endblock %}
+
+{% block body %}
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% if app.user.roles[0] == "ROLE_ADMIN" %}
+		
+			{% include "Templates_parts/_nav.html.twig" %}
+		{% endif %}
+		</nav>
+		<hr>
+		<section id="liste_des_attestation_cote_client" class=" container-fluid">
+			<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste des Attestations
+			</h3>
+			<article >
+				<table class="table table-striped ">
+					<thead>
+						<tr>
+							<th scope="col">Id</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Atelier</th>
+							<th scope="col">Note Équipement</th>
+							<th scope="col">Note Maintenance</th>
+							<th scope="col">Note Formation</th>
+							<th scope="col">Note Process</th>
+							<th scope="col">Note Moyenne</th>
+							<th scope="col">actions</th>
+						</tr>
+					</thead>
+					<tbody>
+                    {% for item in app.user.ateliers %}
+                    {% for attestation in item.attestationCqs %}
+                      
+						<tr id='table_attestation_client'>
+							<td scope="row">{{attestation.id}}</td>
+							<td scope="row">{{attestation.Date ? attestation.Date|date('d-m-Y')}}</td>
+							<td scope="row">{{attestation.atelier}}</td>
+							<td scope="row">{{attestation.NoteEquip}} %</td>
+							<td scope="row">{{attestation.NoteMaint}} %</td>
+							<td scope="row">{{attestation.NoteForm}} %</td>
+							<td scope="row">{{attestation.NoteProcess}} %</td>
+                            <td scope="row">{{ (attestation.NoteEquip + attestation.NoteMaint + attestation.NoteForm + attestation.NoteProcess) / 4}} %</td>
+							<td scope="row">
+					<a href="{{ path('modal_attestation', {'id': attestation.id}) }}" data-toggle="modal" data-target="#essaye" class="btn btn">Afficher les ateliers</a>
+                            </td>
+						</tr>
+                    {% endfor %}
+                     
+                    {% endfor %}
+
+                           
+
+					</tbody>
+				</table>
+			</article>
+		</section>
+	</main>
+{% endblock %}

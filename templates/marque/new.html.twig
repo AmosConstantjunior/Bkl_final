@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Marque
+{% endblock %}
+
+{% block body %}
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+		<section id="ajouter_technicien" class=" container-fluid">
+
+			<a class="btn btn-secondary" href="{{ path('marque_index') }}">
+				<i class="fa fa-chevron-left"></i>
+				Retour</a>
+			<h2 class="mt-4 ml-4 d-flex justify-content-center">Ajouter une marque</h2>
+			<article class="mt-4 container-fluid">
+				{{ form_start(form) }}
+				<div class="form-group">
+					{{form_label(form.NomMarque, 'Nom de la marque')}}
+					{{form_widget(form.NomMarque, {'attr':{'class':'form-control'}})}}
+				</div>
+				<button class="btn btn-success">{{ button_label|default('Enregistrer') }}<i class="fa fa-save"></i>
+				</button>
+				{{ form_end(form) }}
+			</article>
+		</section>
+	</main>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contacts index
+{% endblock %}
+
+{% block body %}
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+		<section id="liste_des_Contacts" class=" container-fluid">
+			<a class="btn btn-secondary float-right mt-3 mr-4 mb-4" href="{{ path('contacts_new') }}">
+				<i class="fa fa-plus"></i>
+				Ajouter un contact</a>
+			<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste de tout les Contacts
+			</h3>
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Nom</th>
+						<th scope="col">Prénom</th>
+						<th scope="col">Téléphone</th>
+						<th scope="col">Entreprise</th>
+						<th scope="col">Ateliers</th>
+						<th scope="col">Postes</th>
+						<th scope="col">actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for contact in contacts %}
+						<tr>
+							<td scope="row">{{ contact.id }}</td>
+							<td scope="row">{{ contact.NomContact }}</td>
+							<td scope="row">{{ contact.PrenomContact }}</td>
+							<td scope="row">{{ contact.TelContact }}</td>
+                            <td scope="row"></td>
+                            <td scope="row"></td>
+                            <td scope="row"></td>
+							<td scope="row">
+								<a href="{{ path('contacts_show', {'id': contact.id}) }}">show</a>
+								<a href="{{ path('contacts_edit', {'id': contact.id}) }}">edit</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="8">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</section>
+	</main>
+{% endblock %}

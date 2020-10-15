@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AttestationCqs{% endblock %}
+
+{% block body %}
+<aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% if app.user.roles[0] == "ROLE_ADMIN" %}
+		
+			{% include "Templates_parts/_nav.html.twig" %}
+		{% endif %}
+		</nav>
+		<hr>
+		<section id="ajouter-technicien" class=" container-fluid">
+
+			<a class="btn btn-secondary" href="{{ path('clients_index') }}">
+				<i class="fa fa-chevron-left"></i>
+				Retour</a>
+    <h1>AttestationCqs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ attestation_cq.id }}</td>
+            </tr>
+            <tr>
+                <th>NoteEquip</th>
+                <td>{{ attestation_cq.NoteEquip }}</td>
+            </tr>
+            <tr>
+                <th>ConclEquip</th>
+                <td>{{ attestation_cq.ConclEquip }}</td>
+            </tr>
+            <tr>
+                <th>ActionEquip</th>
+                <td>{{ attestation_cq.ActionEquip }}</td>
+            </tr>
+            <tr>
+                <th>NoteMaint</th>
+                <td>{{ attestation_cq.NoteMaint }}</td>
+            </tr>
+            <tr>
+                <th>ConclMaint</th>
+                <td>{{ attestation_cq.ConclMaint }}</td>
+            </tr>
+            <tr>
+                <th>ActionMaint</th>
+                <td>{{ attestation_cq.ActionMaint }}</td>
+            </tr>
+            <tr>
+                <th>NoteForm</th>
+                <td>{{ attestation_cq.NoteForm }}</td>
+            </tr>
+            <tr>
+                <th>ConclForm</th>
+                <td>{{ attestation_cq.ConclForm }}</td>
+            </tr>
+            <tr>
+                <th>ActionForm</th>
+                <td>{{ attestation_cq.ActionForm }}</td>
+            </tr>
+            <tr>
+                <th>NoteProcess</th>
+                <td>{{ attestation_cq.NoteProcess }}</td>
+            </tr>
+            <tr>
+                <th>ConclProcess</th>
+                <td>{{ attestation_cq.ConclProcess }}</td>
+            </tr>
+            <tr>
+                <th>ActionProcess</th>
+                <td>{{ attestation_cq.ActionProcess }}</td>
+            </tr>
+            <tr>
+                <th>ConclMoyen</th>
+                <td>{{ attestation_cq.ConclMoyen }}</td>
+            </tr>
+            <tr>
+                <th>ActionMoyen</th>
+                <td>{{ attestation_cq.ActionMoyen }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ attestation_cq.Date ? attestation_cq.Date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('attestation_cqs_index') }}">back to list</a>
+
+    <a href="{{ path('attestation_cqs_edit', {'id': attestation_cq.id}) }}">edit</a>
+
+    {{ include('attestation_cqs/_delete_form.html.twig') }}
+    </section>
+		</main>
+{% endblock %}

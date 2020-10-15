@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilTechnicienController!
+{% endblock %}
+
+{% block body %}
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+		<section id="profil_technicien" class=" container-fluid">
+			<h2 class="mt-4 ml-4 d-flex justify-content-center">Profil Technicien
+
+			</h2>
+			<section id="profil_technicien_globale">
+				<article id="profil_technicien_image">
+					<img src="{{asset('assets/Img/technicien.png')}}" alt="">
+					<div>
+					
+					</div>
+					</article>
+				<section class="mt-4 ml-4">
+					<article id="profil_technicien_donner" class="mt-4">
+						<div class="pt-4 pl-4">
+						<h5 class="mt-3">Nom :   <span>{{app.user.NomTechnicien}}</span>  </h5>
+						<h5 class="mt-3">Prenom : <span>{{app.user.PrenomTechnicien}}</span> </h5>
+						<h5 class="mt-3">Poste : Technicien</h5>
+
+						
+						</div>
+					</article>
+					<article id="profil_technicien_histoirique" class="mt-2">
+					    <h4 class="mt-3 d-flex justify-content-center">Mes interventions</h4>
+						<div></div>
+					</article>
+				</section>
+			</section>
+		</section>
+	</main>
+{% endblock %}

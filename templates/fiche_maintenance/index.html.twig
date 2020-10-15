@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FicheMaintenance index{% endblock %}
+
+{% block body %}
+   <aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+		<section id="liste_des_visite" class=" container-fluid">
+			<a class="btn btn-secondary float-right mt-3 mr-4 mb-4" href="{{ path('fiche_maintenance_new') }}">
+				<i class="fa fa-plus"></i>
+				Ajouter une nouvelle Fiche de maintenance</a>
+			<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste des fiches de maintenance
+			</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Date d'intervention</th>
+                        <th scope="col">Client</th>
+<th scope="col">Atelier</th>
+						<th scope="col">Prochaine date</th>
+						<th scope="col">actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for fiche_maintenance in fiche_maintenances %}
+						<tr>
+							<td scope="row">{{ fiche_maintenance.id }}</td>
+                            <td scope="row"></td>
+                            <td scope="row"></td>
+							<td scope="row">{{ fiche_maintenance.dateIntervention ? fiche_maintenance.dateIntervention|date('Y-m-d') : '' }}</td>
+							<td scope="row">{{ fiche_maintenance.dateProchaine ? fiche_maintenance.dateProchaine|date('Y-m-d') : '' }}</td>
+							<td scope="row">
+								<a href="{{ path('fiche_maintenance_show', {'id': fiche_maintenance.id}) }}">show</a>
+								<a href="{{ path('fiche_maintenance_edit', {'id': fiche_maintenance.id}) }}">edit</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="6">Liste vide</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</section>
+	</main>
+{% endblock %}

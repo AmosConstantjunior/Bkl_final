@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AttestationclientController!
+{% endblock %}
+
+{% block body %}
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+		<section id="liste_des_attestation_cote_client" class=" container-fluid">
+			<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste des Attestations
+			</h3>
+			<article >
+				<table class="table table-striped ">
+					<thead>
+						<tr>
+							<th scope="col">Id</th>
+							<th scope="col">Note Équipement</th>
+							<th scope="col">Note Maintenance</th>
+							<th scope="col">Note Formation</th>
+							<th scope="col">Note Process</th>
+							<th scope="col">Note Finale</th>
+							<th scope="col">actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr id='table_attestation_client'>
+							<td scope="row"></td>
+							<td scope="row"></td>
+							<td scope="row"></td>
+							<td scope="row"></td>
+							<td scope="row"></td>
+							<td scope="row"></td>
+							<td scope="row"></td>
+						</tr>
+					</tbody>
+				</table>
+			</article>
+		</section>
+	</main>
+{% endblock %}

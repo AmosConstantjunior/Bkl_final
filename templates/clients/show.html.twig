@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Clients
+{% endblock %}
+
+{% block body %}
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+		<section id="ajouter-technicien" class=" container-fluid">
+
+			<a class="btn btn-secondary" href="{{ path('clients_index') }}">
+				<i class="fa fa-chevron-left"></i>
+				Retour</a>
+			<h2 class="mt-2 d-flex justify-content-center">{{ client.NomClient }}</h2>
+			<section id="client_page_show">
+				<article id="donner_client_page_show">
+					<div>
+						<img src="http://placeimg.com/640/360/any" alt="image fictive" srcset="">
+						<div class="mt-4 ml-4">
+							<h5 class="mt-4 ">
+								<i class="fa fa-id-card"></i>
+								{{ client.NomClient }}</h5>
+							<h5 class="mt-4">
+								<i class="fa fa-at"></i>
+								{{ client.email }}</h5>
+							<h5 class="mt-4">
+								<i class="fa fa-phone"></i>
+								{{ client.NumClient }}</h5>
+							<h5 class="mt-4">{{ client.AdresseLieu }}</h5>
+						</div>
+					</div>
+					<a href="" class="btn btn-info ml-4" data-toggle="modal" data-target="#modalContact">Contacts</a>
+					<a class="btn btn-warning" href="{{ path('clients_edit', {'id': client.id}) }}">
+						<i class="fa fa-pen"></i>
+					</a>
+					<div></article>
+					<article id="zone_histo_et_atelier_client_page_show">
+						<div id="zone_historique_client_page_show">
+							<h4 class="ml-3 mt-3">Historiques</h4>
+							<hr>
+							<div id='afficher_historique_clients'>
+							<a href="" data-toggle="modal" data-target="#historique2" class='btn btn'>Afficher l'Historiques <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+							</div>
+						</div>
+						<div class="mt-4" id="zone_atliers_client_page_show">
+							
+								<h4 class="ml-3 mt-3 ">Ateliers</h4>
+								<hr>
+								<div id='button_afficher_atelier'>
+								<a href="{{path('ateliers_new')}}" class="btn btn" style='width:10vw'>Ajouter Ateliers</a>
+								<a  data-toggle="modal" data-target="#ateliers4" class="btn btn">Afficher les ateliers</a>
+								
+								</div>
+								
+							
+						</div>
+					</article>
+				</section>
+
+
+				<!-- Modal -->
+				{% include "Templates_parts/modaux.html.twig" %}
+			</section>
+		</main>
+
+
+	{% endblock %}

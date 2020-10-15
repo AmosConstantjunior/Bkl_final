@@ -1,0 +1,531 @@
+html{
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+}
+Body{
+    
+    width: 100vw;
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    border-radius: 25px;
+}
+aside{
+     width: 20vw;
+     border: 3px #b31613 solid;
+     background-color: #b31613;
+     border-radius: 25px;
+
+}
+#menu_admin{
+    display: flex;
+    height: 9vh;
+    width: 80vw;
+}
+#menu_admin ul{
+    display: flex;
+    justify-content: flex-start;
+    width: 50vw;
+}
+#menu_admin ul li{
+    margin-right: 20px;
+    list-style-type: none;
+}
+#menu_admin div{
+    height: 2vh;
+    width: 30vw;
+    display: flex;
+    justify-content:flex-end;
+}
+#donnee_client_aside{
+    height: 15vh;
+    display: flex;
+}
+#donnee_client_aside img{
+    height: 13vh;
+    border-radius: 50%;
+}
+#donnee_client_aside div{
+    height: 13vh;
+}
+#menu_clients ul li{
+    list-style-type: none;
+}
+main{
+   width: 80vw; 
+}
+#deconnexion{
+    display: flex;
+    
+    margin-left: 9vw;
+    width: 2.5vw;
+    
+}
+#logo{
+    width: 15vw;
+}
+#photo_profil img{
+    border-radius: 50%;
+}
+#tableau_bord_admin{
+    display: flex;
+}
+
+#intervention_admin{
+    
+    height: 75vh;
+    width: 34vw;
+    border-radius: 30px;
+    background: #FFFFFF;
+box-shadow: 8px 9px 4px rgba(0, 0, 0, 0.25);
+border-radius: 46px;
+}
+#intervention_admin h4, #historique_admin h4, #intervention_client h4{
+    padding-top: 3vh;
+}
+#intervention_admin div{
+    
+    height: 56vh;
+    width: 30vw;
+    margin-top: 6vh;
+    margin-left: 2vw;
+    background: #FFFFFF;
+border: 5px solid #C6DEEA;
+box-sizing: border-box;
+border-radius: 46px;
+}
+#historique_admin {
+    margin-left: 5vw;
+    
+    height: 75vh;
+    width: 34vw;
+    border-radius: 30px;
+    background: #FFFFFF;
+box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
+border-radius: 46px;
+}
+#historique_admin div{
+    
+    height: 56vh;
+    width: 30vw;
+    margin-top: 6vh;
+    margin-left: 2vw;
+    background: #FFFFFF;
+border: 3px solid #CF361C;
+box-sizing: border-box;
+border-radius: 48px;
+}
+#historique_admin div article{
+    height: 15vh;
+}
+/* #############################Dashboard client ######### */
+#tableau_bord_client{
+    
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+}
+#intervention_client{
+    /* position: absolute; */
+width: 32vw;
+height: 70vh;
+margin-top: 5vh;
+
+background: #FFFFFF;
+box-shadow: 8px 9px 4px rgba(0, 0, 0, 0.25);
+border-radius: 46px;
+}
+#intervention_client div{
+    width: 32vw;
+height: 62vh;
+
+margin-top: 4vh;
+border: 5px solid #C6DEEA;
+background: #FFFFFF;
+border-radius: 46px;
+}
+
+#historique_client {
+    /* position: absolute; */
+width: 32vw;
+height: 53vh;
+margin-left: 3vw;
+
+background: #FFFFFF;
+box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
+border-radius: 46px;
+}
+#historique_client div{
+    width: 32vw;
+    height: 49vh;
+   
+    border: 5px solid #CF361C;
+background: #FFFFFF;
+border-radius: 48px;
+padding-top: 7px;
+padding-left: 15px;
+}
+#historique_client div table thead{
+    background-color: cadetblue;
+    border-radius: 40px;
+}
+#indicateur_client{
+    /* position: absolute; */
+width: 22vw;
+height:23vh;
+
+border: 5px solid #DEDEF9 ;
+background: #ffffff;
+border-radius: 33px;
+margin-top: 1vh;
+}
+#zone_historique_et_indicateur{
+    padding: 0;
+    margin-left: 3vw;
+}
+/* ################################################################################## Zone Recherche client ####################### */
+
+#zone_recherche{
+    
+    height: 65vh;
+    
+}
+#zone_recherche_resultat{
+   
+    height: 54vh;
+}
+
+#icon{
+    position: absolute;
+    right: 1.6vw;
+    top: 2.8vh;
+    text-indent: -1px;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    cursor:pointer;
+    border: none;
+    -webkit-appearance:none; 
+}
+
+.stepwizard-step p {
+    margin-top: 0px;
+    color:#666;
+}
+.stepwizard-row {
+    display: table-row;
+}
+.stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+.stepwizard-step button[disabled] {
+    /*opacity: 1 !important;
+    filter: alpha(opacity=100) !important;*/
+}
+.stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+    opacity:1 !important;
+    color:#bbb;
+}
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content:" ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-index: 0;
+}
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+#profil_technicien{
+    
+    height: 80vh;
+}
+#profil_technicien_image{
+    margin-top:5vh ;
+width: 23.7vw;
+height: 64.9vh;
+left: 310px;
+top: 233px;
+
+background: #FFFFFF;
+border: 3px solid #000000;
+box-sizing: border-box;
+box-shadow: 9px 7px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+#profil_technicien_image img{
+    width: 9vw;
+    height: 20vh;
+    border-radius: 50%;
+    margin-left: 7vw;
+    padding-top: 5vh;
+}
+#profil_technicien_donner{
+    
+width: 44.4vw;
+height: 25.4vh;
+left: 710px;
+top: 233px;
+
+background: #FFFFFF;
+border: 3px solid #000000;
+box-sizing: border-box;
+box-shadow: 9px 8px 4px rgba(0, 0, 0, 0.25);
+border-radius: 19px;
+}
+#profil_technicien_histoirique{
+width: 44.4vw;
+height: 45.5vh;
+left: 710px;
+top: 472px;
+
+background: #FFFFFF;
+border: 3px solid #000000;
+box-sizing: border-box;
+box-shadow: 10px 8px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+#profil_technicien_histoirique table tbody{
+    
+    background-color: rgb(238, 255, 0);
+    width: 2vw;
+    overflow: auto; 
+}
+#profil_technicien_globale{
+    height: 76vh;
+    display: flex;
+    overflow: auto;
+}
+#profil_technicien_globale::-webkit-scrollbar {
+    width: 0.5em;
+}
+#profil_technicien_globale::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+#profil_technicien_globale::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+  }
+
+#table_attestation_client{
+    
+}
+
+#donner_profile_cote_client{
+    height: 76vh;
+    display: flex;
+    justify-content: space-around;
+}
+#donner_profile_cote_client_1{
+
+width: 378px;
+height: 486px;
+left: 301px;
+top: 205px;
+
+background: #FFFFFF;
+border: 3px solid rgba(209, 205, 205, 0.82);
+box-sizing: border-box;
+border-radius: 16px;
+}
+#donner_profile_cote_client_1 header {
+    padding-left: 5vw;
+    padding-top: 2vh;
+}
+#donner_profile_cote_client_1 header img{
+    width: 15vw;
+
+}
+#donner_profile_cote_client_2{
+
+width: 770px;
+height: 600px;
+left: 698px;
+top: 205px;
+
+background: #FFFFFF;
+border: 3px solid rgba(203, 202, 202, 0.94);
+box-sizing: border-box;
+border-radius: 22px;
+}
+
+#listes_contact_profil_clients{
+    height: 35vh;
+    
+    border: 3px solid rgba(209, 205, 205, 0.82);
+    border-radius: 20px;
+}
+
+#listes_ateliers_profil_clients{
+    border: 3px solid rgba(209, 205, 205, 0.82);
+    border-radius: 20px;
+    
+    height: 37.3vh;
+}
+/* ###############################################"
+#################### ZONE LOGIN #########"""""""#######""""
+*/
+
+#zone_image_login_page{
+    background-color:#b31613 ;
+    height: auto ;
+    width: 50vw;
+}
+#zone_image_login_page img{
+    width: 25vw;
+    padding-top: 40%;
+    margin-left: 21%;
+}
+#buttn_connexion{
+    border-radius: 25px;
+    width: 15vw;
+    color: gray;
+}
+
+
+/* #######################################Show client ###################################################################"
+###########################################################################################################" */
+#client_page_show{
+display: flex;
+}
+#donner_client_page_show{
+    width: 415px;
+height: 525px;
+padding: 2vw;
+background: #FFFFFF;
+border: 2px solid rgba(111, 105, 105, 0.2);
+box-sizing: border-box;
+box-shadow: 8px 6px 4px #C6DEEA;
+border-radius: 52px;
+}
+#donner_client_page_show div img{
+    width: 8vw;
+    height: 15vh;
+    border-radius: 50%;
+    margin-left: 7vw;
+    margin-right: auto;
+}
+#donner_client_page_show div div{
+  
+    height: 35vh;
+}
+#zone_historique_client_page_show{
+    width: 555px;
+height: 260px;
+left: 830px;
+top: 259px;
+
+background: #FFFFFF;
+border: 2px solid rgba(0, 0, 0, 0.2);
+box-sizing: border-box;
+box-shadow: 6px 8px 4px #C6DEEA;
+border-radius: 38px;
+}
+#zone_histo_et_atelier_client_page_show{
+    margin-left: 4vw;
+}
+#zone_atliers_client_page_show{
+    width: 555px;
+height: 250px;
+left: 830px;
+top: 565px;
+
+background: #FFFFFF;
+border: 2px solid rgba(0, 0, 0, 0.2);
+box-sizing: border-box;
+box-shadow: 6px 9px 4px #C6DEEA;
+border-radius: 38px;
+}
+
+#bull{
+    cursor: move;
+}
+/* ######################################################################################################################################
+"######################################################################################################################
+#########################################################################################################################
+################################################# CSS TABLETTE
+########################################################################################################################"
+#######################################################################################################################"
+
+*/
+
+#formulaire_de_connexion{
+    
+    width: 50vw;
+}
+
+#formulaire_de_connexion article form{
+    width: 25vw;
+    margin-left: 12vw;
+}
+#formulaire_de_connexion article{
+    margin-top: 32vh;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+#formulaire_de_connexion article h1{
+    margin-bottom: 5vh;
+    text-align: center;
+    font-family:  'EB Garamond', serif;
+    
+}
+#button_connexion{
+    margin-left: 7vw;
+    margin-top: 5vh;
+    width: 12vw;
+    height: 6vh;
+    border-radius: 20px;
+    border: #b31613 1px solid;
+    color: #b31613;
+    
+}
+#button_connexion:hover{
+    background-color: #b31613;
+    border: white 1px solid;
+    color:white;
+}
+
+#button_afficher_atelier{
+    text-align: center;
+}
+#afficher_historique_clients{
+    text-align: center;
+}
+
+#button_afficher_atelier a{
+    border:#b31613 solid 1px ;
+    border-radius: 22px;
+    margin-top:5vh ;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    height: 5vh;
+
+}
+#creation_attestation{
+    
+    height: 67vh;
+    overflow-y: auto;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+}
+#button_afficher_atelier a:hover{
+    border: skyblue solid 1px;
+}

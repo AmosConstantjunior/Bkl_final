@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modele index{% endblock %}
+
+{% block body %}
+    <aside class='ml-2 mr-2 mt-2 mb-1'>
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+		<section id="liste_des_models" class=" container-fluid">
+			<a class="btn btn-secondary float-right mt-3 mr-4 mb-4" href="{{ path('modele_new') }}">
+				<i class="fa fa-plus"></i>
+				Ajouter un model</a>
+			<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste des models
+			</h3>
+
+			<table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Intituler</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for modele in modeles %}
+            <tr>
+                <td scope="row">{{ modele.id }}</td>
+                <td scope="row">{{ modele.Intituler }}</td>
+                <td scope="row">
+                    <a href="{{ path('modele_show', {'id': modele.id}) }}">show</a>
+                    <a href="{{ path('modele_edit', {'id': modele.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+ </section>
+	</main>
+{% endblock %}

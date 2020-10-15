@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AttestationCqs index{% endblock %}
+
+{% block body %}
+    <aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav
+			id="menu_admin" class="mt-4"> {% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+        <hr>
+        <section id="liste_des_attestation" class=" container-fluid">
+        <a class="btn btn-secondary float-right mt-3 mr-4 mb-4" href="{{path('attestation_cqs_new')}}"><i class="fa fa-plus"></i> Creer une nouvelle attestation</a>
+		<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste des Attestations </h3>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">En date du</th>
+                <th scope="col">Note Moyenne </th>
+                <th scope="col">Client</th>
+                <th scope="col">Ateliers</th>
+                <th scope="col">Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for attestation_cq in attestation_cqs %}
+            <tr>
+                <td scope="row">{{ attestation_cq.id }}</td>
+                <td scope="row">{{ attestation_cq.Date ? attestation_cq.Date|date('Y-m-d') : '' }}</td>
+                <td scope="row">{{( attestation_cq.NoteEquip + attestation_cq.NoteMaint + attestation_cq.NoteForm + attestation_cq.NoteProcess) / 4 }} %</td>
+               
+                <td scope="row">{{ attestation_cq.Atelier.client.NomClient }}</td>
+                <td scope="row">{{ attestation_cq.Atelier }}</td>
+                
+                <td scope="row">
+                    <a href="{{ path('attestation_cqs_show', {'id': attestation_cq.id}) }}"><i class="fa fa-eye"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     </section>
+   
+    </main>
+{% endblock %}

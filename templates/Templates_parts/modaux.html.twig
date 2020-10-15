@@ -1,0 +1,196 @@
+
+{# Modal contact  #}
+<div class="modal fade bd-example-modal-lg" id="modalContact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Les contacts</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <header class='d-flex justify-content-end'>
+        <a href="{{path('contacts_new')}}" class="btn btn-info "><i class="fa fa-plus"></i> Contact</a>
+        </header>
+        <hr>
+        
+        <body>
+           <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Tél</th>
+                <th scope="col">Ateliers</th>
+                <th scope="col">Poste</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in client.contacts %}
+            <tr>
+           
+                <td scope="row">{{ contact.id }}</td>
+                <td scope="row">{{ contact.PrenomContact }}</td>
+                <td scope="row">{{ contact.NomContact }}</td>
+                <td scope="row">{{ contact.TelContact }}</td>
+                <td scope="row">{{contact.atelier}}</td>
+                <td scope="row">{{ contact.poste ? 'Yes' : 'No' }}</td>
+                <td scope="row">
+                    <a href="{{ path('ateliers_show', {'id': contact.id}) }}"><i class="fa fa-eye"></i></a>
+                    <a href="{{ path('ateliers_edit', {'id': contact.id}) }}"><i class="fa fa-pencile"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Vide</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        </body>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+{# Modal Machine  #}
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Les contacts</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- Modal atelier zone client -->
+
+
+<div class="modal fade bd-example-modal-lg" id="ateliers4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" >Les ateliers</h5>
+        
+      </div>
+      <div class="modal-body">
+       <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Atelier</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Client</th>
+                <th scope="col">Certification</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for atelier in client.ateliers %}
+            <tr>
+                <td scope="row">{{ atelier.id }}</td>
+                <td scope="row">{{ atelier.NomAtelier }}</td>
+                <td scope="row">{{ atelier.NumAtelier }}</td>
+                <td scope="row">{{ atelier.AdresseLieu }}</td>
+                <td scope="row">{{atelier.client}}</td>
+                <td scope="row">{{ atelier.Certification ? 'Yes' : 'No' }}</td>
+                <td scope="row">
+                    <a href="{{ path('ateliers_show', {'id': atelier.id}) }}"><i class="fa fa-eye"></i></a>
+                    <a href="{{ path('ateliers_edit', {'id': atelier.id}) }}"><i class="fa fa-pen"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Vide</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal ajoute atelier zone client -->
+
+
+<div class="modal fade bd-example-modal-lg" id='historique2' tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" >Historique</h5>
+        
+      </div>
+      <div class="modal-body">
+       <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Atelier</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Client</th>
+                <th scope="col">Certification</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for atelier in client.ateliers %}
+            <tr>
+                <td scope="row">{{ atelier.id }}</td>
+                <td scope="row">{{ atelier.NomAtelier }}</td>
+                <td scope="row">{{ atelier.NumAtelier }}</td>
+                <td scope="row">{{ atelier.AdresseLieu }}</td>
+                <td scope="row">{{atelier.client}}</td>
+                <td scope="row">{{ atelier.Certification ? 'Yes' : 'No' }}</td>
+                <td scope="row">
+                    <a href="{{ path('ateliers_show', {'id': atelier.id}) }}">show</a>
+                    <a href="{{ path('ateliers_edit', {'id': atelier.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Vide</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal message --> 
+<div class="modal fade bd-example-modal-lg" id='Message' tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" >Messages</h5>
+        <hr>
+        <section id="zone_message">
+        
+        </section>
+     
+    </div>
+    </div>
+  </div>
+</div>
+
+<!--Test --> 
+
+

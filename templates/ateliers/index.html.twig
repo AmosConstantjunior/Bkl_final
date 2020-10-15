@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ateliers index{% endblock %}
+
+{% block body %}
+    <aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav
+			id="menu_admin" class="mt-4"> {% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+        <hr>
+        <section id="liste_des_ateliers" class=" container-fluid">
+        
+        <a class="btn btn-secondary float-right mt-3 mr-4 mb-4" href="{{path('ateliers_new')}}"><i class="fa fa-plus"></i> Ajouter d'atelier</a>
+		<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste des Ateliers </h3>
+    
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Atelier</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Client</th>
+                <th scope="col">Certification</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for atelier in ateliers %}
+            <tr>
+                <td scope="row">{{ atelier.id }}</td>
+                <td scope="row">{{ atelier.NomAtelier }}</td>
+                <td scope="row">{{ atelier.NumAtelier }}</td>
+                <td scope="row">{{ atelier.AdresseLieu }}</td>
+                <td scope="row">{{atelier.client}}</td>
+                <td scope="row">{{ atelier.Certification ? 'Yes' : 'No' }}</td>
+                <td scope="row">
+                    <a href="{{ path('ateliers_show', {'id': atelier.id}) }}">show</a>
+                    <a href="{{ path('ateliers_edit', {'id': atelier.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   
+    </section>
+   
+    </main>
+{% endblock %}

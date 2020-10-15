@@ -1,0 +1,179 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AttestationCqs{% endblock %}
+
+{% block body %}
+
+    <aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+		<section id="liste_des_ateliers" class=" container-fluid">
+
+			<a class="btn btn-secondary" href="{{ path('attestation_cqs_index') }}">
+            <i class="fa fa-chevron-left"></i>
+				Retour</a>
+			<h2 class="mt-4 ml-4 d-flex justify-content-center">Creation d'une nouvelle attestation AttestationCqs</h2>
+			<article id="creation_attestation" class="mt-4 container-fluid">
+
+    {{form_start(form)}}
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         ÉQUIPEMENT
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+      <div class='form-group'>
+      
+        {{form_label(form.NoteEquip, 'Note équipement')}}
+        {{form_widget(form.NoteEquip, {'attr':{'class':'form-control'}})}}
+      </div>
+      <div class="form-group">
+      
+        {{form_label(form.ConclEquip, 'Conclusion sur les équipement')}}
+        {{form_widget(form.ConclEquip, {'attr':{'class':'form-control'}})}}
+      </div>
+      <div class="form-group">
+      
+        {{form_label(form.ActionEquip, 'Actions Correctives récommandées pour les équipements')}}
+        {{form_widget(form.ActionEquip, {'attr':{'class':'form-control'}})}}
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          MAINTENANCE
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+       <div class='form-group'>
+      
+        {{form_label(form.NoteMaint, 'Note Maintenance')}}
+        {{form_widget(form.NoteMaint, {'attr':{'class':'form-control'}})}}
+      </div> 
+      <div class='form-group'>
+      
+        {{form_label(form.ConclMaint, 'Conclusion Maintenance')}}
+        {{form_widget(form.ConclMaint, {'attr':{'class':'form-control'}})}}
+      </div>
+      <div class='form-group'>
+      
+        {{form_label(form.ActionMaint, 'Actions Correctives récommandées pour la maintenance')}}
+        {{form_widget(form.ActionMaint, {'attr':{'class':'form-control'}})}}
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          FORMATION
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        <div class='form-group'>
+      
+        {{form_label(form.NoteForm, 'Note formation')}}
+        {{form_widget(form.NoteForm, {'attr':{'class':'form-control'}})}}
+      </div>
+      <div class='form-group'>
+      
+        {{form_label(form.ConclForm, 'Conclusion sur la formation')}}
+        {{form_widget(form.ConclForm, {'attr':{'class':'form-control'}})}}
+      </div>
+      <div class='form-group'>
+      
+        {{form_label(form.ActionForm, 'Actions Correctives récommandées sur la formation')}}
+        {{form_widget(form.ActionForm, {'attr':{'class':'form-control'}})}}
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapseThree">
+          PROCESS
+        </button>
+      </h5>
+    </div>
+    <div id="collapsefour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+        <div class='form-group'>
+      
+        {{form_label(form.NoteProcess, 'Note Process')}}
+        {{form_widget(form.NoteProcess, {'attr':{'class':'form-control'}})}}
+      </div>
+      <div class='form-group'>
+      
+        {{form_label(form.ConclProcess, 'Conclusion process')}}
+        {{form_widget(form.ConclProcess, {'attr':{'class':'form-control'}})}}
+      </div>
+      <div class='form-group'>
+      
+        {{form_label(form.ActionProcess, 'Actions Correctives récommandées  pour la process')}}
+        {{form_widget(form.ActionProcess, {'attr':{'class':'form-control'}})}}
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+          FINAL
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+        <div class='form-group'>
+      
+        {{form_label(form.ConclMoyen, 'Conclusion Générale')}}
+        {{form_widget(form.ConclMoyen, {'attr':{'class':'form-control'}})}}
+      </div>
+      <div class='form-group'>
+      
+        {{form_label(form.ActionMoyen, 'Actions Correctives ')}}
+        {{form_widget(form.ActionMoyen, {'attr':{'class':'form-control'}})}}
+      </div>
+      <div class='form-group row'>
+      <div class="form-group col">
+      
+        {{form_label(form.Date, 'Date ')}}
+        {{form_widget(form.Date, {'attr':{'class':'form-control'}})}}
+      </div>
+      <div class="form-group col">
+              {{form_label(form.atelier, 'Atelier ')}}
+        {{form_widget(form.atelier, {'attr':{'class':'form-control'}})}}
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <button class="btn btn-success float-right mt-3 mr-4">{{ button_label|default('Creer') }} <i class="fa fa-save"></i></button>
+    {{form_end(form)}}
+
+			</article>
+		</section>
+	</main>
+{% endblock %}

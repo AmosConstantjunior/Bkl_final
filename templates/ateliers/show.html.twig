@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ateliers{% endblock %}
+
+{% block body %}
+    <h1>Ateliers</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ atelier.id }}</td>
+            </tr>
+            <tr>
+                <th>NomAtelier</th>
+                <td>{{ atelier.NomAtelier }}</td>
+            </tr>
+            <tr>
+                <th>AdresseLieu</th>
+                <td>{{ atelier.AdresseLieu }}</td>
+            </tr>
+            <tr>
+                <th>NumAtelier</th>
+                <td>{{ atelier.NumAtelier }}</td>
+            </tr>
+            <tr>
+                <th>Certification</th>
+                <td>{{ atelier.Certification ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('ateliers_index') }}">back to list</a>
+
+    <a href="{{ path('ateliers_edit', {'id': atelier.id}) }}">edit</a>
+
+    {{ include('ateliers/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessagerieClientController!
+{% endblock %}
+
+{% block body %}
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+		<section id="messagerie_client" class=" container-fluid">
+			<h3 class="mt-4 ml-4 d-flex justify-content-center">Messagerie
+			</h3>
+			<article></article>
+		</section>
+	</main>
+{% endblock %}
