@@ -4,10 +4,11 @@
 {% endblock %}
 
 {% block body %}
+{% if app.user %}
 	<aside class='ml-2 mr-2 mt-2 mb-1'>
 
 		{% include "Templates_parts/aside.html.twig" %}
-	</aside>
+	</aside>{% endif %}
 	<main>
 		<nav id="menu_admin" class="mt-4">
 		{% if app.user.roles[0] == "ROLE_ADMIN" %}
@@ -106,7 +107,7 @@
 		</section>
 		{% else %}
 		<section>
-		
+		<P>Connexion Obligatoire</P>
 		</section>
 		{% endif %}
 	</main>
