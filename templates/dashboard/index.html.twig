@@ -17,9 +17,9 @@
 		{% endif %}
 		
 		</nav>
-		<hr>
 
 		{% if app.user.roles[0] == "ROLE_ADMIN" %}
+		<hr>
 		<h3 id="titre_tableau" class="">Tableau de bord</h3>
 		 <section id="tableau_bord_admin" class="mt-4">
 											<article id="intervention_admin" class="ml-4">
@@ -91,6 +91,7 @@
 											</article>
 								
 										</section>  {% elseif app.user.roles[0] == "ROLE_USER" %}
+										<hr>
 										<h3 id="titre_tableau" class="">Tableau de bord</h3>
 		<section id="tableau_bord_client">
 			<article id="intervention_client" class="ml-3">
@@ -108,6 +109,7 @@
 		{% else %}
 		<section>
 		<P>Connexion Obligatoire</P>
+		<p>Pour plus d'information orienter vous sur <a href="http://bkldiffusion.com/"target="_blank">BKL diffusion</a></p>
 		</section>
 		{% endif %}
 	</main>
