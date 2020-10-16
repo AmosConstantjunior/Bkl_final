@@ -17,9 +17,9 @@
 		
 		</nav>
 		<hr>
-		<h3 id="titre_tableau" class="">Tableau de bord</h3>
 
 		{% if app.user.roles[0] == "ROLE_ADMIN" %}
+		<h3 id="titre_tableau" class="">Tableau de bord</h3>
 		 <section id="tableau_bord_admin" class="mt-4">
 											<article id="intervention_admin" class="ml-4">
 												<h4 class="mt-4 ml-4">Interventions</h4>
@@ -89,7 +89,8 @@
 												</div>
 											</article>
 								
-										</section>  {% else %}
+										</section>  {% elseif app.user.roles[0] == "ROLE_USER" %}
+										<h3 id="titre_tableau" class="">Tableau de bord</h3>
 		<section id="tableau_bord_client">
 			<article id="intervention_client" class="ml-3">
 				<h4 class="mt-4 ml-4">Mes rendez-vous</h4>
@@ -102,6 +103,11 @@
 				</article>
 				<div id="indicateur_client" class=' '></div>
 			</article>
-		</section>{% endif %}
+		</section>
+		{% else %}
+		<section>
+		
+		</section>
+		{% endif %}
 	</main>
 {% endblock %}
