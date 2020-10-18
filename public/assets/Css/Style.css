@@ -4,7 +4,7 @@ html{
     height: 100vh;
 }
 Body{
-    background-image: url('../Image/soudeur.jpg');
+    background-image: url('../Img/soudeur.jpg');
     background-position-y: -70vh;
     background-position-x: 10vw;
     background-repeat: no-repeat;
@@ -528,6 +528,11 @@ border-radius: 38px;
     margin-right: 1vw;
     height: 5vh;
 
+}
+#boutton-contact{
+    border:#b31613 solid 1px ;
+    border-radius: 22px;
+    height: 5vh;
 }
 #creation_attestation{
     

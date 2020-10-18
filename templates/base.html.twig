@@ -16,7 +16,11 @@
     </head>
     <body>
     {# {% include "Templates_parts/modaux.html.twig" %} #}
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% if app.user == 0 %}
+        {% include "Templates_parts/page_error.html.twig" %}
+        {% endif %}
+        {% endblock %}
         <script type="text/javascript" src="js/addons-pro/steppers.min.js"></script>
         <script src="{{asset('assets/Bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
