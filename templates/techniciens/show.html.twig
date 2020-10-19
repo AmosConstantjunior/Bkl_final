@@ -1,42 +1,164 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Techniciens{% endblock %}
+{% block title %}Techniciens
+{% endblock %}
 
 {% block body %}
-    <h1>Techniciens</h1>
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<h3 class="mt-4 ml-4 mb-4 d-flex text-align-center text-light" id="text_tech">Techniciens</h3>
+		<section id="technicien_show">
+			<br>
+			<img src="http://placeimg.com/640/360/any" alt="" srcset="">
+			<h4 class="mt-4 ml-4 mb-4 d-flex justify-content-center">
+				<span>{{ technicien.PrenomTechnicien }}</span>
+				&nbsp &nbsp
+				<span>{{ technicien.NomTechnicien }}</span>
+				&nbsp &nbsp
+				<a href="{{ path('techniciens_edit', {'id': technicien.id}) }}">
+					<i class="fa fa-pen"></i>
+				</a>
+				{{ include('techniciens/_delete_form.html.twig') }}
+			</h4>
+			<article id="zone_donnee_tech_show">
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ technicien.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ technicien.email }}</td>
-            </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ technicien.roles ? technicien.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ technicien.password }}</td>
-            </tr>
-            <tr>
-                <th>NomTechnicien</th>
-                <td>{{ technicien.NomTechnicien }}</td>
-            </tr>
-            <tr>
-                <th>PrenomTechnicien</th>
-                <td>{{ technicien.PrenomTechnicien }}</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <a href="{{ path('techniciens_index') }}">back to list</a>
+				<ul class="nav nav-tabs container" id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active text-dark" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Informations</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" id="interventions-tab" data-toggle="tab" href="#interventions" role="tab" aria-controls="interventions" aria-selected="false">Interventions</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" id="historique-tab" data-toggle="tab" href="#historique" role="tab" aria-controls="historique" aria-selected="false">Historique</a>
+					</li>
+				</ul>
+				<div class="tab-content overflow-auto" id="myTabContent">
+					<div class="tab-pane fade show active container-fluid" id="home" role="tabpanel" aria-labelledby="home-tab">
+						<h4 class="mt-3 ml-4">Informations</h4>
+						<br>
+						<h5>
+							<i class="fa fa-user" aria-hidden="true"></i>&nbsp&nbsp
+							{{ technicien.PrenomTechnicien }}
+							&nbsp
+							{{ technicien.NomTechnicien }}
+						</h5>
+						<br>
+						<h5>
+							<i class="fa fa-envelope" aria-hidden="true"></i>&nbsp&nbsp
+							{{ technicien.email }}</h5>
 
-    <a href="{{ path('techniciens_edit', {'id': technicien.id}) }}">edit</a>
+					</div>
+					<div class="tab-pane fade" id="interventions" role="tabpanel" aria-labelledby="interventions-tab">
+						<h4 class="mt-3 ml-4">Interventions</h4>
+						<article>
+							<table class="table table-striped">
 
-    {{ include('techniciens/_delete_form.html.twig') }}
+
+								<thead>
+									<tr>
+										<th scope="col">Id</th>
+										<th scope="col">Date</th>
+										<th scope="col">Client</th>
+										<th scope="col">Atelier</th>
+										<th scope="col">actions</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr>
+										<td scope="row"></td>
+										<td scope="row"></td>
+										<td scope="row"></td>
+										<td scope="row"></td>
+										<td scope="row"></td>
+									</tr>
+									<tr>
+										<td colspan="5">no records found</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div class="tab-pane fade" id="historique" role="tabpanel" aria-labelledby="historique-tab">
+                    <h4 class="mt-3 ml-4">Historique</h4>
+                    						<article>
+							<table class="table table-striped">
+
+
+								<thead>
+									<tr>
+										<th scope="col">Id</th>
+										<th scope="col">Date</th>
+										<th scope="col">Client</th>
+										<th scope="col">Atelier</th>
+										<th scope="col">actions</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr>
+										<td scope="row"></td>
+										<td scope="row"></td>
+										<td scope="row"></td>
+										<td scope="row"></td>
+										<td scope="row"></td>
+									</tr>
+									<tr>
+										<td colspan="5">no records found</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</article>
+                    </div>
+				</div>
+
+
+				{# <div id="tech_show_1">Interventions</div>
+				<div id="tech_show_2">Historique</div> #}
+			</article>
+		</section>
+		{# <table class="table">
+		        <tbody>
+		            <tr>
+		                <th>Id</th>
+		                <td>{{ technicien.id }}</td>
+		            </tr>
+		            <tr>
+		                <th>Email</th>
+		                <td>{{ technicien.email }}</td>
+		            </tr>
+		            <tr>
+		                <th>Roles</th>
+		                <td>{{ technicien.roles ? technicien.roles|json_encode : '' }}</td>
+		            </tr>
+		            <tr>
+		                <th>Password</th>
+		                <td>{{ technicien.password }}</td>
+		            </tr>
+		            <tr>
+		                <th>NomTechnicien</th>
+		                <td>{{ technicien.NomTechnicien }}</td>
+		            </tr>
+		            <tr>
+		                <th>PrenomTechnicien</th>
+		                <td>{{ technicien.PrenomTechnicien }}</td>
+		            </tr>
+		        </tbody>
+		    </table>
+		
+		    <a href="{{ path('techniciens_index') }}">back to list</a>
+		
+		    <a href="{{ path('techniciens_edit', {'id': technicien.id}) }}">edit</a>
+		
+		   #}
+	</main>
 {% endblock %}

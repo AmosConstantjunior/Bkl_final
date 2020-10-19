@@ -13,10 +13,12 @@
 			{% include "Templates_parts/_nav.html.twig" %}
 		</nav>
 		<hr>
-		<section id="messagerie_client" class=" container-fluid">
-			<h3 class="mt-4 ml-4 d-flex justify-content-center">Messagerie
+			<h3 class="mt-4 ml-4 d-flex justify-content-center text-light">Messagerie
 			</h3>
+		<section id="messagerie_client"  class=" container-fluid">
+		<a href="" class="btn mt-4 ml-2" data-toggle="modal" data-target="#message_modal" style="border:1px solid blue"><i class="fa fa-plus"></i> Message</a>
 			<article></article>
 		</section>
+		{% include "Templates_parts/_message.html.twig" %}
 	</main>
 {% endblock %}

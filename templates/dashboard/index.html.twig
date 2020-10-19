@@ -10,13 +10,17 @@
 		{% include "Templates_parts/aside.html.twig" %}
 	</aside>{% endif %}
 	<main>
+	{% if app.user.roles[0] == "ROLE_ADMIN" %}
 		<nav id="menu_admin" class="mt-4">
 		
 		
 			{% include "Templates_parts/_nav.html.twig" %}
 		
 		
-		</nav>
+		</nav>{% else %} <nav style='height: 9vh;
+    width: 80vw;'>
+		
+		</nav> {% endif %}
 
 		{% if app.user.roles[0] == "ROLE_ADMIN" %}
 		<hr>
@@ -34,13 +38,19 @@
 															<thead>
 																<tr>
 																	<th scope="col">#</th>
-																	<th scope="col">First</th>
-																	<th scope="col">Last</th>
-																	<th scope="col">Handle</th>
+																	<th scope="col">Date</th>
+																	<th scope="col">Client</th>
+																	<th scope="col">Atelier</th>
 																	<th scope="col">Action</th>
 																</tr>
 															</thead>
 															<tbody>
+															{% for fiche_maintenance in fiche_maintenances %}
+																
+															<pre>
+																{{ dump(fiche_maintenance) }}
+															</pre>
+															{% endfor %}
 																<tr>
 																	<th scope="row">1</th>
 																	<td>Mark</td>
@@ -48,42 +58,7 @@
 																	<td>@mdo</td>
 																	<td>@mdo</td>
 																</tr>
-																<tr>
-																	<th scope="row">2</th>
-																	<td>Jacob</td>
-																	<td>Thornton</td>
-																	<td>@fat</td>
-																</tr>
-																<tr>
-																	<th scope="row">2</th>
-																	<td>Jacob</td>
-																	<td>Thornton</td>
-																	<td>@fat</td>
-																	<td>@fat</td>
-																</tr>
-																<tr>
-																	<th scope="row">2</th>
-																	<td>Jacob</td>
-																	<td>Thornton</td>
-																	<td>@fat</td>
-																	<td>@fat</td>
-																</tr>
-																<tr>
-																	<th scope="row">3</th>
-																	<td colspan="2">Larry the Bird</td>
-																	<td>@twitter</td>
-																</tr>
-																<tr>
-																	<th scope="row">3</th>
-																	<td colspan="2">Larry the Bird</td>
-																	<td>@twitter</td>
-																</tr>
-																<tr>
-																	<th scope="row">3</th>
-																	<td colspan="2">Larry the Bird</td>
-																	<td>@twitter</td>
-																</tr>
-																
+
 															</tbody>
 														</table>
 													</article>
@@ -92,7 +67,7 @@
 								
 										</section>  {% elseif app.user.roles[0] == "ROLE_USER" %}
 										<hr>
-										<h3 id="titre_tableau" class="">Tableau de bord</h3>
+										<h2 id="titre_tableau" class="mt-2 ml-4 d-flex justify-content-center text-light">Tableau de bord</h2>
 		<section id="tableau_bord_client">
 			<article id="intervention_client" class="ml-3">
 				<h4 class="mt-4 ml-4">Mes rendez-vous</h4>

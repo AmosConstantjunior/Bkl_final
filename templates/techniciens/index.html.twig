@@ -4,54 +4,56 @@
 {% endblock %}
 
 {% block body %}
-	{# <aside class='ml-2 mr-2 mt-2 mb-1'>
+	<aside class='ml-2 mr-2 mt-2 mb-1'>
 		{% include "Templates_parts/aside.html.twig" %}
-	</aside> #}
+	</aside>
 	<main>
 		<nav id="menu_admin" class="mt-4">
-			{# {% include "Templates_parts/_nav.html.twig" %} #}
+			{% include "Templates_parts/_nav.html.twig" %}
 		</nav>
 		<hr>
-		<section id="liste_des_Techniciens" class=" container-fluid">
-			<a class="btn btn-secondary float-right mt-3 mr-4 mb-4" href="{{ path('techniciens_new') }}">
+			<a class="btn btn-secondary float-right mt-3 mr-4 mb-4 " href="{{ path('techniciens_new') }}">
 				<i class="fa fa-plus"></i>
 				Ajouter un technicien</a>
-			<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste des Techniciens
+			<h3 class="mt-4 ml-4 d-flex justify-content-center text-light">Liste des Techniciens
 			</h3>
+		<section id="liste_des_Techniciens" style="background-color:white" class=" container-fluid">
+			
 
-			<table class="table table-striped">
+
+				<table class="table table-striped">
 
 
-				<thead>
-					<tr>
-						<th scope="col">Id</th>
-						<th scope="col">Nom</th>
-						<th scope="col">Prenom</th>
-						<th scope="col">Email</th>
-						<th scope="col">actions</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for technicien in techniciens %}
+					<thead>
 						<tr>
-							<td scope="row">{{ technicien.id }}</td>
-							<td scope="row">{{ technicien.NomTechnicien }}</td>
-							<td scope="row">{{ technicien.PrenomTechnicien }}</td>
-							<td scope="row">{{ technicien.email }}</td>
-							<td scope="row">
-								<a href="{{ path('techniciens_show', {'id': technicien.id}) }}">show</a>
-								<a href="{{ path('techniciens_edit', {'id': technicien.id}) }}">edit</a>
-							</td>
+							<th scope="col">Id</th>
+							<th scope="col">Nom</th>
+							<th scope="col">Prenom</th>
+							<th scope="col">Email</th>
+							<th scope="col">actions</th>
 						</tr>
-					{% else %}
-						<tr>
-							<td colspan="5">no records found</td>
-						</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						{% for technicien in techniciens %}
+							<tr>
+								<td scope="row">{{ technicien.id }}</td>
+								<td scope="row">{{ technicien.NomTechnicien }}</td>
+								<td scope="row">{{ technicien.PrenomTechnicien }}</td>
+								<td scope="row">{{ technicien.email }}</td>
+								<td scope="row">
+									<a href="{{ path('techniciens_show', {'id': technicien.id}) }}"><i class="text-danger fa fa-eye"></i></a>
+									<a href="{{ path('techniciens_edit', {'id': technicien.id}) }}"><i class="fa fa-pen"></i></a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="5">no records found</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
 
-
+			
 		</section>
 	</main>
 {% endblock %}

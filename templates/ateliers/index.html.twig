@@ -12,10 +12,10 @@
 			id="menu_admin" class="mt-4"> {% include "Templates_parts/_nav.html.twig" %}
 		</nav>
         <hr>
-        <section id="liste_des_ateliers" class=" container-fluid">
         
         <a class="btn btn-secondary float-right mt-3 mr-4 mb-4" href="{{path('ateliers_new')}}"><i class="fa fa-plus"></i> Ajouter d'atelier</a>
-		<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste des Ateliers </h3>
+		<h3 class="mt-4 ml-4 mb-4 d-flex justify-content-center text-light">Liste des Ateliers </h3>
+        <section id="liste_des_ateliers" style="background-color:white" class=" container-fluid">
     
 
     <table class="table table-striped">
@@ -40,8 +40,8 @@
                 <td scope="row">{{atelier.client}}</td>
                 <td scope="row">{{ atelier.Certification ? 'Yes' : 'No' }}</td>
                 <td scope="row">
-                    <a href="{{ path('ateliers_show', {'id': atelier.id}) }}">show</a>
-                    <a href="{{ path('ateliers_edit', {'id': atelier.id}) }}">edit</a>
+                    <a href="{{ path('ateliers_show', {'id': atelier.id}) }}"><i class="fa fa-eye"></i></a>
+                    <a href="{{ path('ateliers_edit', {'id': atelier.id}) }}"><i class="fa fa-pen"></i></a>
                 </td>
             </tr>
         {% else %}

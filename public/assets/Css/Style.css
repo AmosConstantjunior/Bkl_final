@@ -3,12 +3,9 @@ html{
     width: 100vw;
     height: 100vh;
 }
+
 Body{
-    background-image: url('../Img/soudeur.jpg');
-    background-position-y: -70vh;
-    background-position-x: 10vw;
-    background-repeat: no-repeat;
-    background-size: cover;
+    
     
     width: 100vw;
     background-color: white;
@@ -64,6 +61,38 @@ aside{
 }
 main{
    width: 80vw; 
+   background-image: url('../Img/soudeur.jpg');
+    background-position-y: -65vh;
+   
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#messagerie_client{
+    background-color: white;
+    height: 77vh;
+}
+#icon_message{
+    display: flex;
+    justify-content: space-around;
+}
+#icon_message a{
+    border: 1px solid black;
+    height: 15vh;
+    width: 13vw;
+    text-align: center;
+}
+#button_envoyer_message{
+    border: 1px solid blue;
+    background-color: white;
+    height: 5vh;
+    width: 7vw;
+    border-radius: 18px;
+}
+
+#liste_des_attestation_cote_client{
+    height: 80vh;
+    background-color: white;
+    
 }
 #deconnexion{
     display: flex;
@@ -81,6 +110,7 @@ main{
 #tableau_bord_admin{
     background-color: white;
     display: flex;
+
 }
 
 #intervention_admin{
@@ -130,11 +160,14 @@ border-radius: 48px;
 #historique_admin div article{
     height: 15vh;
 }
+#titre_tableau{
+    width: 15vw;
+}
 /* #############################Dashboard client ######### */
 #tableau_bord_client{
-    
+    background-color: white;
     width: 80vw;
-    height: 80vh;
+    height: 78vh;
     display: flex;
 }
 #intervention_client{
@@ -266,7 +299,7 @@ margin-top: 1vh;
 }
 #profil_technicien{
     
-    height: 80vh;
+    height: 75vh;
 }
 #profil_technicien_image{
     margin-top:5vh ;
@@ -335,9 +368,7 @@ border-radius: 20px;
     outline: 1px solid slategrey;
   }
 
-#table_attestation_client{
-    
-}
+
 
 #donner_profile_cote_client{
     height: 76vh;
@@ -409,8 +440,44 @@ border-radius: 22px;
     width: 15vw;
     color: gray;
 }
-
-
+#ajouter-technicien{
+    height: 70vh;
+}
+i{
+    font-size: 1.1em;
+}
+#text_tech{
+    background-color: rgba(0, 0, 0, 0.082);
+    width: 10vw;
+    text-align: center;
+}
+#technicien_show{
+    background-color: white;
+    height: 76vh;
+}
+#technicien_show img{
+    height: 21vh;
+    width: 11vw;
+    border-radius: 49%;
+    margin-left: 35vw;
+    margin-right: auto;
+}
+#zone_donnee_tech_show{
+    justify-content: space-around;
+    height: 43vh;
+    overflow-y: auto;
+    /* display: flex; */
+}
+#tech_show_1{
+    border: 2px solid black;
+    height: 50vh;
+    width: 35vw;
+}
+#tech_show_2{
+    border: 2px solid black;
+    height: 50vh;
+    width: 35vw;
+}
 /* #######################################Show client ###################################################################"
 ###########################################################################################################" */
 #client_page_show{
@@ -544,4 +611,11 @@ border-radius: 38px;
 }
 #button_afficher_atelier a:hover{
     border: skyblue solid 1px;
+}
+
+#mes_representant{
+    border: 1px solid red ;
+    height: 5vh;
+border-radius: 23px;
+
 }

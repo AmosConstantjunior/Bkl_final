@@ -11,12 +11,12 @@
 			{% include "Templates_parts/_nav.html.twig" %}
 		</nav>
 		<hr>
-		<section id="liste_des_Clients" class=" container-fluid">
 			<a class="btn btn-secondary float-right mt-3 mr-4 mb-4" href="{{ path('clients_new') }}">
 				<i class="fa fa-plus"></i>
 				Ajouter un client</a>
-			<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste des clients
+			<h3 id="" class="mt-4 ml-4 d-flex justify-content-center text-light">Liste des clients
 			</h3>
+		<section id="liste_des_Clients" style="background-color:white" class=" container-fluid">
 
 			<table class="table table-striped">
         <thead>
@@ -38,7 +38,7 @@
                 <td scope="row">{{ client.AdresseLieu }}</td>
                 <td scope="row">{{ client.NumClient }}</td>
                 <td scope="row">
-                    <a href="{{ path('clients_show', {'id': client.id}) }}"><i class="fa fa-eye"></i></a>
+                    <a href="{{ path('clients_show', {'id': client.id}) }}" class='text-danger'><i class="fa fa-eye"></i></a>
                     
                 </td>
             </tr>

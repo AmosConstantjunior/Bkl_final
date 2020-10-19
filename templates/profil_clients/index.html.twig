@@ -13,15 +13,15 @@
 			{# {% include "Templates_parts/_nav.html.twig" %} #}
 		</nav>
 		<hr>
-		<section id="profile_cote_client" class=" container-fluid">
-			<h2 class="mt-4 ml-4 d-flex justify-content-center">
+			<h2 class="mt-4 ml-4 d-flex justify-content-center text-danger">
 				Profile
 			</h2>
-			<article id='donner_profile_cote_client'>
+		<section id="profile_cote_client" style='background-color:white' class=" container-fluid overflow-auto">
+			<article class='mt-2' id='donner_profile_cote_client'>
 			
 
 				<div id="donner_profile_cote_client_1">
-				<i class="fa fa-pencil" aria-hidden="true"></i>
+				<i class="fa fa-pen ml-2 mt-2 text-danger" aria-hidden="true"></i>
 					<header>
 						<img src="{{asset('assets/Img/goku.png')}}" alt="" srcset="">
 					</header>
@@ -32,6 +32,10 @@
 						<p>ADRESSE :  <span>{{app.user.AdresseLieu}}</span></p>
 						<p>VILLE</p>
 					</div>
+					<div id="">
+					<a href="" class="btn" id="mes_representant" >Nos représentant</a>
+					</div>
+
 				</div>
 				<div id="donner_profile_cote_client_2">
 
@@ -79,14 +83,32 @@
 
 						<table class="table table-striped">
 							<thead>
+							
 								<tr>
-									<th></th>
+									<th>Nom </th>
+									<th>Adresse</th>
+									<th>Numéro</th>
+									<th>Certification</th>
+									<th>Contrat</th>
 								</tr>
 							</thead>
 							<tbody>
+							{% for atelier in app.user.ateliers %}
+							
 								<tr>
-									<td></td>
+									<td>{{atelier.NomAtelier}}</td>
+									<td>{{atelier.AdresseLieu}}</td>
+									<td>{{atelier.NumAtelier}}</td>
+									{% if atelier.Certification == 1 %}
+									
+									<td>oui</td>
+									{% endif %}
+									{% if atelier.contrat == 0 %}
+									
+									<td>Sans contrat</td>
+									{% endif %}
 								</tr>
+								{% endfor %}
 							</tbody>
 						</table>
 					</div>

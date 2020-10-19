@@ -13,13 +13,14 @@
 			{% include "Templates_parts/_nav.html.twig" %}
 		</nav>
 		<hr>
-		<section id="liste_des_ateliers" class=" container-fluid">
 
 			<a class="btn btn-secondary" href="{{ path('attestation_cqs_index') }}">
             <i class="fa fa-chevron-left"></i>
 				Retour</a>
-			<h2 class="mt-4 ml-4 d-flex justify-content-center">Creation d'une nouvelle attestation AttestationCqs</h2>
-			<article id="creation_attestation" class="mt-4 container-fluid">
+			<h2 class="mt-4 ml-4 d-flex justify-content-center text-light">Creation d'une nouvelle attestation AttestationCqs</h2>
+		<section id="liste_des_ateliers" style='background-color:white' class=" container-fluid">
+    <br>
+			<article id="creation_attestation" class=" container-fluid">
 
     {{form_start(form)}}
 <div id="accordion">

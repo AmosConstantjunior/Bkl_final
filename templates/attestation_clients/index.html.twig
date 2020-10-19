@@ -9,16 +9,21 @@
 		{% include "Templates_parts/aside.html.twig" %}
 	</aside>
 	<main>
+		{% if app.user.roles[0] == "ROLE_ADMIN" %}
 		<nav id="menu_admin" class="mt-4">
-			{% if app.user.roles[0] == "ROLE_ADMIN" %}
+		
 		
 			{% include "Templates_parts/_nav.html.twig" %}
-		{% endif %}
-		</nav>
+		
+		
+		</nav>{% else %} <nav style='height: 9vh; width: 80vw;'>
+		
+		</nav> {% endif %}
 		<hr>
-		<section id="liste_des_attestation_cote_client" class=" container-fluid">
-			<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste des Attestations
+			<h3 class="mt-4 ml-4 d-flex justify-content-center text-white" style="background-color:#00000018">Liste des Attestations
 			</h3>
+		<section id="liste_des_attestation_cote_client"  class=" container-fluid">
+		<br>
 			<article >
 				<table class="table table-striped ">
 					<thead>
@@ -51,6 +56,10 @@
 					<a href="{{ path('modal_attestation', {'id': attestation.id}) }}" data-toggle="modal" data-target="#essaye" class="btn btn">Afficher les ateliers</a>
                             </td>
 						</tr>
+						{% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
                     {% endfor %}
                      
                     {% endfor %}

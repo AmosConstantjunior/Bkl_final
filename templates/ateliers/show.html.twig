@@ -3,9 +3,16 @@
 {% block title %}Ateliers{% endblock %}
 
 {% block body %}
-    <h1>Ateliers</h1>
+<aside class='ml-2 mr-2 mt-2 mb-1'>
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+    <h3 class="mt-4 ml-4 mb-4 d-flex justify-content-center text-light">Ateliers</h3>
 
-    <table class="table">
+    {# <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -28,11 +35,12 @@
                 <td>{{ atelier.Certification ? 'Yes' : 'No' }}</td>
             </tr>
         </tbody>
-    </table>
+    </table> 
 
     <a href="{{ path('ateliers_index') }}">back to list</a>
 
     <a href="{{ path('ateliers_edit', {'id': atelier.id}) }}">edit</a>
 
-    {{ include('ateliers/_delete_form.html.twig') }}
+    {{ include('ateliers/_delete_form.html.twig') }}#}
+    </main>
 {% endblock %}
