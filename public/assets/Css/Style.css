@@ -11,7 +11,7 @@ Body{
     background-size: cover;
     
     width: 100vw;
-    /* background-color: white; */
+    background-color: white;
     height: 100vh;
     display: flex;
     /* border-radius: 25px; */
@@ -79,6 +79,7 @@ main{
     border-radius: 50%;
 }
 #tableau_bord_admin{
+    background-color: white;
     display: flex;
 }
 
