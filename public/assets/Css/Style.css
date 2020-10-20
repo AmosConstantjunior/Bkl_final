@@ -81,6 +81,10 @@ main{
     width: 13vw;
     text-align: center;
 }
+#liste_des_Clients{
+    background-color:white;
+    height: 75vh;
+}
 #button_envoyer_message{
     border: 1px solid blue;
     background-color: white;
@@ -88,11 +92,25 @@ main{
     width: 7vw;
     border-radius: 18px;
 }
-
-#liste_des_attestation_cote_client{
-    height: 80vh;
+#liste_des_attestations{
     background-color: white;
+    height: 75vh;
+}
+#liste_des_attestation_cote_client{
+    height: 78vh;
+    background-color: white;
+    overflow-y: auto;
     
+}
+#liste_des_Techniciens{
+    background-color:white;
+    height: 74vh;
+    overflow-y: auto;
+}
+#liste_des_visites{
+    background-color: teal;
+    height: 75vh;
+    overflow-y: auto;
 }
 #deconnexion{
     display: flex;
@@ -441,7 +459,8 @@ border-radius: 22px;
     color: gray;
 }
 #ajouter-technicien{
-    height: 70vh;
+    height: 65vh;
+    background-color: white;
 }
 i{
     font-size: 1.1em;

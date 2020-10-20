@@ -13,12 +13,13 @@
 			{% include "Templates_parts/_nav.html.twig" %}
 		</nav>
 		<hr>
-		<section id="ajouter-technicien" class=" container-fluid">
 
 			<a class="btn btn-secondary" href="{{ path('clients_index') }}">
 				<i class="fa fa-chevron-left"></i>
 				Retour</a>
-			<h2 class="mt-4 ml-4 d-flex justify-content-center">Ajouter un client</h2>
+			<h2 class="mt-4 ml-4 d-flex justify-content-center text-light">Ajouter un client</h2>
+		<section id="ajouter-technicien" class=" container-fluid">
+		<br>
 			<article class="mt-4 container-fluid">
 				{{ form_start(form) }}
 				<div class="form-group">
