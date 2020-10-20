@@ -108,8 +108,8 @@ main{
     overflow-y: auto;
 }
 #liste_des_visites{
-    background-color: teal;
-    height: 75vh;
+    background-color: white;
+    height: 73vh;
     overflow-y: auto;
 }
 #deconnexion{
