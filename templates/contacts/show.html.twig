@@ -1,34 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contacts{% endblock %}
+{% block title %}Contacts
+{% endblock %}
 
 {% block body %}
-    <h1>Contacts</h1>
+	<aside class=''>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ contact.id }}</td>
-            </tr>
-            <tr>
-                <th>NomContact</th>
-                <td>{{ contact.NomContact }}</td>
-            </tr>
-            <tr>
-                <th>PrenomContact</th>
-                <td>{{ contact.PrenomContact }}</td>
-            </tr>
-            <tr>
-                <th>TelContact</th>
-                <td>{{ contact.TelContact }}</td>
-            </tr>
-        </tbody>
-    </table>
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
 
-    <a href="{{ path('contacts_index') }}">back to list</a>
+		<a class="btn btn-secondary ml-2" href="{{ path('contacts_index') }}">
+			<i class="fa fa-chevron-left"></i>
+			Retour</a>
+		<h2 class="mt-4 ml-4 d-flex justify-content-center text-light">Ajouter un contact</h2>
+		<section id="ajouter_technicien" style="background-color:white" class=" container-fluid">
+			<h1>Contacts</h1>
 
-    <a href="{{ path('contacts_edit', {'id': contact.id}) }}">edit</a>
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>Id</th>
+						<td>{{ contact.id }}</td>
+					</tr>
+					<tr>
+						<th>NomContact</th>
+						<td>{{ contact.NomContact }}</td>
+					</tr>
+					<tr>
+						<th>PrenomContact</th>
+						<td>{{ contact.PrenomContact }}</td>
+					</tr>
+					<tr>
+						<th>TelContact</th>
+						<td>{{ contact.TelContact }}</td>
+					</tr>
+				</tbody>
+			</table>
 
-    {{ include('contacts/_delete_form.html.twig') }}
+			<a href="{{ path('contacts_index') }}">back to list</a>
+
+			<a href="{{ path('contacts_edit', {'id': contact.id}) }}">edit</a>
+
+			{{ include('contacts/_delete_form.html.twig') }}
+
+
+		</section>
+	</main>
 {% endblock %}

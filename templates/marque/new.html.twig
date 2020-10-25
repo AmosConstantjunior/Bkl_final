@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<aside class='ml-2 mr-2 mt-2 mb-1'>
+	<aside class=''>
 		{% include "Templates_parts/aside.html.twig" %}
 	</aside>
 	<main>
@@ -12,12 +12,12 @@
 			{% include "Templates_parts/_nav.html.twig" %}
 		</nav>
 		<hr>
-		<section id="ajouter_technicien" class=" container-fluid">
 
-			<a class="btn btn-secondary" href="{{ path('marque_index') }}">
+			<a class="btn btn-secondary ml-2" href="{{ path('marque_index') }}">
 				<i class="fa fa-chevron-left"></i>
 				Retour</a>
-			<h2 class="mt-4 ml-4 d-flex justify-content-center">Ajouter une marque</h2>
+			<h2 class="mt-4 ml-4 d-flex justify-content-center text-light">Ajouter une marque</h2>
+		<section id="ajouter_technicien" class=" container-fluid">
 			<article class="mt-4 container-fluid">
 				{{ form_start(form) }}
 				<div class="form-group">

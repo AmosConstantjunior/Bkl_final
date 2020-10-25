@@ -3,6 +3,22 @@
 {% block title %}Edit AttestationCqs{% endblock %}
 
 {% block body %}
+<aside class=''>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+
+			<a class="btn btn-secondary ml-2" href="{{ path('attestation_cqs_index') }}">
+            <i class="fa fa-chevron-left"></i>
+				Retour</a>
+			<h2 class="mt-4 ml-4 d-flex justify-content-center text-light">Creation d'une nouvelle attestation AttestationCqs</h2>
+		<section id="liste_des_ateliers" style='background-color:white' class=" container-fluid">
+    <br>
     <h1>Edit AttestationCqs</h1>
 
     {{ include('attestation_cqs/_form.html.twig', {'button_label': 'Update'}) }}
@@ -10,4 +26,6 @@
     <a href="{{ path('attestation_cqs_index') }}">back to list</a>
 
     {{ include('attestation_cqs/_delete_form.html.twig') }}
+    </section>
+	</main>
 {% endblock %}

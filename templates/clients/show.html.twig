@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-	<aside class='ml-2 mr-2 mt-2 mb-1'>
+	<aside class=''>
 
 		{% include "Templates_parts/aside.html.twig" %}
 	</aside>
@@ -15,7 +15,7 @@
 		</nav>
 		<hr>
 
-			<a class="btn btn-secondary" href="{{ path('clients_index') }}">
+			<a class="btn btn-secondary ml-2" href="{{ path('clients_index') }}">
 				<i class="fa fa-chevron-left"></i>
 				Retour</a>
 			<h2 class="mt-2 d-flex justify-content-center mb-3 text-warning">{{ client.NomClient }}</h2>

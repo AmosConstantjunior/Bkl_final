@@ -1,12 +1,19 @@
+*{
+    
+}
 html{
     background-color: white;
     width: 100vw;
     height: 100vh;
 }
-
+#formulaire_fiche{
+    height: 76vh;
+    background-color: white;
+    overflow-y: auto;
+}
 Body{
     
-    
+    margin: 0;
     width: 100vw;
     background-color: white;
     height: 100vh;
@@ -17,7 +24,9 @@ aside{
      width: 20vw;
      border: 3px #b31613 solid;
      background-color: #b31613;
-     border-radius: 25px;
+     /* border-radius: 25px; */
+     height: 100vh;
+     margin-left: 0;
 
 }
 #menu_admin{
@@ -29,7 +38,7 @@ aside{
 #menu_admin ul{
     display: flex;
     justify-content: flex-start;
-    width: 50vw;
+    width: 60vw;
 }
 #menu_admin ul li{
     margin-right: 20px;
@@ -63,7 +72,7 @@ main{
    width: 80vw; 
    background-image: url('../Img/soudeur.jpg');
     background-position-y: -65vh;
-   
+   margin-left: 0%;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -128,11 +137,12 @@ main{
 #tableau_bord_admin{
     background-color: white;
     display: flex;
+    height: 75vh;
 
 }
 
 #intervention_admin{
-    
+    margin-top: 1vh;
     height: 75vh;
     width: 34vw;
     border-radius: 30px;
@@ -156,7 +166,7 @@ border-radius: 46px;
 }
 #historique_admin {
     margin-left: 5vw;
-    
+    margin-top: 1vh;
     height: 75vh;
     width: 34vw;
     border-radius: 30px;

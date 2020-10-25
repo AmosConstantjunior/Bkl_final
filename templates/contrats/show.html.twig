@@ -3,7 +3,22 @@
 {% block title %}Contrats{% endblock %}
 
 {% block body %}
-    <h1>Contrats</h1>
+<aside class=''>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+
+			<a class="btn btn-secondary ml-2" href="{{ path('contrats_index') }}">
+				<i class="fa fa-chevron-left"></i>
+				Retour</a>
+			<h2 class="mt-4 ml-4 d-flex justify-content-center text-light"> Contrat</h2>
+		<section id="ajouter_technicien" style="background-color:white" class=" container-fluid">
+ 
 
     <table class="table">
         <tbody>
@@ -23,4 +38,6 @@
     <a href="{{ path('contrats_edit', {'id': contrat.id}) }}">edit</a>
 
     {{ include('contrats/_delete_form.html.twig') }}
+    </section>
+	</main>
 {% endblock %}

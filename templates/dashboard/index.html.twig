@@ -5,7 +5,7 @@
 
 {% block body %}
 {% if app.user %}
-	<aside class='ml-2 mr-2 mt-2 mb-1'>
+	<aside class=''>
 
 		{% include "Templates_parts/aside.html.twig" %}
 	</aside>{% endif %}
@@ -24,7 +24,7 @@
 
 		{% if app.user.roles[0] == "ROLE_ADMIN" %}
 		<hr>
-		<h3 id="titre_tableau" style="color:white" class="">Tableau de bord</h3>
+		<h3 id="titre_tableau" style="color:white" class="mb-4">Tableau de bord</h3>
 		 <section id="tableau_bord_admin" class="mt-4">
 											<article id="intervention_admin" class="ml-4">
 												<h4 class="mt-4 ml-4">Interventions</h4>

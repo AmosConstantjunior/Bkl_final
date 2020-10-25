@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<aside class='ml-2 mr-2 mt-2 mb-1'>
+	<aside class=''>
 
 		{% include "Templates_parts/aside.html.twig" %}
 	</aside>
@@ -13,8 +13,9 @@
 			{% include "Templates_parts/_nav.html.twig" %}
 		</nav>
 		<hr>
-		<section id='formulaire_fiche' class="container-fluid ">
-			<h2 class="pt-2 d-flex justify-content-center">Ajouter de fiche de maintenance</h2>
+			<h2 class="pt-2 d-flex justify-content-center text-light">Ajouter de fiche de maintenance</h2>
+		<section id='formulaire_fiche'  class="container-fluid ">
+		<br>
 			<article id="formulaire_fiche_maintenance" class="mt-4 ml-3 mb-4">
 
 				<div class="container-fluid mt-4  ">
@@ -220,10 +221,10 @@
 
 									</div>
 								</div>
-								<div class="custom-control custom-checkbox mb-4">
+								{# <div class="custom-control custom-checkbox mb-4">
 									<input type="checkbox" class="custom-control-input" id="customCheck1">
 									<label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
-								</div>
+								</div> #}
 								<button class="btn btn-success nextBtn pull-right">{{ button_label|default('Valider') }}</button>
 							</div>
 						</div>

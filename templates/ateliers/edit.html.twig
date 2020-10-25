@@ -3,11 +3,30 @@
 {% block title %}Edit Ateliers{% endblock %}
 
 {% block body %}
-    <h1>Edit Ateliers</h1>
+<aside class=''>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+
+			<a class="btn btn-secondary" href="{{ path('ateliers_index') }}">
+            <i class="fa fa-chevron-left"></i>
+				Retour</a>
+			<h2 class="mt-4 ml-4 d-flex justify-content-center text-light">Ajouter une carrosserie</h2>
+		<section id="liste_des_ateliers" style="background-color:white" class=" container-fluid">
+        <br>
+    <h1>Modifier les information de  l'Ateliers</h1>
 
     {{ include('ateliers/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('ateliers_index') }}">back to list</a>
 
     {{ include('ateliers/_delete_form.html.twig') }}
+    </article>
+		</section>
+	</main>
 {% endblock %}
