@@ -11,7 +11,7 @@
 	</aside>{% endif %}
 	<main>
 	{% if app.user.roles[0] == "ROLE_ADMIN" %}
-		<nav id="menu_admin" class="mt-4">
+		<nav id="menu_admin" class="mt-3">
 		
 		
 			{% include "Templates_parts/_nav.html.twig" %}
@@ -24,10 +24,10 @@
 
 		{% if app.user.roles[0] == "ROLE_ADMIN" %}
 		<hr>
-		<h3 id="titre_tableau" style="color:white" class="mb-4">Tableau de bord</h3>
-		 <section id="tableau_bord_admin" class="mt-4">
+		<h3 id="titre_tableau" style="color:white" class="mb-">Tableau de bord</h3>
+		 <section id="tableau_bord_admin" class="">
 											<article id="intervention_admin" class="ml-4">
-												<h4 class="mt-4 ml-4">Interventions</h4>
+												<h4 class="mt-2 ml-4">Interventions</h4>
 												<div class=""></div>
 											</article>
 											<article id="historique_admin" class="">

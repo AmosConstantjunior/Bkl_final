@@ -32,7 +32,7 @@ aside{
 #menu_admin{
     display: flex;
     height: 9vh;
-    width: 80vw;
+    width: 79vw;
     background-color: rgba(0, 0, 0, 0.164);
 }
 #menu_admin ul{
@@ -125,7 +125,7 @@ main{
     display: flex;
     
     margin-left: 9vw;
-    width: 2.5vw;
+    width: 1.5vw;
     
 }
 #logo{
@@ -135,9 +135,9 @@ main{
     border-radius: 50%;
 }
 #tableau_bord_admin{
-    background-color: white;
+    background-color:white;
     display: flex;
-    height: 75vh;
+    height: 78.7vh;
 
 }
 
@@ -201,7 +201,7 @@ border-radius: 48px;
 #intervention_client{
     /* position: absolute; */
 width: 32vw;
-height: 70vh;
+height: 65vh;
 margin-top: 5vh;
 
 background: #FFFFFF;
@@ -260,12 +260,12 @@ margin-top: 1vh;
 
 #zone_recherche{
     
-    height: 65vh;
+    height: 60vh;
     
 }
 #zone_recherche_resultat{
    
-    height: 54vh;
+    height: 45vh;
 }
 
 #icon{
