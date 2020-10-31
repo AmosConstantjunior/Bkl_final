@@ -96,7 +96,7 @@ main{
 }
 #liste_des_Clients{
     background-color:white;
-    height: 75vh;
+    height: 72vh;
 }
 #button_envoyer_message{
     border: 1px solid blue;
@@ -117,12 +117,12 @@ main{
 }
 #liste_des_Techniciens{
     background-color:white;
-    height: 74vh;
+    height: 72vh;
     overflow-y: auto;
 }
 #liste_des_visites{
     background-color: white;
-    height: 73vh;
+    height: 72vh;
     overflow-y: auto;
 }
 #deconnexion{
@@ -139,20 +139,21 @@ main{
     border-radius: 50%;
 }
 #tableau_bord_admin{
-    background-color:white;
+    background-color: white;
     display: flex;
-    height: 78.7vh;
+    height: 35em;
+    overflow-y: auto;
 
 }
 
 #intervention_admin{
     margin-top: 1vh;
-    height: 75vh;
+    height: 72vh;
     width: 34vw;
     border-radius: 30px;
     background: #FFFFFF;
-box-shadow: 8px 9px 4px rgba(0, 0, 0, 0.25);
-border-radius: 46px;
+ box-shadow: 8px 9px 4px rgba(0, 0, 0, 0.25);
+/*border-radius: 46px; */
 }
 #intervention_admin h4, #historique_admin h4, #intervention_client h4{
     padding-top: 3vh;
@@ -161,28 +162,28 @@ border-radius: 46px;
     
     height: 56vh;
     width: 30vw;
-    margin-top: 6vh;
+    margin-top: 2vh;
     margin-left: 2vw;
     background: #FFFFFF;
 border: 5px solid #C6DEEA;
-box-sizing: border-box;
+ box-sizing: border-box;
 border-radius: 46px;
 }
 #historique_admin {
     margin-left: 5vw;
     margin-top: 1vh;
-    height: 75vh;
+    height: 72vh;
     width: 38vw;
     border-radius: 30px;
     background: #FFFFFF;
-box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
-border-radius: 46px;
+ box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
+/*border-radius: 46px; */
 }
 #historique_admin div{
     
     height: 56vh;
     width: 35vw;
-    margin-top: 6vh;
+    margin-top: 2vh;
     margin-left: 2vw;
     background: #FFFFFF;
 border: 3px solid #CF361C;
@@ -193,7 +194,7 @@ border-radius: 48px;
     height: 15vh;
 }
 #titre_tableau{
-    width: 15vw;
+    width: 30vw;
 }
 /* #############################Dashboard client ######### */
 #tableau_bord_client{
@@ -331,7 +332,7 @@ margin-top: 1vh;
 }
 #profil_technicien{
     
-    height: 75vh;
+    height: 72vh;
 }
 #profil_technicien_image{
     margin-top:5vh ;
@@ -387,7 +388,7 @@ border-radius: 20px;
 
  
 #profil_technicien_globale{
-    height: 76vh;
+    height: 72vh;
     display: flex;
     overflow: auto;
 }
@@ -695,7 +696,7 @@ border-radius: 23px;
 }
 
 #liste_des_visite_tab  tbody {
-    height: 64vh;
+    height: 62vh;
     overflow-y: auto;
     width: 100%;
     
@@ -752,7 +753,7 @@ border-radius: 23px;
 
 
 #liste_des_client_tab tbody{
-    height: 65vh;
+    height: 62vh;
     overflow-y: auto;
     width: 100%;
     
@@ -781,7 +782,7 @@ border-radius: 23px;
 
 
 #liste_des_tech_tab tbody{
-    height: 65vh;
+    height: 62vh;
     overflow-y: auto;
     width: 100%;
    
@@ -809,7 +810,7 @@ border-radius: 23px;
 }
 
 #liste_attest_tab tbody{
-    height: 65vh;
+    height: 62vh;
     overflow-y: auto;
     width: 100%;
     
