@@ -96,7 +96,7 @@ main{
 }
 #liste_des_Clients{
     background-color:white;
-    height: 72vh;
+    height: 70vh;
 }
 #button_envoyer_message{
     border: 1px solid blue;
@@ -107,7 +107,7 @@ main{
 }
 #liste_des_attestations{
     background-color: white;
-    height: 75vh;
+    height: 70vh;
 }
 #liste_des_attestation_cote_client{
     height: 78vh;
@@ -117,12 +117,12 @@ main{
 }
 #liste_des_Techniciens{
     background-color:white;
-    height: 72vh;
+    height: 70vh;
     overflow-y: auto;
 }
 #liste_des_visites{
     background-color: white;
-    height: 72vh;
+    height: 70vh;
     overflow-y: auto;
 }
 #deconnexion{
@@ -141,7 +141,7 @@ main{
 #tableau_bord_admin{
     background-color: white;
     display: flex;
-    height: 35em;
+    height: 34em;
     overflow-y: auto;
 
 }
@@ -696,7 +696,7 @@ border-radius: 23px;
 }
 
 #liste_des_visite_tab  tbody {
-    height: 62vh;
+    height: 60vh;
     overflow-y: auto;
     width: 100%;
     
@@ -753,7 +753,7 @@ border-radius: 23px;
 
 
 #liste_des_client_tab tbody{
-    height: 62vh;
+    height: 60vh;
     overflow-y: auto;
     width: 100%;
     
@@ -782,7 +782,7 @@ border-radius: 23px;
 
 
 #liste_des_tech_tab tbody{
-    height: 62vh;
+    height: 60vh;
     overflow-y: auto;
     width: 100%;
    
@@ -810,7 +810,7 @@ border-radius: 23px;
 }
 
 #liste_attest_tab tbody{
-    height: 62vh;
+    height: 60vh;
     overflow-y: auto;
     width: 100%;
     
