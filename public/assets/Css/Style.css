@@ -49,6 +49,7 @@ aside{
 }
 #menu_admin ul li a{
     color: white;
+    font-size: 1em;
    
 }
 #menu_admin div{
@@ -141,14 +142,14 @@ main{
 #tableau_bord_admin{
     background-color: white;
     display: flex;
-    height: 30em;
+    height: 31em;
     overflow-y: auto;
 
 }
 
 #intervention_admin{
     margin-top: 1vh;
-    height: 72vh;
+    height: 65vh;
     width: 34vw;
     border-radius: 30px;
     background: #FFFFFF;
@@ -160,7 +161,7 @@ main{
 }
 #intervention_admin div{
     
-    height: 56vh;
+    height: 55vh;
     width: 30vw;
     margin-top: 2vh;
     margin-left: 2vw;
@@ -172,7 +173,7 @@ border-radius: 46px;
 #historique_admin {
     margin-left: 5vw;
     margin-top: 1vh;
-    height: 72vh;
+    height: 65vh;
     width: 38vw;
     border-radius: 30px;
     background: #FFFFFF;
@@ -181,7 +182,7 @@ border-radius: 46px;
 }
 #historique_admin div{
     
-    height: 56vh;
+    height: 55vh;
     width: 35vw;
     margin-top: 2vh;
     margin-left: 2vw;
