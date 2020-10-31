@@ -22,7 +22,7 @@
 			
 
 				<div id="donner_profile_cote_client_1">
-				<i class="fa fa-pen ml-2 mt-2 text-danger" aria-hidden="true"></i>
+				<a href="{{ path('clients_edit', {'id': app.user.id}) }}"><i class="fa fa-pen ml-2 mt-2 text-danger" aria-hidden="true"></i></a>
 					<header>
 						<img src="{{asset('assets/Img/goku.png')}}" alt="" srcset="">
 					</header>
@@ -34,7 +34,7 @@
 						<p>VILLE</p>
 					</div>
 					<div id="">
-					<a href="" class="btn" id="mes_representant" >Nos représentant</a>
+					<a data-toggle="modal" data-target="#nos_representants" class="btn ml-3" id="mes_representant" >Nos représentant</a>
 					</div>
 
 				</div>
@@ -119,6 +119,36 @@
 			</article>
 		</section>
 	</main>
+
+	<!-- Nos representants -->
+
+
+<div class="modal fade bd-example-modal-lg" id="nos_representants" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" >Nos representants</h5>
+        
+      </div>
+      <div class="modal-body">
+       <table class="table table-striped">
+        <thead>
+            <tr>
+                
+            </tr>
+        </thead>
+        <tbody>
+       <tr></tr>
+            <tr>
+                <td colspan="7">Vide</td>
+            </tr>
+       
+        </tbody>
+    </table>
+    </div>
+    </div>
+  </div>
+</div>
 {% else %}
 	{% endif %}
 {% endblock %}

@@ -202,13 +202,13 @@ border-radius: 48px;
 #tableau_bord_client{
     background-color: white;
     width: 80vw;
-    height: 78vh;
+    height: 76vh;
     display: flex;
 }
 #intervention_client{
     /* position: absolute; */
 width: 32vw;
-height: 65vh;
+height: 62vh;
 margin-top: 5vh;
 
 background: #FFFFFF;
@@ -217,7 +217,7 @@ border-radius: 46px;
 }
 #intervention_client div{
     width: 32vw;
-height: 62vh;
+height: 47vh;
 
 margin-top: 4vh;
 border: 5px solid #C6DEEA;
@@ -228,7 +228,7 @@ border-radius: 46px;
 #historique_client {
     /* position: absolute; */
 width: 32vw;
-height: 53vh;
+height: 50vh;
 margin-left: 3vw;
 
 background: #FFFFFF;
@@ -237,7 +237,7 @@ border-radius: 46px;
 }
 #historique_client div{
     width: 32vw;
-    height: 49vh;
+    height: 45vh;
    
     border: 5px solid #CF361C;
 background: #FFFFFF;
@@ -415,7 +415,7 @@ border-radius: 20px;
 #donner_profile_cote_client_1{
 
 width: 378px;
-height: 486px;
+height: 76vh;
 left: 301px;
 top: 205px;
 
@@ -435,7 +435,7 @@ border-radius: 16px;
 #donner_profile_cote_client_2{
 
 width: 770px;
-height: 600px;
+height: 75vh;
 left: 698px;
 top: 205px;
 
@@ -491,7 +491,7 @@ i{
 }
 #technicien_show{
     background-color: white;
-    height: 76vh;
+    height: 70vh;
 }
 #technicien_show img{
     height: 21vh;
@@ -502,7 +502,7 @@ i{
 }
 #zone_donnee_tech_show{
     justify-content: space-around;
-    height: 40vh;
+    height: 37vh;
     overflow-y: auto;
     /* display: flex; */
 }
@@ -522,7 +522,7 @@ i{
 display: flex;
 }
 #client_show{
-    height: 69vh;
+    height: 67vh;
 }
 #donner_client_page_show{
     width: 415px;
