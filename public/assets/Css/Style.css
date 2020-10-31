@@ -35,13 +35,13 @@ aside{
 #menu_admin{
     display: flex;
     height: 9vh;
-    width: 79vw;
+    width: 80vw;
     background-color: rgba(0, 0, 0, 0.164);
 }
 #menu_admin ul{
     display: flex;
     justify-content: flex-start;
-    width: 60vw;
+    width: 70vw;
 }
 #menu_admin ul li{
     margin-right: 20px;
@@ -50,11 +50,12 @@ aside{
 #menu_admin ul li a{
     color: white;
     font-size: 1em;
+    width: 2vw;
    
 }
 #menu_admin div{
     height: 2vh;
-    width: 30vw;
+    width: 25vw;
     display: flex;
     justify-content:flex-end;
 }
