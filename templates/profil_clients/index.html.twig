@@ -4,52 +4,148 @@
 {% endblock %}
 
 {% block body %}
-{% if utilisateur != null %}
-	<aside class=''>
+	{% if utilisateur != null %}
+		<aside class=''>
 
-		{% include "Templates_parts/aside2.html.twig" %}
-	</aside>
-	<main>
-		<nav style='height: 9vh; width: 80vw;'>
-		
-		</nav>
-		<hr>
+			{% include "Templates_parts/aside2.html.twig" %}
+		</aside>
+		<main>
+			<nav style='height: 9vh; width: 80vw;'></nav>
+			<hr>
 			<h2 class="mt-4 ml-4 d-flex justify-content-center text-danger">
 				Profile
 			</h2>
-		<section id="profile_cote_client" style='background-color:white' class=" container-fluid overflow-auto">
-			<article class='mt-2' id='donner_profile_cote_client'>
-			
+			<section id="profile_cote_client" style='background-color:white' class=" container-fluid overflow-auto">
+				<article class='mt-2' id='donner_profile_cote_client'>
 
-				<div id="donner_profile_cote_client_1">
-				<a href="{{ path('clients_edit', {'id': app.user.id}) }}"><i class="fa fa-pen ml-2 mt-2 text-danger" aria-hidden="true"></i></a>
-					<header>
-						<img src="{{asset('assets/Img/goku.png')}}" alt="" srcset="">
-					</header>
-					<div id="" class="mt-4 ml-3">
-						<p>Entreprise :   <span>{{app.user.NomClient}}</span></p>
-						<p>TEL : <span> {{app.user.NumClient}}</span>  </p>
-						<p>EMAIL :  <span>{{app.user.email}}</span></p>
-						<p>ADRESSE :  <span>{{app.user.AdresseLieu}}</span></p>
-						<p>VILLE</p>
+
+					<div id="donner_profile_cote_client_1">
+						<a href="{{ path('clients_edit', {'id': app.user.id}) }}">
+							<i class="fa fa-pen ml-2 mt-2 text-danger" aria-hidden="true"></i>
+						</a>
+						<header>
+							<img src="{{asset('assets/Img/goku.png')}}" alt="" srcset="">
+						</header>
+						<div id="" class="mt-4 ml-3">
+							<p>Entreprise :
+								<span>{{app.user.NomClient}}</span>
+							</p>
+							<p>TEL :
+								<span>
+									{{app.user.NumClient}}</span>
+							</p>
+							<p>EMAIL :
+								<span>{{app.user.email}}</span>
+							</p>
+							<p>ADRESSE :
+								<span>{{app.user.AdresseLieu}}</span>
+							</p>
+							<p>VILLE</p>
+						</div>
+						<div id="">
+							<a data-toggle="modal" data-target="#nos_representants" class="btn ml-3" id="mes_representant">Nos représentant</a>
+						</div>
+
 					</div>
-					<div id="">
-					<a data-toggle="modal" data-target="#nos_representants" class="btn ml-3" id="mes_representant" >Nos représentant</a>
+					<div id="donner_profile_cote_client_2">
+
+
+						<div id="listes_contact_profil_clients">
+							<h3 class="pt-2 ml-4">Nos représentants
+							</h3>
+
+
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Nom
+										</th>
+										<th>Prenom</th>
+										<th>Tel</th>
+										<th>Atelier</th>
+										<th>Poste</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for contact in app.user.contacts|slice(0, 3) %}
+
+										<tr>
+											<td>
+												{{contact.NomContact}}</td>
+											<td>{{contact.PrenomContact}}</td>
+											<td>{{contact.TelContact}}</td>
+											<td>{{contact.atelier}}</td>
+											<td>{{contact.poste}}</td>
+										</tr>
+
+									{% endfor %}
+								</tbody>
+								<tfoot>
+
+									{% for contact in app.user.contacts %}
+										{% if contact|length > 0 %}{% endif %}
+									{% endfor %}
+								</tfoot>
+							</table>
+						</div>
+						<div id="listes_ateliers_profil_clients" class="mt-3">
+							<h3 class="pt-2 pl-4">Nos ateliers</h3>
+
+							<table class="table table-striped">
+								<thead>
+
+									<tr>
+										<th>Nom
+										</th>
+										<th>Adresse</th>
+										<th>Numéro</th>
+										<th>Certification</th>
+										<th>Contrat</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for atelier in app.user.ateliers %}
+
+										<tr>
+											<td>{{atelier.NomAtelier}}</td>
+											<td>{{atelier.AdresseLieu}}</td>
+											<td>{{atelier.NumAtelier}}</td>
+											{% if atelier.Certification == 1 %}
+
+												<td>oui</td>
+											{% endif %}
+											{% if atelier.contrat == 0 %}
+
+												<td>Sans contrat</td>
+											{% endif %}
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+
 					</div>
 
-				</div>
-				<div id="donner_profile_cote_client_2">
+				</article>
+			</section>
+		</main>
+
+		<!-- Nos representants -->
 
 
-					<div id="listes_contact_profil_clients">
-						<h3 class="pt-2 ml-4">Nos représentants
-						</h3>
-						
-						
+		<div class="modal fade bd-example-modal-lg" id="nos_representants" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Nos representants</h5>
+
+					</div>
+					<div class="modal-body">
 						<table class="table table-striped">
 							<thead>
 								<tr>
-									<th>Nom </th>
+									<th>Nom
+									</th>
 									<th>Prenom</th>
 									<th>Tel</th>
 									<th>Atelier</th>
@@ -57,98 +153,24 @@
 								</tr>
 							</thead>
 							<tbody>
-							{% for contact in app.user.contacts|slice(0, 3) %}
-							
-								<tr>
-									<td> {{contact.NomContact}}</td>
-									<td>{{contact.PrenomContact}}</td>
-									<td>{{contact.TelContact}}</td>
-									<td>{{contact.atelier}}</td>
-									<td>{{contact.poste}}</td>
-								</tr>
-								
-						{% endfor %}
-							</tbody>
-							<tfoot>
-							
-							{% for contact in app.user.contacts %}
-								{% if contact|length > 0 %}
-								
-								{% endif %}
-							{% endfor %}
-							</tfoot>
-						</table>
-					</div>
-					<div id="listes_ateliers_profil_clients" class="mt-3">
-						<h3 class="pt-2 pl-4">Nos ateliers</h3>
+								{% for contact in app.user.contacts|slice(0, 3) %}
 
-						<table class="table table-striped">
-							<thead>
-							
-								<tr>
-									<th>Nom </th>
-									<th>Adresse</th>
-									<th>Numéro</th>
-									<th>Certification</th>
-									<th>Contrat</th>
-								</tr>
-							</thead>
-							<tbody>
-							{% for atelier in app.user.ateliers %}
-							
-								<tr>
-									<td>{{atelier.NomAtelier}}</td>
-									<td>{{atelier.AdresseLieu}}</td>
-									<td>{{atelier.NumAtelier}}</td>
-									{% if atelier.Certification == 1 %}
-									
-									<td>oui</td>
-									{% endif %}
-									{% if atelier.contrat == 0 %}
-									
-									<td>Sans contrat</td>
-									{% endif %}
-								</tr>
+									<tr>
+										<td>
+											{{contact.NomContact}}</td>
+										<td>{{contact.PrenomContact}}</td>
+										<td>{{contact.TelContact}}</td>
+										<td>{{contact.atelier}}</td>
+										<td>{{contact.poste}}</td>
+									</tr>
+
 								{% endfor %}
 							</tbody>
 						</table>
 					</div>
-
 				</div>
-
-			</article>
-		</section>
-	</main>
-
-	<!-- Nos representants -->
-
-
-<div class="modal fade bd-example-modal-lg" id="nos_representants" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title" >Nos representants</h5>
-        
-      </div>
-      <div class="modal-body">
-       <table class="table table-striped">
-        <thead>
-            <tr>
-                
-            </tr>
-        </thead>
-        <tbody>
-       <tr></tr>
-            <tr>
-                <td colspan="7">Vide</td>
-            </tr>
-       
-        </tbody>
-    </table>
-    </div>
-    </div>
-  </div>
-</div>
-{% else %}
+			</div>
+		</div>
+		{% else %}
 	{% endif %}
 {% endblock %}
