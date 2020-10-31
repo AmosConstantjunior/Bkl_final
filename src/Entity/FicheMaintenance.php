@@ -106,6 +106,11 @@ class FicheMaintenance
      */
     private $machine;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Contacts::class, inversedBy="ficheMaintenances")
+     */
+    private $Contact;
+
     public function __construct()
     {
         $this->machines = new ArrayCollection();
@@ -332,6 +337,18 @@ class FicheMaintenance
         if ($this->machine->contains($machine)) {
             $this->machine->removeElement($machine);
         }
+
+        return $this;
+    }
+
+    public function getContact(): ?Contacts
+    {
+        return $this->Contact;
+    }
+
+    public function setContact(?Contacts $Contact): self
+    {
+        $this->Contact = $Contact;
 
         return $this;
     }

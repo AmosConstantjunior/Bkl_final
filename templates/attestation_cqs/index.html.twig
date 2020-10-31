@@ -3,6 +3,7 @@
 {% block title %}AttestationCqs index{% endblock %}
 
 {% block body %}
+{% if utilisateur != null %}
     <aside class=''>
 
 		{% include "Templates_parts/aside.html.twig" %}
@@ -16,29 +17,31 @@
 		<h3 class="mt-4 ml-4 d-flex justify-content-center text-light">Liste des Attestations </h3>
         <section id="liste_des_attestations" style="background-color:white"  class=" container-fluid">
 <br>
-    <table class="table table-striped">
+    <table id="liste_attest_tab" class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">En date du</th>
-                <th scope="col">Note Moyenne </th>
-                <th scope="col">Client</th>
-                <th scope="col">Ateliers</th>
-                <th scope="col">Action</th>
+<th scope="row" class="col-1">Id</th>
+                                <th scope="col" class="col-2">En date du</th>
+                                <th scope="col" class="col-2">Note Moyenne</th>
+                                <th scope="col" class="col-3">Client</th>
+								<th scope="col" class="col-2">Ateliers</th>
+								<th scope="col" class="col-2">Action</th>
+
+
                 
             </tr>
         </thead>
         <tbody>
         {% for attestation_cq in attestation_cqs %}
             <tr>
-                <td scope="row">{{ attestation_cq.id }}</td>
-                <td scope="row">{{ attestation_cq.Date ? attestation_cq.Date|date('Y-m-d') : '' }}</td>
-                <td scope="row">{{( attestation_cq.NoteEquip + attestation_cq.NoteMaint + attestation_cq.NoteForm + attestation_cq.NoteProcess) / 4 }} %</td>
+                <td class="col-1">{{ attestation_cq.id }}</td>
+                <td class="col-2">{{ attestation_cq.Date ? attestation_cq.Date|date('Y-m-d') : '' }}</td>
+                <td class="col-2">{{( attestation_cq.NoteEquip + attestation_cq.NoteMaint + attestation_cq.NoteForm + attestation_cq.NoteProcess) / 4 }} %</td>
                
-                <td scope="row">{{ attestation_cq.Atelier.client.NomClient }}</td>
-                <td scope="row">{{ attestation_cq.Atelier }}</td>
+                <td class="col-3">{{ attestation_cq.Atelier.client.NomClient }}</td>
+                <td class="col-2">{{ attestation_cq.Atelier }}</td>
                 
-                <td scope="row">
+                <td class="col-2">
                     <a href="{{ path('attestation_cqs_show', {'id': attestation_cq.id}) }}"><i class="fa fa-eye"></i></a>
                 </td>
             </tr>
@@ -52,4 +55,7 @@
      </section>
    
     </main>
+    {% else %}
+    bonjour
+    {% endif %}
 {% endblock %}

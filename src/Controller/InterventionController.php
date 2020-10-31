@@ -6,18 +6,18 @@ use App\Repository\FicheMaintenanceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DashboardController extends AbstractController
+class InterventionController extends AbstractController
 {
     /**
-     * @Route("/dashboard", name="dashboard")
+     * @Route("/intervention", name="intervention")
      */
     public function index(FicheMaintenanceRepository $ficheMaintenanceRepository)
     {
         $user = $this->getUser();
-        return $this->render('dashboard/index.html.twig', [
-            'controller_name' => 'DashboardController',
+        return $this->render('intervention/index.html.twig', [
+            'controller_name' => 'InterventionController',
             'fiche_maintenances' => $ficheMaintenanceRepository->findAll(),
-            'utilisateur' => $user
+            'utilisateur' => $user,
         ]);
     }
 }

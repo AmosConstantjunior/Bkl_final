@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ContactsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class Contacts
      * @ORM\ManyToOne(targetEntity=Poste::class, inversedBy="contacts")
      */
     private $poste;
+
+    /**
+     * @ORM\OneToMany(targetEntity=FicheMaintenance::class, mappedBy="Contact")
+     */
+    private $ficheMaintenances;
+
+    public function __construct()
+    {
+        $this->ficheMaintenances = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -122,5 +134,41 @@ class Contacts
         $this->poste = $poste;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|FicheMaintenance[]
+     */
+    public function getFicheMaintenances(): Collection
+    {
+        return $this->ficheMaintenances;
+    }
+
+    public function addFicheMaintenance(FicheMaintenance $ficheMaintenance): self
+    {
+        if (!$this->ficheMaintenances->contains($ficheMaintenance)) {
+            $this->ficheMaintenances[] = $ficheMaintenance;
+            $ficheMaintenance->setContact($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFicheMaintenance(FicheMaintenance $ficheMaintenance): self
+    {
+        if ($this->ficheMaintenances->contains($ficheMaintenance)) {
+            $this->ficheMaintenances->removeElement($ficheMaintenance);
+            // set the owning side to null (unless already changed)
+            if ($ficheMaintenance->getContact() === $this) {
+                $ficheMaintenance->setContact(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString(): string
+    {
+        return $this->PrenomContact;
+        
     }
 }

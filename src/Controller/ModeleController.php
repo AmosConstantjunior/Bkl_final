@@ -20,8 +20,10 @@ class ModeleController extends AbstractController
      */
     public function index(ModeleRepository $modeleRepository): Response
     {
+        $user = $this->getUser();
         return $this->render('modele/index.html.twig', [
             'modeles' => $modeleRepository->findAll(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -30,6 +32,7 @@ class ModeleController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $user = $this->getUser();
         $modele = new Modele();
         $form = $this->createForm(ModeleType::class, $modele);
         $form->handleRequest($request);
@@ -45,6 +48,7 @@ class ModeleController extends AbstractController
         return $this->render('modele/new.html.twig', [
             'modele' => $modele,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -53,8 +57,10 @@ class ModeleController extends AbstractController
      */
     public function show(Modele $modele): Response
     {
+        $user = $this->getUser();
         return $this->render('modele/show.html.twig', [
             'modele' => $modele,
+            'utilisateur' => $user
         ]);
     }
 
@@ -63,6 +69,7 @@ class ModeleController extends AbstractController
      */
     public function edit(Request $request, Modele $modele): Response
     {
+        $user = $this->getUser();
         $form = $this->createForm(ModeleType::class, $modele);
         $form->handleRequest($request);
 
@@ -75,6 +82,7 @@ class ModeleController extends AbstractController
         return $this->render('modele/edit.html.twig', [
             'modele' => $modele,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 

@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+{% if utilisateur != null %}
 	<aside class=''>
 
 		{% include "Templates_parts/aside.html.twig" %}
@@ -32,9 +33,13 @@
 
 						<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 							<div class="card-body">
-								<a href="">Marque de machine</a>
+								
 								<br>
-                                <a href="">Modeles des machines</a>
+                                
+						<a class="btn" href="{{path('marque_index')}}">Marque de machine</a>
+						<br>
+						<a class="btn" href="{{path('modele_index')}}">Modeles des machines</a>	
+						
                                 
 							</div>
 						</div>
@@ -49,7 +54,7 @@
 						</div>
 						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 							<div class="card-body">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+						<a href="{{path('contrats_index')}}" class="btn "> Liste des contrats </a>
 							</div>
 						</div>
 					</div>
@@ -63,7 +68,7 @@
 						</div>
 						<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 							<div class="card-body">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								<a href="{{path('poste_index')}}" class="btn">Les Postes</a>
 							</div>
 						</div>
 					</div>
@@ -71,4 +76,6 @@
 			</article>
 		</section>
 	</main>
+{% else %}
+	{% endif %}
 {% endblock %}

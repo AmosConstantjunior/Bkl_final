@@ -20,8 +20,10 @@ class AteliersController extends AbstractController
      */
     public function index(AteliersRepository $ateliersRepository): Response
     {
+        $user = $this->getUser();
         return $this->render('ateliers/index.html.twig', [
             'ateliers' => $ateliersRepository->findAll(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -30,6 +32,7 @@ class AteliersController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $user = $this->getUser();
         $atelier = new Ateliers();
         $form = $this->createForm(AteliersType::class, $atelier);
         $form->handleRequest($request);
@@ -45,6 +48,7 @@ class AteliersController extends AbstractController
         return $this->render('ateliers/new.html.twig', [
             'atelier' => $atelier,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -53,8 +57,10 @@ class AteliersController extends AbstractController
      */
     public function show(Ateliers $atelier): Response
     {
+        $user = $this->getUser();
         return $this->render('ateliers/show.html.twig', [
             'atelier' => $atelier,
+            'utilisateur' => $user
         ]);
     }
 
@@ -63,6 +69,7 @@ class AteliersController extends AbstractController
      */
     public function edit(Request $request, Ateliers $atelier): Response
     {
+        $user = $this->getUser();
         $form = $this->createForm(AteliersType::class, $atelier);
         $form->handleRequest($request);
 
@@ -75,6 +82,7 @@ class AteliersController extends AbstractController
         return $this->render('ateliers/edit.html.twig', [
             'atelier' => $atelier,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 

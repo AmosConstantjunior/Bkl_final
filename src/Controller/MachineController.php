@@ -20,8 +20,10 @@ class MachineController extends AbstractController
      */
     public function index(MachineRepository $machineRepository): Response
     {
+        $user = $this->getUser();
         return $this->render('machine/index.html.twig', [
             'machines' => $machineRepository->findAll(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -30,6 +32,7 @@ class MachineController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $user = $this->getUser();
         $machine = new Machine();
         $form = $this->createForm(MachineType::class, $machine);
         $form->handleRequest($request);
@@ -45,6 +48,7 @@ class MachineController extends AbstractController
         return $this->render('machine/new.html.twig', [
             'machine' => $machine,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -53,8 +57,10 @@ class MachineController extends AbstractController
      */
     public function show(Machine $machine): Response
     {
+        $user = $this->getUser();
         return $this->render('machine/show.html.twig', [
             'machine' => $machine,
+            'utilisateur' => $user
         ]);
     }
 
@@ -63,6 +69,7 @@ class MachineController extends AbstractController
      */
     public function edit(Request $request, Machine $machine): Response
     {
+        $user = $this->getUser();
         $form = $this->createForm(MachineType::class, $machine);
         $form->handleRequest($request);
 
@@ -75,6 +82,7 @@ class MachineController extends AbstractController
         return $this->render('machine/edit.html.twig', [
             'machine' => $machine,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 

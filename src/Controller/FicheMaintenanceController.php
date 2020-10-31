@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Ateliers;
+use App\Entity\Clients;
 use App\Entity\FicheMaintenance;
 use App\Form\FicheMaintenanceType;
 use App\Repository\FicheMaintenanceRepository;
@@ -20,8 +22,10 @@ class FicheMaintenanceController extends AbstractController
      */
     public function index(FicheMaintenanceRepository $ficheMaintenanceRepository): Response
     {
+        $user = $this->getUser();
         return $this->render('fiche_maintenance/index.html.twig', [
             'fiche_maintenances' => $ficheMaintenanceRepository->findAll(),
+            'utilisateur' => $user,
         ]);
     }
 
@@ -30,11 +34,18 @@ class FicheMaintenanceController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $user = $this->getUser();
         $ficheMaintenance = new FicheMaintenance();
         $form = $this->createForm(FicheMaintenanceType::class, $ficheMaintenance);
         $form->handleRequest($request);
+        // $dateDepart = $ficheMaintenance->getDateIntervention();
+        // $duree=6;
+        // $dateDepartTimestamp = strtotime($dateDepart);
+        // $dateFin=date("d-m-Y", strtotime("+".$duree,$dateDepartTimestamp));
+       
 
         if ($form->isSubmitted() && $form->isValid()) {
+        //    $ficheMaintenance->setDateProchaine($dateFin);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($ficheMaintenance);
             $entityManager->flush();
@@ -45,6 +56,7 @@ class FicheMaintenanceController extends AbstractController
         return $this->render('fiche_maintenance/new.html.twig', [
             'fiche_maintenance' => $ficheMaintenance,
             'form' => $form->createView(),
+            'utilisateur' => $user,
         ]);
     }
 
@@ -53,11 +65,15 @@ class FicheMaintenanceController extends AbstractController
      */
     public function show(FicheMaintenance $ficheMaintenance): Response
     {
+        $user = $this->getUser();
         return $this->render('fiche_maintenance/show.html.twig', [
             'fiche_maintenance' => $ficheMaintenance,
+            'utilisateur' => $user,
         ]);
     }
 
+
+    
     /**
      * @Route("/{id}/edit", name="fiche_maintenance_edit", methods={"GET","POST"})
      */
@@ -65,6 +81,7 @@ class FicheMaintenanceController extends AbstractController
     {
         $form = $this->createForm(FicheMaintenanceType::class, $ficheMaintenance);
         $form->handleRequest($request);
+        $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -75,6 +92,7 @@ class FicheMaintenanceController extends AbstractController
         return $this->render('fiche_maintenance/edit.html.twig', [
             'fiche_maintenance' => $ficheMaintenance,
             'form' => $form->createView(),
+            'utilisateur' => $user,
         ]);
     }
 

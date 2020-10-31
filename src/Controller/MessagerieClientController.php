@@ -12,8 +12,10 @@ class MessagerieClientController extends AbstractController
      */
     public function index()
     {
+        $user = $this->getUser();
         return $this->render('messagerie_client/index.html.twig', [
             'controller_name' => 'MessagerieClientController',
+            'utilisateur' => $user
         ]);
     }
 }

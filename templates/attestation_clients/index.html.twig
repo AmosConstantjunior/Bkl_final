@@ -4,21 +4,17 @@
 {% endblock %}
 
 {% block body %}
+
+{% if utilisateur != null %}
 	<aside class=''>
 
-		{% include "Templates_parts/aside.html.twig" %}
+		{% include "Templates_parts/aside2.html.twig" %}
 	</aside>
 	<main>
-		{% if app.user.roles[0] == "ROLE_ADMIN" %}
-		<nav id="menu_admin" class="mt-2">
 		
+		<nav style='height: 9vh; width: 80vw;'>
 		
-			{% include "Templates_parts/_nav.html.twig" %}
-		
-		
-		</nav>{% else %} <nav style='height: 9vh; width: 80vw;'>
-		
-		</nav> {% endif %}
+		</nav>
 		<hr>
 			<h3 class="mt-4 ml-4 d-flex justify-content-center text-white" style="background-color:#00000018">Liste des Attestations
 			</h3>
@@ -71,4 +67,7 @@
 			</article>
 		</section>
 	</main>
+{% else %}
+
+	{% endif %}
 {% endblock %}

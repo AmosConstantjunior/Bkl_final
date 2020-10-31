@@ -9,7 +9,10 @@ html{
 #formulaire_fiche{
     height: 76vh;
     background-color: white;
+    
     overflow-y: auto;
+    
+   
 }
 Body{
     
@@ -25,7 +28,7 @@ aside{
      border: 3px #b31613 solid;
      background-color: #b31613;
      /* border-radius: 25px; */
-     height: 100vh;
+     /* height: 100vh; */
      margin-left: 0;
 
 }
@@ -68,6 +71,7 @@ aside{
 #menu_clients ul li{
     list-style-type: none;
 }
+
 main{
    width: 80vw; 
    background-image: url('../Img/soudeur.jpg');
@@ -168,7 +172,7 @@ border-radius: 46px;
     margin-left: 5vw;
     margin-top: 1vh;
     height: 75vh;
-    width: 34vw;
+    width: 38vw;
     border-radius: 30px;
     background: #FFFFFF;
 box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
@@ -177,7 +181,7 @@ border-radius: 46px;
 #historique_admin div{
     
     height: 56vh;
-    width: 30vw;
+    width: 35vw;
     margin-top: 6vh;
     margin-left: 2vw;
     background: #FFFFFF;
@@ -363,7 +367,7 @@ box-shadow: 9px 8px 4px rgba(0, 0, 0, 0.25);
 border-radius: 19px;
 }
 #profil_technicien_histoirique{
-width: 44.4vw;
+width: 45.4vw;
 height: 45.5vh;
 left: 710px;
 top: 472px;
@@ -376,10 +380,12 @@ border-radius: 20px;
 }
 #profil_technicien_histoirique table tbody{
     
-    background-color: rgb(238, 255, 0);
+    /* background-color: rgb(238, 255, 0);
     width: 2vw;
-    overflow: auto; 
+    overflow: auto;  */
 }
+
+ 
 #profil_technicien_globale{
     height: 76vh;
     display: flex;
@@ -647,4 +653,211 @@ border-radius: 38px;
     height: 5vh;
 border-radius: 23px;
 
+}
+
+#table_historique_tech tbody::-webkit-scrollbar {
+    width: 0.5em;
+}
+#table_historique_tech tbody::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+#table_historique_tech tbody::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+  }
+  #table_historique_tech tbody {
+    height: 29vh;
+    overflow-y: auto;
+    width: 100%;
+    
+    
+}
+
+#table_historique_tech thead,
+#table_historique_tech tbody,
+#table_historique_tech tr,
+#table_historique_tech td,
+#table_historique_tech th {
+    display: block;
+}
+
+#table_historique_tech tbody td,
+#table_historique_tech tbody th,
+#table_historique_tech thead > tr > th {
+    float: left;
+    position: relative;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+#liste_des_visite_tab  tbody {
+    height: 64vh;
+    overflow-y: auto;
+    width: 100%;
+    
+    
+    
+}
+#liste_des_visite_tab thead,
+#liste_des_visite_tab tbody,
+#liste_des_visite_tab tr,
+#liste_des_visite_tab td,
+#liste_des_visite_tab th {
+    display: block;
+}
+
+#liste_des_visite_tab tbody td,
+#liste_des_visite_tab tbody th,
+#liste_des_visite_tab thead > tr > th {
+    float: left;
+    position: relative;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+#table_historyque_admin tbody {
+    height: 42vh;
+    overflow-y: auto;
+    width: 100%;
+    
+}
+#table_historyque_admin thead,
+#table_historyque_admin tbody,
+#table_historyque_admin tr,
+#table_historyque_admin td,
+#table_historyque_admin th {
+    display: block;
+}
+
+#table_historyque_admin tbody td,
+#table_historyque_admin tbody th,
+#table_historyque_admin thead > tr > th {
+    float: left;
+    position: relative;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+
+#liste_des_client_tab tbody{
+    height: 65vh;
+    overflow-y: auto;
+    width: 100%;
+    
+}
+
+#liste_des_client_tab thead,
+#liste_des_client_tab tbody,
+#liste_des_client_tab tr,
+#liste_des_client_tab td,
+#liste_des_client_tab th {
+    display: block;
+}
+
+#liste_des_client_tab tbody td,
+#liste_des_client_tab tbody th,
+#liste_des_client_tab thead > tr > th {
+    float: left;
+    position: relative;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+
+#liste_des_tech_tab tbody{
+    height: 65vh;
+    overflow-y: auto;
+    width: 100%;
+   
+}
+
+#liste_des_tech_tab thead,
+#liste_des_tech_tab tbody,
+#liste_des_tech_tab tr,
+#liste_des_tech_tab td,
+#liste_des_tech_tab th {
+    display: block;
+}
+
+#liste_des_tech_tab tbody td,
+#liste_des_tech_tab tbody th,
+#liste_des_tech_tab thead > tr > th {
+    float: left;
+    position: relative;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+#liste_attest_tab tbody{
+    height: 65vh;
+    overflow-y: auto;
+    width: 100%;
+    
+}
+
+#liste_attest_tab thead,
+#liste_attest_tab tbody,
+#liste_attest_tab tr,
+#liste_attest_tab td,
+#liste_attest_tab th {
+    display: block;
+}
+
+#liste_attest_tab tbody td,
+#liste_attest_tab tbody th,
+#liste_attest_tab thead > tr > th {
+    float: left;
+    position: relative;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+#table_inter_admin tbody{
+    height: 40vh;
+    overflow-y: auto;
+    width: 100%;
+}
+#table_inter_admin thead,
+#table_inter_admin tbody,
+#table_inter_admin tr,
+#table_inter_admin td,
+#table_inter_admin th {
+    display: block;
+}
+
+#table_inter_admin tbody td,
+#table_inter_admin tbody th,
+#table_inter_admin thead > tr > th {
+    float: left;
+    position: relative;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
 }

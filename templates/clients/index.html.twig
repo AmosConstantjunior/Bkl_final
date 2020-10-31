@@ -3,6 +3,7 @@
 {% block title %}Clients index{% endblock %}
 
 {% block body %}
+{% if utilisateur != null %}
    <aside class=''>
 		{% include "Templates_parts/aside.html.twig" %}
 	</aside>
@@ -18,26 +19,27 @@
 			</h3>
 		<section id="liste_des_Clients"  class=" container-fluid">
 
-			<table class="table table-striped">
+			<table id="liste_des_client_tab" class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nom Client</th>
-                <th scope="col">Email</th>
-                <th scope="col">Adresse</th>
-                <th scope="col">Téléphone</th>
-                <th scope="col">actions</th>
+            <th scope="row" class="col-1">Id</th>
+                                <th scope="col" class="col-2">Nom Client</th>
+                                <th scope="col" class="col-2">Email</th>
+                                <th scope="col" class="col-3">Adresse</th>
+								<th scope="col" class="col-2">Téléphone</th>
+								<th scope="col" class="col-2">Action</th>
+                
             </tr>
         </thead>
         <tbody>
         {% for client in clients %}
             <tr>
-                <td scope="row">{{ client.id }}</td>
-                <td scope="row">{{ client.NomClient }}</td>
-                <td scope="row">{{ client.email }}</td>
-                <td scope="row">{{ client.AdresseLieu }}</td>
-                <td scope="row">{{ client.NumClient }}</td>
-                <td scope="row">
+                <td class="col-1">{{ client.id }}</td>
+                <td class="col-2">{{ client.NomClient }}</td>
+                <td class="col-2">{{ client.email }}</td>
+                <td class="col-3">{{ client.AdresseLieu }}</td>
+                <td class="col-2">{{ client.NumClient }}</td>
+                <td class="col-2">
                     <a href="{{ path('clients_show', {'id': client.id}) }}" class='text-danger'><i class="fa fa-eye"></i></a>
                     
                 </td>
@@ -52,4 +54,6 @@
 
    </section>
 	</main>
+{% else %}
+    {% endif %}
 {% endblock %}

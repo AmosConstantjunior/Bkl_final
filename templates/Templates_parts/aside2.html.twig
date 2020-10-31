@@ -1,19 +1,6 @@
 <img id="logo" class="ml-4" src="{{asset('assets/Img/logoBkl.png')}}" alt="" srcset="">
  <hr>
-{# {% if app.user.roles[0] == "ROLE_ADMIN" %} #}
-<section id="zone_recherche">
-<form class="form-inline  mt-4 ml-4">
-  <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-    aria-label="Search">
-   <button class="btn" type="submit"><i class="fas fa-search text-light" aria-hidden="true"></i></button>
-</form>
-<div id="zone_recherche_resultat" class="mt-4">
 
-</div>
-
-</section>
-
-{# {% elseif  app.user.roles[0] == "ROLE_USER"%}
 
 <div id="donnee_client_aside" class="">
 
@@ -41,8 +28,8 @@
  Messagerie</a></li>
 </ul>
 </nav>  
-{% endif %}
- #}
+
+
 
 <hr>
 <a id="deconnexion" class='' href="{{path('app_logout')}}"><i class="text-light fa fa-power-off" style='font-size:1.5em;' aria-hidden="true"></i>

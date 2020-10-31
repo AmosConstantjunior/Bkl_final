@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InterventionController!{% endblock %}
+
+{% block body %}
+{% if utilisateur != null %}
+   <aside class=''>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+			
+			<h3 class="mt-4 ml-4 d-flex justify-content-center text-light">Liste des interventions 
+			</h3>
+		<section id="liste_des_visites"  class=" container-fluid">
+			<table id="liste_des_visite_tab" class="table table-fixed">
+				<thead>
+					<tr>
+						
+                                <th scope="col" class="col-4">Date interv</th>
+                                <th scope="col" class="col-4">Client</th>
+                                <th scope="col" class="col-4">Atelier</th>
+								
+					</tr>
+				</thead>
+				<tbody>
+					{% for fiche_maintenance in fiche_maintenances %}
+
+						<tr>
+							
+							<td class="col-4">{{ fiche_maintenance.dateProchaine ? fiche_maintenance.dateProchaine|date('d-m-Y') : '' }}</td>
+                            <td class="col-4">{{ fiche_maintenance.atelier.client }}</td>
+                            <td class="col-4">{{ fiche_maintenance.atelier }}</td>
+							
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="3">Liste vide</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			
+		</section>
+	</main>
+	{% else %}
+
+	{% endif %}
+{% endblock %}

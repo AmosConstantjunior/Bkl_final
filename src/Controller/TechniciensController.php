@@ -21,8 +21,10 @@ class TechniciensController extends AbstractController
      */
     public function index(TechniciensRepository $techniciensRepository): Response
     {
+        $user = $this->getUser();
         return $this->render('techniciens/index.html.twig', [
             'techniciens' => $techniciensRepository->findAll(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -31,6 +33,7 @@ class TechniciensController extends AbstractController
      */
     public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
+        $user = $this->getUser();
         $technicien = new Techniciens();
         $form = $this->createForm(TechniciensType::class, $technicien);
         $form->handleRequest($request);
@@ -54,6 +57,7 @@ class TechniciensController extends AbstractController
         return $this->render('techniciens/new.html.twig', [
             'technicien' => $technicien,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -62,8 +66,10 @@ class TechniciensController extends AbstractController
      */
     public function show(Techniciens $technicien): Response
     {
+        $user = $this->getUser();
         return $this->render('techniciens/show.html.twig', [
             'technicien' => $technicien,
+            'utilisateur' => $user
         ]);
     }
 
@@ -72,6 +78,7 @@ class TechniciensController extends AbstractController
      */
     public function edit(Request $request, Techniciens $technicien): Response
     {
+        $user = $this->getUser();
         $form = $this->createForm(TechniciensType::class, $technicien);
         $form->handleRequest($request);
 
@@ -84,6 +91,7 @@ class TechniciensController extends AbstractController
         return $this->render('techniciens/edit.html.twig', [
             'technicien' => $technicien,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 

@@ -29,13 +29,14 @@ class FicheMaintenanceType extends AbstractType
             ->add('besoinFormation')
             ->add('sondageMonoFace')
             ->add('QualiteElectrique')
-            // ->add('dateProchaine', DateType::class, [
-            //     'widget' => 'single_text',
-            //     'attr' => ['class' => 'js-datepicker'],
-            // ])
+            ->add('dateProchaine', DateType::class, [
+                'widget' => 'single_text',
+                'attr' => ['class' => 'js-datepicker'],
+            ])
             ->add('Technicien')
             ->add('atelier')
             ->add('machine')
+            ->add('Contact')
         ;
     }
 

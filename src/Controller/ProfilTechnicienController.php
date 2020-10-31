@@ -13,9 +13,11 @@ class ProfilTechnicienController extends AbstractController
      */
     public function index( TechniciensRepository $techniciensRepository)
     {
+        $user = $this->getUser();
         return $this->render('profil_technicien/index.html.twig', [
             'controller_name' => 'ProfilTechnicienController',
-            'technicien' => $techniciensRepository->findAll(),
+            // 'technicien' => $techniciensRepository->findAll(),
+            "technicien" => $user,
         ]);
     }
 }

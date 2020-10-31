@@ -14,10 +14,11 @@ class AttestationClientsController extends AbstractController
      */
     public function index(AttestationCqsRepository $attestationCqsRepository)
     {
+        $user = $this->getUser();
         return $this->render('attestation_clients/index.html.twig', [
             'controller_name' => 'AttestationClientsController',
             'attestations' => $attestationCqsRepository->findAll(),
-
+            "utilisateur" => $user,
             
         ]);
     }

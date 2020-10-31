@@ -100,6 +100,7 @@ class Techniciens extends User
     }
     public function __toString(): string
     {
+
         return $this->NomTechnicien;
     }
 }

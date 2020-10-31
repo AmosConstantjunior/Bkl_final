@@ -4,83 +4,141 @@
 {% endblock %}
 
 {% block body %}
-{% if app.user %}
-	<aside class=''>
+	{% if utilisateur != null %}
+		<aside class='mh-100'>
+			{% if utilisateur.roles[0] == "ROLE_ADMIN" %}
 
-		{% include "Templates_parts/aside.html.twig" %}
-	</aside>{% endif %}
-	<main>
-	{% if app.user.roles[0] == "ROLE_ADMIN" %}
-		<nav id="menu_admin" class="mt-3">
-		
-		
-			{% include "Templates_parts/_nav.html.twig" %}
-		
-		
-		</nav>{% else %} <nav style='height: 9vh;
-    width: 80vw;'>
-		
-		</nav> {% endif %}
+				{% include "Templates_parts/aside.html.twig" %}
 
-		{% if app.user.roles[0] == "ROLE_ADMIN" %}
-		<hr>
-		<h3 id="titre_tableau" style="color:white" class="mb-">Tableau de bord</h3>
-		 <section id="tableau_bord_admin" class="">
-											<article id="intervention_admin" class="ml-4">
-												<h4 class="mt-2 ml-4">Interventions</h4>
-												<div class=""></div>
-											</article>
-											<article id="historique_admin" class="">
-												<h4 class="mt-4 ml-4">Historique</h4>
-												<div>
-													<article>
-														<table id="table_historyque_admin" class="table table-hover  mt-4 ml-2 " style="height:10%;">
-															<thead>
-																{# <tr>
-																	<th scope="col">#</th>
-																	<th scope="col">Date</th>
-																	<th scope="col">Client</th>
-																	<th scope="col">Atelier</th>
-																	<th scope="col">Action</th>
-																</tr> #}
-															</thead>
-															<tbody>
-															
-																{# <tr>
-																	<th scope="row">1</th>
-																	<td>Mark</td>
-																	<td>Otto</td>
-																	<td>@mdo</td>
-																	<td>@mdo</td>
-																</tr> #}
+			{% elseif utilisateur.roles[0] == "ROLE_USER" %}
+				{% include "Templates_parts/aside2.html.twig" %}
+			{% endif %}
 
-															</tbody>
-														</table>
-													</article>
-												</div>
-											</article>
+		</aside>
+		<main class='mh-100'>
+			{% if utilisateur.roles[0] == "ROLE_ADMIN" %}
+				<nav id="menu_admin" class="mt-3">
+
+
+					{% include "Templates_parts/_nav.html.twig" %}
+
+
+				</nav>
+			{% else %}
+				<nav style='height: 9vh;
+													    width: 80vw;'></nav>
+			{% endif %}
+
+			{% if utilisateur.roles[0] == "ROLE_ADMIN" %}
+				<hr>
+				<h3 id="titre_tableau" style="color:white" class="mb-">Tableau de bord</h3>
+				<section id="tableau_bord_admin" class="">
+					<br>
+					<br>
+					<article id="intervention_admin" class="mh-100">
+						<h4 class="mt-4 ml-4">Interventions</h4>
+						<div class="">
+						<article>
+						<table id="table_inter_admin" class="table table-hover  mt-4  ">
+									<thead>
+										<tr>
+											
+											<th scope="col" class="col-4">Date interv</th>
+											<th scope="col" class="col-4">Client</th>
+											<th scope="col" class="col-4">Atelier</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+										{% for fiche in fiche_maintenances %}
+											<tr>
+												<td class="col-4">{{fiche.dateProchaine ? fiche.dateProchaine|date('d-m-Y') : ''}}</td>
+												<td class="col-4">{{fiche.atelier.client}}</td>
+												<td class="col-4">{{fiche.atelier}}</td>												
+											</tr>
+										{% else %}
+											<tr>
+												<td colspan="6">Liste vide</td>
+											</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+						
+						</article>
+						</div>
+					</article>
+					<article id="historique_admin" class="">
+						<h4 class="mt-4 ml-4">Historique</h4>
+						<div>
+							<article>
+								<table id="table_historyque_admin" class="table table-hover  mt-4  ">
+									<thead>
+										<tr>
+											<th scope="row" class="col-1">Id</th>
+											<th scope="col" class="col-3">Date interv</th>
+											<th scope="col" class="col-2">Client</th>
+											<th scope="col" class="col-4">Atelier</th>
+											<th scope="col" class="col-2">Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for fiche in fiche_maintenances %}
+
+											<tr>
+												<td class="col-1">{{fiche.id}}</td>
+
+												<td class="col-3">{{fiche.dateIntervention ? fiche.dateIntervention|date('d-m-Y') : ''}}</td>
+												<td class="col-2">{{fiche.atelier.client}}</td>
+												<td class="col-4">{{fiche.atelier}}</td>
+												<td class="col-2">
+													<a href="{{ path('fiche_maintenance_show', {'id': fiche.id}) }}">
+														<i class="fa fa-eye text-danger"></i>
+													</a>
+													<a href="{{ path('fiche_maintenance_edit', {'id': fiche.id}) }}">
+														<i class="fa fa-pen text-danger"></i>
+													</a>
+												</td>
+
+											</tr>
+										{% else %}
+											<tr>
+												<td colspan="6">Liste vide</td>
+											</tr>
+										{% endfor %}
+									</tbody>
+								</table>
 								
-										</section>  {% elseif app.user.roles[0] == "ROLE_USER" %}
-										<hr>
-										<h2 id="titre_tableau" class="mt-2 ml-4 d-flex justify-content-center text-light">Tableau de bord</h2>
-		<section id="tableau_bord_client">
-			<article id="intervention_client" class="ml-3">
-				<h4 class="mt-4 ml-4">Mes rendez-vous</h4>
-				<div></div>
-			</article>
-			<article id="zone_historique_et_indicateur" class="">
-				<article  id="historique_client" class="">
-					<h4 class="mt-4 ml-4">Mon Historique</h4>
-					<div></div>
-				</article>
-				<div id="indicateur_client" class=' '></div>
-			</article>
-		</section>
-		{% else %}
+
+							</article>
+						</div>
+					</article>
+
+				</section>
+			{% elseif utilisateur.roles[0]  == "ROLE_USER" %}
+				<hr>
+				<h2 id="titre_tableau" class="mt-2 ml-4 d-flex justify-content-center text-light">Tableau de bord</h2>
+				<section id="tableau_bord_client">
+					<article id="intervention_client" class="ml-3">
+						<h4 class="mt-4 ml-4">Mes rendez-vous</h4>
+						<div></div>
+					</article>
+					<article id="zone_historique_et_indicateur" class="">
+						<article id="historique_client" class="">
+							<h4 class="mt-4 ml-4">Mon Historique</h4>
+							<div></div>
+						</article>
+						<div id="indicateur_client" class=' '></div>
+					</article>
+				</section>
+
+			{% endif %}
+		</main>
+	{% else %}
 		<section>
-		<P>Connexion Obligatoire</P>
-		<p>Pour plus d'information orienter vous sur <a href="http://bkldiffusion.com/"target="_blank">BKL diffusion</a></p>
+			<P>Connexion Obligatoire</P>
+			<p>Pour plus d'information orienter vous sur
+				<a href="http://bkldiffusion.com/" target="_blank">BKL diffusion</a>
+			</p>
 		</section>
-		{% endif %}
-	</main>
+	{% endif %}
 {% endblock %}

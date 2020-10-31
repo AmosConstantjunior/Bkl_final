@@ -12,8 +12,10 @@ class ParametreController extends AbstractController
      */
     public function index()
     {
+        $user = $this->getUser();
         return $this->render('parametre/index.html.twig', [
             'controller_name' => 'ParametreController',
+            'utilisateur' => $user
         ]);
     }
 }

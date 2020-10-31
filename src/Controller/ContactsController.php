@@ -20,8 +20,10 @@ class ContactsController extends AbstractController
      */
     public function index(ContactsRepository $contactsRepository): Response
     {
+        $user = $this->getUser();
         return $this->render('contacts/index.html.twig', [
             'contacts' => $contactsRepository->findAll(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -30,6 +32,7 @@ class ContactsController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $user = $this->getUser();
         $contact = new Contacts();
         $form = $this->createForm(ContactsType::class, $contact);
         $form->handleRequest($request);
@@ -45,6 +48,7 @@ class ContactsController extends AbstractController
         return $this->render('contacts/new.html.twig', [
             'contact' => $contact,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -53,8 +57,10 @@ class ContactsController extends AbstractController
      */
     public function show(Contacts $contact): Response
     {
+        $user = $this->getUser();
         return $this->render('contacts/show.html.twig', [
             'contact' => $contact,
+            'utilisateur' => $user
         ]);
     }
 
@@ -63,6 +69,7 @@ class ContactsController extends AbstractController
      */
     public function edit(Request $request, Contacts $contact): Response
     {
+        $user = $this->getUser();
         $form = $this->createForm(ContactsType::class, $contact);
         $form->handleRequest($request);
 
@@ -75,6 +82,7 @@ class ContactsController extends AbstractController
         return $this->render('contacts/edit.html.twig', [
             'contact' => $contact,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 

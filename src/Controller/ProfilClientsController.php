@@ -12,8 +12,10 @@ class ProfilClientsController extends AbstractController
      */
     public function index()
     {
+        $user = $this->getUser();
         return $this->render('profil_clients/index.html.twig', [
             'controller_name' => 'ProfilClientsController',
+            'utilisateur' => $user
         ]);
     }
 }

@@ -113,6 +113,9 @@ class Machine
 
         return $this;
     }
-
+    public function __toString(): string
+    {
+        return $this->NumSerie;
+    }
    
 }

@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+{% if technicien != null %}
 	<aside class=''>
 
 		{% include "Templates_parts/aside.html.twig" %}
@@ -13,35 +14,73 @@
 			{% include "Templates_parts/_nav.html.twig" %}
 		</nav>
 		<hr>
-			<h2 class="mt-4 ml-4 d-flex justify-content-center text-light">Profil Technicien
+		<h2 class="mt-4 ml-4 d-flex justify-content-center text-light">Profil Technicien
 
-			</h2>
+		</h2>
 		<section id="profil_technicien" style="background-color:white" class=" container-fluid">
 			<section id="profil_technicien_globale">
 				<article id="profil_technicien_image">
 					<img src="{{asset('assets/Img/technicien.png')}}" alt="">
-					<div>
-					
-					</div>
-					</article>
-				<section class="mt-4 ml-4">
+					<div></div>
+				</article>
+				<section class=" ml-4">
 					<article id="profil_technicien_donner" class="mt-4">
 						<div class="pt-4 pl-4">
-						<h5 class="mt-3">Nom :   <span>{{app.user.NomTechnicien}}</span>  </h5>
-						<h5 class="mt-3">Prenom : <span>{{app.user.PrenomTechnicien}}</span> </h5>
-						<h5 class="mt-3">Poste : Technicien</h5>
+							<h5 class="mt-3">Nom :
+								<span>{{app.user.NomTechnicien}}</span>
+							</h5>
+							<h5 class="mt-3">Prenom :
+								<span>{{app.user.PrenomTechnicien}}</span>
+							</h5>
+							<h5 class="mt-3">Poste : Technicien</h5>
 
-						
+
 						</div>
 					</article>
 					<article id="profil_technicien_histoirique" class="mt-2">
-					    <h4 class="mt-3 d-flex justify-content-center">Mes interventions</h4>
-						<div>
-						
-						</div>
+						<h4 class="mt-3 d-flex justify-content-center">Mes interventions</h4>
+										{# {% for fiche in technicien.ficheMaintenances %}
+											<tr>
+												<td scope="row">{{fiche.id}}</td>
+												<td scope="row">{{fiche.dateIntervention ? fiche.dateIntervention|date('d-m-Y')}}</td>
+												<td scope="row">{{fiche.atelier.client}}</td>
+												<td scope="row">{{fiche.atelier}}</td>
+												<td scope="row">{{fiche.dateProchaine ? fiche.dateProchaine|date('d-m-Y')}}</td>
+											</tr>
+
+										{% endfor %} #}
+						<div class="table-responsive">
+                    <table id='table_historique_tech' class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="row" class="col-1">Id</th>
+                                <th scope="col" class="col-3">Date interv</th>
+                                <th scope="col" class="col-2">Client</th>
+                                <th scope="col" class="col-3">Atelier</th>
+								<th scope="col" class="col-3">RV</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+						{% for fiche in technicien.ficheMaintenances %}
+                            <tr>
+                                <td class="col-1"  >{{fiche.id}}</td>
+                                <td class="col-3" >{{fiche.dateIntervention ? fiche.dateIntervention|date('d-m-Y')}}</td>
+                                <td class="col-2" >{{fiche.atelier.client}}</td>
+                                <td class='col-3' >{{fiche.atelier}}</td>
+								<td class="col-3" >{{fiche.dateProchaine ? fiche.dateProchaine|date('d-m-Y')}}</td>
+
+                            </tr>
+							{% endfor %}
+                            
+                        </tbody>
+                    </table>
+                </div>
 					</article>
 				</section>
 			</section>
 		</section>
 	</main>
+{% else %}
+	{% endif %}
 {% endblock %}

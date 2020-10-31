@@ -1,7 +1,8 @@
-{% if app.user.roles[0] == "ROLE_ADMIN" %}
+{# {% if app.user.roles == "ROLE_ADMIN" %} #}
+
 <ul  class="mt-4 text-dark">
  <li><a class="" href="{{path('dashboard')}} "><i class="fa fa-home text-danger" aria-hidden="true"></i> Tableau de bord</a></li>
-    <li><a class="" href=""><i class="fa fa-wrench text-danger" aria-hidden="true"></i> Intervenetion à venir</a> </li>
+    <li><a class="" href="{{path('intervention')}}"><i class="fa fa-wrench text-danger" aria-hidden="true"></i> Intervenetion à venir</a> </li>
     <li><a class="" href="{{path('fiche_maintenance_index')}} "><i class="fa fa-history text-danger" aria-hidden="true"></i> Historique des interventions</a></li>
     <li><a class="" href="{{path('clients_index')}} "><i class="text-danger fa fa-users" aria-hidden="true"></i> Liste des clients</a></li>
 </ul>
@@ -13,4 +14,4 @@
 {# <a class="mr-4 text-light" href=" {{path('messagerie_admin')}}"><i class="fa fa-envelope ml-1" aria-hidden="true"></i></a> #}
 <a  class="mr-4 text-light " href=" {{path('profil_technicien')}}"><i class="fa fa-user" aria-hidden="true"></i></a>
 </div>
-{% endif %}
+{# {% endif %} #}

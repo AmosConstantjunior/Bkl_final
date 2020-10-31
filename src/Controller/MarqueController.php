@@ -20,8 +20,10 @@ class MarqueController extends AbstractController
      */
     public function index(MarqueRepository $marqueRepository): Response
     {
+        $user = $this->getUser();
         return $this->render('marque/index.html.twig', [
             'marques' => $marqueRepository->findAll(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -30,6 +32,7 @@ class MarqueController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $user = $this->getUser();
         $marque = new Marque();
         $form = $this->createForm(MarqueType::class, $marque);
         $form->handleRequest($request);
@@ -45,6 +48,7 @@ class MarqueController extends AbstractController
         return $this->render('marque/new.html.twig', [
             'marque' => $marque,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -53,8 +57,10 @@ class MarqueController extends AbstractController
      */
     public function show(Marque $marque): Response
     {
+        $user = $this->getUser();
         return $this->render('marque/show.html.twig', [
             'marque' => $marque,
+            'utilisateur' => $user
         ]);
     }
 
@@ -63,6 +69,7 @@ class MarqueController extends AbstractController
      */
     public function edit(Request $request, Marque $marque): Response
     {
+        $user = $this->getUser();
         $form = $this->createForm(MarqueType::class, $marque);
         $form->handleRequest($request);
 
@@ -75,6 +82,7 @@ class MarqueController extends AbstractController
         return $this->render('marque/edit.html.twig', [
             'marque' => $marque,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 

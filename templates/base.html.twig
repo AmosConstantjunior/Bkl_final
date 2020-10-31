@@ -16,10 +16,9 @@
     </head>
     <body>
     {# {% include "Templates_parts/modaux.html.twig" %} #}
+    
         {% block body %}
-        {% if app.user == 0 %}
-        {% include "Templates_parts/page_error.html.twig" %}
-        {% endif %}
+        
         {% endblock %}
         <script type="text/javascript" src="js/addons-pro/steppers.min.js"></script>
         <script src="{{asset('assets/Bootstrap/js/bootstrap.min.js')}}"></script>
