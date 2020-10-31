@@ -20,8 +20,10 @@ class ContratsController extends AbstractController
      */
     public function index(ContratsRepository $contratsRepository): Response
     {
+        $user = $this->getUser();
         return $this->render('contrats/index.html.twig', [
             'contrats' => $contratsRepository->findAll(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -30,6 +32,7 @@ class ContratsController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $user = $this->getUser();
         $contrat = new Contrats();
         $form = $this->createForm(ContratsType::class, $contrat);
         $form->handleRequest($request);
@@ -45,6 +48,7 @@ class ContratsController extends AbstractController
         return $this->render('contrats/new.html.twig', [
             'contrat' => $contrat,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 
@@ -53,8 +57,10 @@ class ContratsController extends AbstractController
      */
     public function show(Contrats $contrat): Response
     {
+        $user = $this->getUser();
         return $this->render('contrats/show.html.twig', [
             'contrat' => $contrat,
+            'utilisateur' => $user
         ]);
     }
 
@@ -63,6 +69,7 @@ class ContratsController extends AbstractController
      */
     public function edit(Request $request, Contrats $contrat): Response
     {
+        $user = $this->getUser();
         $form = $this->createForm(ContratsType::class, $contrat);
         $form->handleRequest($request);
 
@@ -75,6 +82,7 @@ class ContratsController extends AbstractController
         return $this->render('contrats/edit.html.twig', [
             'contrat' => $contrat,
             'form' => $form->createView(),
+            'utilisateur' => $user
         ]);
     }
 

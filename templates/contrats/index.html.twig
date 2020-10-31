@@ -3,6 +3,7 @@
 {% block title %}Contrats index{% endblock %}
 
 {% block body %}
+{% if utilisateur != null  %}
     <aside class=''>
 		{% include "Templates_parts/aside.html.twig" %}
 	</aside>
@@ -11,12 +12,12 @@
 			{% include "Templates_parts/_nav.html.twig" %}
 		</nav>
 		<hr>
-		<section id="liste_des_Contacts" class=" container-fluid">
 			<a class="btn btn-secondary float-right mt-3 mr-4 mb-4" href="{{ path('contrats_new') }}">
 				<i class="fa fa-plus"></i>
 				Ajouter un contrat</a>
 			<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste de tout les Contrats
 			</h3>
+		<section id="liste_des_Contacts" class=" container-fluid">
 
 			<table class="table table-striped">
         <thead>
@@ -45,4 +46,6 @@
     </table>
     </section>
 	</main>
+{% else %}
+    {% endif %}
 {% endblock %}

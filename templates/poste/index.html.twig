@@ -3,7 +3,22 @@
 {% block title %}Poste index{% endblock %}
 
 {% block body %}
-    <h1>Poste index</h1>
+{% if utilisateur != null  %}
+    <aside class=''>
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+			<a class="btn btn-secondary float-right mt-3 mr-4 mb-4" href="{{ path('poste_new') }}">
+				<i class="fa fa-plus"></i>
+				Ajouter un poste</a>
+			<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste de tout les Postes
+			</h3>
+		<section id="liste_des_Contacts" class=" container-fluid">
+
 
     <table class="table">
         <thead>
@@ -19,8 +34,8 @@
                 <td>{{ poste.id }}</td>
                 <td>{{ poste.IntitulerPoste }}</td>
                 <td>
-                    <a href="{{ path('poste_show', {'id': poste.id}) }}">show</a>
-                    <a href="{{ path('poste_edit', {'id': poste.id}) }}">edit</a>
+                    {# <a href="{{ path('poste_show', {'id': poste.id}) }}">show</a> #}
+                    <a href="{{ path('poste_edit', {'id': poste.id}) }}"><i class="fa fa-pen"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +46,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('poste_new') }}">Create new</a>
+    
+    </section>
+	</main>
+{% else %}
+    {% endif %}
 {% endblock %}
