@@ -141,7 +141,7 @@ main{
 #tableau_bord_admin{
     background-color: white;
     display: flex;
-    height: 34em;
+    height: 30em;
     overflow-y: auto;
 
 }
