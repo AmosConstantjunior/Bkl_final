@@ -149,12 +149,13 @@ main{
 }
 
 #intervention_admin{
-    margin-top: 1vh;
+    margin-top: 2vh;
     height: 65vh;
     width: 34vw;
+    margin-left: 2vw;
     border-radius: 30px;
     background: #FFFFFF;
- box-shadow: 8px 9px 4px rgba(0, 0, 0, 0.25);
+ box-shadow: 0px 0px 4px 5px  rgba(0, 0, 0, 0.25) ;
 /*border-radius: 46px; */
 }
 #intervention_admin h4, #historique_admin h4, #intervention_client h4{
@@ -172,13 +173,13 @@ border: 5px solid #C6DEEA;
 border-radius: 46px;
 }
 #historique_admin {
-    margin-left: 5vw;
-    margin-top: 1vh;
+    margin-left: 4vw;
+    margin-top: 2vh;
     height: 65vh;
     width: 38vw;
     border-radius: 30px;
     background: #FFFFFF;
- box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
+ box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.25);
 /*border-radius: 46px; */
 }
 #historique_admin div{
@@ -684,6 +685,19 @@ border-radius: 23px;
     background-color: white;
     height: 72vh;
 }
+
+#connecte{
+    display: flex;
+}
+#connecte div{
+    height: 2.3vh;
+    width: 1.1vw;
+    margin-top: 2px;
+    border:  #1d951d 1px solid;
+    background-color: #1d951d;
+    border-radius: 50%;
+    margin-right: 0.4vw;
+}
   #table_historique_tech tbody {
     height: 29vh;
     overflow-y: auto;
@@ -691,6 +705,8 @@ border-radius: 23px;
     
     
 }
+
+
 
 #table_historique_tech thead,
 #table_historique_tech tbody,
@@ -880,3 +896,61 @@ border-radius: 23px;
         display: block;
     }
 }
+
+#table_interven_client tbody{
+    height: 32vh;
+    overflow-y: auto;
+    width: 100%;
+    
+}
+
+#table_interven_client thead,
+#table_interven_client tbody,
+#table_interven_client tr,
+#table_interven_client td,
+#table_interven_client th {
+    display: block;
+}
+
+#table_interven_client tbody td,
+#table_interven_client tbody th,
+#table_interven_client thead > tr > th {
+    float: left;
+    position: relative;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+#table_historyque_clients tbody{
+    height: 29vh;
+    overflow-y: auto;
+    width: 100%;
+   
+    
+}
+
+#table_historyque_clients thead,
+#table_historyque_clients tbody,
+#table_historyque_clients tr,
+#table_historyque_clients td,
+#table_historyque_clients th {
+    display: block;
+}
+
+#table_historyque_clients tbody td,
+#table_historyque_clients tbody th,
+#table_historyque_clients thead > tr > th {
+    float: left;
+    position: relative;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+

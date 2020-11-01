@@ -26,7 +26,7 @@
 				</nav>
 			{% else %}
 				<nav style='height: 9vh;
-													    width: 80vw;'></nav>
+																		    width: 80vw;'></nav>
 			{% endif %}
 
 			{% if utilisateur.roles[0] == "ROLE_ADMIN" %}
@@ -38,15 +38,15 @@
 					<article id="intervention_admin" class="mh-100">
 						<h4 class=" ml-4">Interventions</h4>
 						<div class="">
-						<article>
-						<table id="table_inter_admin" class="table table-hover  mt-4  ">
+							<article>
+								<table id="table_inter_admin" class="table table-hover  mt-4  ">
 									<thead>
 										<tr>
-											
+
 											<th scope="col" class="col-4">Date interv</th>
 											<th scope="col" class="col-4">Client</th>
 											<th scope="col" class="col-4">Atelier</th>
-											
+
 										</tr>
 									</thead>
 									<tbody>
@@ -54,7 +54,7 @@
 											<tr>
 												<td class="col-4">{{fiche.dateProchaine ? fiche.dateProchaine|date('d-m-Y') : ''}}</td>
 												<td class="col-4">{{fiche.atelier.client}}</td>
-												<td class="col-4">{{fiche.atelier}}</td>												
+												<td class="col-4">{{fiche.atelier}}</td>
 											</tr>
 										{% else %}
 											<tr>
@@ -63,8 +63,8 @@
 										{% endfor %}
 									</tbody>
 								</table>
-						
-						</article>
+
+							</article>
 						</div>
 					</article>
 					<article id="historique_admin" class="">
@@ -107,7 +107,7 @@
 										{% endfor %}
 									</tbody>
 								</table>
-								
+
 
 							</article>
 						</div>
@@ -120,12 +120,94 @@
 				<section id="tableau_bord_client">
 					<article id="intervention_client" class="ml-3">
 						<h4 class="mt-4 ml-4">Mes rendez-vous</h4>
-						<div></div>
+						<div>
+
+							<table id="table_interven_client" class="table table-hover  mt-3  ">
+								<thead>
+									<tr>
+										<th scope="row" class="col-2">Id</th>
+										<th scope="col" class="col-3">Date
+										</th>
+										<th scope="col" class="col-4">Atelier</th>
+										<th scope="col" class="col-3">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									{% for atelier in utilisateur.ateliers %}
+										{% for fiche in atelier.ficheMaintenances %}
+											<tr>
+												<td class="col-2">{{fiche.id}}</td>
+
+												<td class="col-3">{{fiche.dateProchaine ? fiche.dateProchaine|date('d-m-Y') : ''}}</td>
+												<td class="col-4">{{fiche.atelier}}</td>
+												<td class="col-3">
+													<a href="{{ path('fiche_maintenance_show', {'id': fiche.id}) }}">
+														<i class="fa fa-eye text-primary"></i>
+													</a>
+													<a href="{{ path('fiche_maintenance_edit', {'id': fiche.id}) }}">
+														<i class="fa fa-pen text-primary"></i>
+													</a>
+												</td>
+
+											</tr>
+										{% else %}
+											<tr>
+												<td colspan="6">Liste vide</td>
+											</tr>
+										{% endfor %}
+
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
 					</article>
 					<article id="zone_historique_et_indicateur" class="">
 						<article id="historique_client" class="">
 							<h4 class="mt-4 ml-4">Mon Historique</h4>
-							<div></div>
+							<div>
+								<table id="table_historyque_clients" class="table table-hover  mt-3  ">
+									<thead>
+										<tr>
+											<th scope="row" class="col-1">Id</th>
+											<th scope="col" class="col-3">Date interv</th>
+											<th scope="col" class="col-4">Atelier</th>
+											<th scope="col" class="col-2">Techicien</th>
+											<th scope="col" class="col-2">Action</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										{% for atelier in utilisateur.ateliers %}
+											{% for fiche in atelier.ficheMaintenances %}
+												<tr>
+													<td class="col-1">{{fiche.id}}</td>
+
+													<td class="col-3">{{fiche.dateIntervention ? fiche.dateIntervention|date('d-m-Y') : ''}}</td>
+													<td class="col-4">{{fiche.atelier}}</td>
+													<td class="col-2">{{fiche.Technicien}}</td>
+													<td class="col-2">
+														<a href="{{ path('fiche_maintenance_show', {'id': fiche.id}) }}">
+															<i class="fa fa-eye text-danger"></i>
+														</a>
+														<a href="{{ path('fiche_maintenance_edit', {'id': fiche.id}) }}">
+															<i class="fa fa-pen text-danger"></i>
+														</a>
+													</td>
+
+												</tr>
+											{% else %}
+												<tr>
+													<td colspan="6">Liste vide</td>
+												</tr>
+											{% endfor %}
+
+										{% endfor %}
+									</tbody>
+								</table>
+
+
+							</div>
 						</article>
 						<div id="indicateur_client" class=' '></div>
 					</article>
