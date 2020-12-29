@@ -698,6 +698,27 @@ border-radius: 23px;
     border-radius: 50%;
     margin-right: 0.4vw;
 }
+#zone_boutton{
+    display: flex;
+    margin-left: 2vw;
+    margin-top: 2px;
+    
+}
+#zone_button a{
+    color: red;
+}
+#boutton_show{
+    
+    border: 2px solid red;
+    border-radius: 23px;
+    margin-left: 2vw;
+}
+#show_fiche_maintenance{
+    height: 62vh;
+  background-color: white;
+    overflow-y: auto;
+}
+
   #table_historique_tech tbody {
     height: 29vh;
     overflow-y: auto;
@@ -954,3 +975,58 @@ border-radius: 23px;
     }
 }
 
+#affiche_admin{
+  height: 65vh;
+  padding: 1vw;
+  border: 2px solid black;
+}
+#affiche_admin article{
+    
+    height: 48vh;
+    display: flex;
+width: 74vw;
+
+overflow-x: auto;
+    
+}
+
+#affiche_admin article div{
+    height: 45vh;
+   
+    width: 20vw;
+    border: 2px solid black;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    display: inline;
+    justify-content: space-around;
+    padding: 0.5vw;
+}
+
+#total{
+    height: 8vh;
+    
+}
+#date{
+    display: inline;
+}
+#conclusion{
+    
+    height: 10vh;
+    overflow-y: auto;
+}
+#action{
+    overflow-y: auto;
+    height: 10vh;
+}
+
+#edit_attestation{
+    
+    height: 58vh;
+    overflow-y: auto;
+}
+
+#modification_fiche{
+    height: 57vh;
+    overflow-y: scroll;
+    overflow-x: initial;
+}

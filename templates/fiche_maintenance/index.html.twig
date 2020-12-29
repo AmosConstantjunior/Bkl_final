@@ -41,7 +41,7 @@
 							<td class="col-2">{{ fiche_maintenance.dateProchaine ? fiche_maintenance.dateProchaine|date('d-m-Y') : '' }}</td>
 							<td class="col-2">
 								<a href="{{ path('fiche_maintenance_show', {'id': fiche_maintenance.id}) }}"><i class="fa fa-eye text-danger"></i></a>
-								<a href="{{ path('fiche_maintenance_edit', {'id': fiche_maintenance.id}) }}">edit</a>
+								<a href="{{ path('fiche_maintenance_edit', {'id': fiche_maintenance.id}) }}"><i class="fa fa-pen text-danger"></i></a>
 							</td>
 						</tr>
 					{% else %}

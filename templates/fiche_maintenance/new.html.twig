@@ -38,7 +38,7 @@
 								<div class="form-group">
 									<label class="control-label">Client</label>
 
-									<input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter First Name"/>
+									<input maxlength="100" type="text" required="required" class="form-control" placeholder=""/>
 								</div>
 								<div class="form-group">
 
@@ -56,6 +56,13 @@
 									{{form_widget(form.Contact, {'attr':{'class':'form-control','maxlength':"100", 'required':"required" }})}}
 									
 								</div>
+								{# <div class="form-group col">
+
+										{{form_label(form.dateIntervention, "Date d'intervention")}}
+										{{form_widget(form.dateIntervention, {'attr':{'class':'form-control','maxlength':"200", 'required':"required", 'type':"date" }})}}
+
+
+									</div> #}
 							</div>
 						</div>
 					</div>
@@ -87,7 +94,7 @@
 								<div class="form-group">
 									<label class="control-label">Commentaires</label>
 
-									<textarea maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address"></textarea>
+									<textarea maxlength="200" type="text" required="required" class="form-control" placeholder=""></textarea>
 								</div>
 							</div>
 						</div>
@@ -192,7 +199,7 @@
 
 									</div>
 									<div class="form-group col">
-										
+										<label for="">Date Prochaine</label>
 										{{form_label(form.dateProchaine, "Prochaine intervention")}}
 										{{form_widget(form.dateProchaine, {'attr':{'class':'form-control','maxlength':"200", 'required':"required", 'type':"date" }})}}
 									</div>

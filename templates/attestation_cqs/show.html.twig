@@ -1,101 +1,113 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AttestationCqs{% endblock %}
+{% block title %}AttestationCqs
+{% endblock %}
 
 {% block body %}
-<aside class=''>
+	<aside class=''>
 
 		{% include "Templates_parts/aside.html.twig" %}
 	</aside>
 	<main>
 		<nav id="menu_admin" class="mt-4">
 			{% if app.user.roles[0] == "ROLE_ADMIN" %}
-		
-			{% include "Templates_parts/_nav.html.twig" %}
-		{% endif %}
+
+				{% include "Templates_parts/_nav.html.twig" %}
+			{% endif %}
 		</nav>
 		<hr>
-		<section id="ajouter-technicien" class=" container-fluid">
+		<section id="" class=" container-fluid" style='
+								    background-color: white'>
 
-			<a class="btn btn-secondary ml-2" href="{{ path('clients_index') }}">
+			<a class="btn btn-secondary ml-2 mt-2" href="{{ path('attestation_cqs_index') }}">
 				<i class="fa fa-chevron-left"></i>
 				Retour</a>
-    <h1>AttestationCqs</h1>
+			<h2 class=" ml-4 d-flex justify-content-center text-dark">Attestation Cqs N° :
+					{{ attestation_cq.id }}</h2>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ attestation_cq.id }}</td>
-            </tr>
-            <tr>
-                <th>NoteEquip</th>
-                <td>{{ attestation_cq.NoteEquip }}</td>
-            </tr>
-            <tr>
-                <th>ConclEquip</th>
-                <td>{{ attestation_cq.ConclEquip }}</td>
-            </tr>
-            <tr>
-                <th>ActionEquip</th>
-                <td>{{ attestation_cq.ActionEquip }}</td>
-            </tr>
-            <tr>
-                <th>NoteMaint</th>
-                <td>{{ attestation_cq.NoteMaint }}</td>
-            </tr>
-            <tr>
-                <th>ConclMaint</th>
-                <td>{{ attestation_cq.ConclMaint }}</td>
-            </tr>
-            <tr>
-                <th>ActionMaint</th>
-                <td>{{ attestation_cq.ActionMaint }}</td>
-            </tr>
-            <tr>
-                <th>NoteForm</th>
-                <td>{{ attestation_cq.NoteForm }}</td>
-            </tr>
-            <tr>
-                <th>ConclForm</th>
-                <td>{{ attestation_cq.ConclForm }}</td>
-            </tr>
-            <tr>
-                <th>ActionForm</th>
-                <td>{{ attestation_cq.ActionForm }}</td>
-            </tr>
-            <tr>
-                <th>NoteProcess</th>
-                <td>{{ attestation_cq.NoteProcess }}</td>
-            </tr>
-            <tr>
-                <th>ConclProcess</th>
-                <td>{{ attestation_cq.ConclProcess }}</td>
-            </tr>
-            <tr>
-                <th>ActionProcess</th>
-                <td>{{ attestation_cq.ActionProcess }}</td>
-            </tr>
-            <tr>
-                <th>ConclMoyen</th>
-                <td>{{ attestation_cq.ConclMoyen }}</td>
-            </tr>
-            <tr>
-                <th>ActionMoyen</th>
-                <td>{{ attestation_cq.ActionMoyen }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ attestation_cq.Date ? attestation_cq.Date|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+			<section id="affiche_admin">
+			
+				<p id="date">date :
+					{{ attestation_cq.Date ? attestation_cq.Date|date('d-m-Y') : '' }}
+				</p>
+				<article>
+					<div>
+						<h3>Équipement</h3>
+						<hr>
+						<h5>Note :
+							{{ attestation_cq.NoteEquip }}
+							%</h5>
+						<h5>Conclusion</h5>
+						<p id='conclusion'>{{ attestation_cq.ConclEquip }}</p>
+						<h5>Action
+						</h5>
+						<p id='action'>{{ attestation_cq.ActionEquip }}</p>
+					</div>
+					<div>
+						<h3>Maintenance</h3>
+						<hr>
+						<h5>Note :
+							{{ attestation_cq.NoteMaint }}
+							%
+						</h5>
+						<h5>Conclusion</h5>
+						<p id='conclusion'>{{ attestation_cq.ConclMaint }}</p>
+						<h5>Action
+						</h5>
+						<p id='action'>{{ attestation_cq.ActionMaint }}</p>
+					</div>
+					<div>
+						<h3>Formation</h3>
+						<hr>
+						<h5>Note :
+							{{ attestation_cq.NoteForm }}
+							%
+						</h5>
+						<h5>Conclusion</h5>
+						<p id='conclusion'>{{ attestation_cq.ConclForm }}</p>
+						<h5>Action
+						</h5>
+						<p id='action'>{{ attestation_cq.ActionForm }}</p>
+					</div>
+					<div>
+						<h3>Process</h3>
+						<hr>
+						<h5>Note :
+							{{ attestation_cq.NoteProcess }}
+							%
+						</h5>
+						<h5>Conclusion</h5>
+						<p id='conclusion'>{{ attestation_cq.ConclProcess }}</p>
+						<h5>Action
+						</h5>
+						<p id='action'>{{ attestation_cq.ActionProcess }}</p>
 
-    <a href="{{ path('attestation_cqs_index') }}">back to list</a>
+					</div>
+                    
+				</article>
+                <div id="total">
+                <h5>Note Moyenne :
+							{{ (attestation_cq.NoteProcess + attestation_cq.NoteForm + attestation_cq.NoteMaint + attestation_cq.NoteEquip )/ 4 }}
+							%
+						</h5>
+                    
+                    
+						<p>Conclusion :  
+						{{ attestation_cq.ConclMoyen }}</p>
+					
+					
+						<p>Action :
+						{{ attestation_cq.ActionMoyen }}</p>
+					
+                    </div>
+			</section>
 
-    <a href="{{ path('attestation_cqs_edit', {'id': attestation_cq.id}) }}">edit</a>
+<div style='display:flex; margin-top:1vh'>
 
-    {{ include('attestation_cqs/_delete_form.html.twig') }}
-    </section>
-		</main>
+			<a href="{{ path('attestation_cqs_edit', {'id': attestation_cq.id}) }}" class="btn" style='border:1px solid black; margin-left:2vw; margin-right:1.5vw'><fa class="fa fa-pen"></fa></a>
+
+			{{ include('attestation_cqs/_delete_form.html.twig') }}
+</div>
+		</section>
+	</main>
 {% endblock %}

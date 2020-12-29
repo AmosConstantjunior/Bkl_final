@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit AttestationCqs{% endblock %}
+{% block title %}Edit AttestationCqs
+{% endblock %}
 
 {% block body %}
-<aside class=''>
+	<aside class=''>
 
 		{% include "Templates_parts/aside.html.twig" %}
 	</aside>
@@ -13,19 +14,104 @@
 		</nav>
 		<hr>
 
-			<a class="btn btn-secondary ml-2" href="{{ path('attestation_cqs_index') }}">
-            <i class="fa fa-chevron-left"></i>
-				Retour</a>
-			<h2 class="mt-4 ml-4 d-flex justify-content-center text-light">Creation d'une nouvelle attestation AttestationCqs</h2>
-		<section id="liste_des_ateliers" style='background-color:white' class=" container-fluid">
-    <br>
-    <h1>Edit AttestationCqs</h1>
+		<a class="btn btn-secondary ml-2" href="{{ path('attestation_cqs_show', {'id': attestation_cq.id}) }}">
+			<i class="fa fa-chevron-left"></i>
+			Retour</a>
+		<section id="liste_des_ateliers" style='background-color:white' class=" mt-2 container-fluid">
+		<h2 class=" ml-4 d-flex justify-content-center text-dark">Modification d'attestation CQS {{ attestation_cq.id}}</h2>
+			<br>
+			{{ form_start(form) }}
+			<article id="edit_attestation">
+			
+			
+			<h5>Équipement</h5>
+			<div class="form-row">
+				<div class="form-group col">
+					{{form_label(form.NoteEquip, 'Note équipement')}}
+					{{form_widget(form.NoteEquip, {'attr':{'class':'form-control'}})}}
+				</div>
+				<div class="form-group col">
+					{{form_label(form.ConclEquip, 'Conclusion sur les équipement')}}
+					{{form_widget(form.ConclEquip, {'attr':{'class':'form-control'}})}}
+				</div>
+				<div class="form-group col">
+					{{form_label(form.ActionEquip, 'Actions  récommandées ')}}
+					{{form_widget(form.ActionEquip, {'attr':{'class':'form-control'}})}}
+				</div>
+			</div>
+			<h5>Maintenance</h5>
+			<div class="form-row">
+				<div class="form-group col">
+					{{form_label(form.NoteMaint, 'Note Maintenance')}}
+					{{form_widget(form.NoteMaint, {'attr':{'class':'form-control'}})}}
+				</div>
+				<div class="form-group col">
+					{{form_label(form.ConclMaint, 'Conclusion Maintenance')}}
+					{{form_widget(form.ConclMaint, {'attr':{'class':'form-control'}})}}
+				</div>
+				<div class="form-group col">
+					{{form_label(form.ActionMaint, 'Actions Correctives ')}}
+					{{form_widget(form.ActionMaint, {'attr':{'class':'form-control'}})}}
+				</div>
+			</div>
+			<h5>Formation</h5>
+			<div class="form-row">
+				<div class="form-group col">{{form_label(form.NoteForm, 'Note formation')}}
+					{{form_widget(form.NoteForm, {'attr':{'class':'form-control'}})}}
+				</div>
+				<div class="form-group col">
+					{{form_label(form.ConclForm, 'Conclusion sur la formation')}}
+					{{form_widget(form.ConclForm, {'attr':{'class':'form-control'}})}}
+				</div>
+				<div class="form-group col">
+					{{form_label(form.ActionForm, 'Actions Correctives')}}
+					{{form_widget(form.ActionForm, {'attr':{'class':'form-control'}})}}
+				</div>
+			</div>
+			<h5>Process</h5>
+			<div class="form-row">
+				<div class="form-group col">
+					{{form_label(form.NoteProcess, 'Note Process')}}
+					{{form_widget(form.NoteProcess, {'attr':{'class':'form-control'}})}}
+				</div>
+				<div class="form-group col">
+					{{form_label(form.ConclProcess, 'Conclusion process')}}
+					{{form_widget(form.ConclProcess, {'attr':{'class':'form-control'}})}}
+				</div>
+				<div class="form-group col">
+					{{form_label(form.ActionProcess, 'Actions Correctives ')}}
+					{{form_widget(form.ActionProcess, {'attr':{'class':'form-control'}})}}
+				</div>
+			</div>
+			<h5>Moyenne</h5>
+			<div class="form-row">
+				<div class="form-group col">
+					{{form_label(form.ConclMoyen, 'Conclusion Générale')}}
+					{{form_widget(form.ConclMoyen, {'attr':{'class':'form-control'}})}}
+				</div>
+				<div class="form-group col">
+					{{form_label(form.ActionMoyen, 'Actions Correctives ')}}
+					{{form_widget(form.ActionMoyen, {'attr':{'class':'form-control'}})}}
+				</div>
 
-    {{ include('attestation_cqs/_form.html.twig', {'button_label': 'Update'}) }}
+			</div>
+			<div class="form-row">
+				<div class="form-group col">
+					{{form_label(form.Date, 'Date ')}}
+					{{form_widget(form.Date, {'attr':{'class':'form-control','type':"date"}})}}
+				</div>
+				<div class="form-group col">
+					{{form_label(form.atelier, 'Atelier ')}}
+					{{form_widget(form.atelier, {'attr':{'class':'form-control',}})}}
+				</div>
+			</div>
+			</article>
+			<button class="btn ">{{ button_label|default('Sauvegarder') }} <i class="fa fa-save"></i></button>
+			{{ form_end(form) }}
+			
 
-    <a href="{{ path('attestation_cqs_index') }}">back to list</a>
 
-    {{ include('attestation_cqs/_delete_form.html.twig') }}
-    </section>
+			{{ include('attestation_cqs/_delete_form.html.twig') }}
+		</section>
 	</main>
 {% endblock %}

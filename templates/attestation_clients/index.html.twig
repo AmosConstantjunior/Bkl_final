@@ -32,7 +32,6 @@
 							<th scope="col">Note Formation</th>
 							<th scope="col">Note Process</th>
 							<th scope="col">Note Moyenne</th>
-							<th scope="col">actions</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -48,9 +47,6 @@
 							<td scope="row">{{attestation.NoteForm}} %</td>
 							<td scope="row">{{attestation.NoteProcess}} %</td>
                             <td scope="row">{{ (attestation.NoteEquip + attestation.NoteMaint + attestation.NoteForm + attestation.NoteProcess) / 4}} %</td>
-							<td scope="row">
-					<a href="{{ path('modal_attestation', {'id': attestation.id}) }}" data-toggle="modal" data-target="#essaye" class="btn btn">Afficher les ateliers</a>
-                            </td>
 						</tr>
 						{% else %}
             <tr>
@@ -67,6 +63,8 @@
 			</article>
 		</section>
 	</main>
+
+	
 {% else %}
 
 	{% endif %}

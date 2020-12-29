@@ -7,10 +7,13 @@ use App\Entity\Clients;
 use App\Entity\FicheMaintenance;
 use App\Form\FicheMaintenanceType;
 use App\Repository\FicheMaintenanceRepository;
+
+use DateTimeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/fiche/maintenance")
@@ -30,6 +33,7 @@ class FicheMaintenanceController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/new", name="fiche_maintenance_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
@@ -38,14 +42,16 @@ class FicheMaintenanceController extends AbstractController
         $ficheMaintenance = new FicheMaintenance();
         $form = $this->createForm(FicheMaintenanceType::class, $ficheMaintenance);
         $form->handleRequest($request);
-        // $dateDepart = $ficheMaintenance->getDateIntervention();
-        // $duree=6;
-        // $dateDepartTimestamp = strtotime($dateDepart);
-        // $dateFin=date("d-m-Y", strtotime("+".$duree,$dateDepartTimestamp));
-       
 
+        
+    //     $dateDepart = date("d-m-Y");
+    //     $duree=6;
+    //     $dateDepartTimestamp = strtotime($dateDepart);
+    //    $datefin =date("Y-m-d", strtotime("+".$duree.'month',$dateDepartTimestamp));
+        
         if ($form->isSubmitted() && $form->isValid()) {
-        //    $ficheMaintenance->setDateProchaine($dateFin);
+            
+            // $ficheMaintenance->setDateProchaine($this->$datefin);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($ficheMaintenance);
             $entityManager->flush();
@@ -61,6 +67,7 @@ class FicheMaintenanceController extends AbstractController
     }
 
     /**
+     * 
      * @Route("/{id}", name="fiche_maintenance_show", methods={"GET"})
      */
     public function show(FicheMaintenance $ficheMaintenance): Response
@@ -75,6 +82,7 @@ class FicheMaintenanceController extends AbstractController
 
     
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/edit", name="fiche_maintenance_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, FicheMaintenance $ficheMaintenance): Response

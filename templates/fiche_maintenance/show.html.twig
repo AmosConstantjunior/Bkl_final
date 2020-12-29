@@ -1,78 +1,183 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}FicheMaintenance{% endblock %}
+{% block title %}FicheMaintenance
+{% endblock %}
 
 {% block body %}
-    <h1>FicheMaintenance</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ fiche_maintenance.id }}</td>
-            </tr>
-            <tr>
-                <th>DateIntervention</th>
-                <td>{{ fiche_maintenance.dateIntervention ? fiche_maintenance.dateIntervention|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>CommandeEBP</th>
-                <td>{{ fiche_maintenance.CommandeEBP }}</td>
-            </tr>
-            <tr>
-                <th>MontantHT</th>
-                <td>{{ fiche_maintenance.montantHT }}</td>
-            </tr>
-            <tr>
-                <th>MontantConsommable</th>
-                <td>{{ fiche_maintenance.montantConsommable }}</td>
-            </tr>
-            <tr>
-                <th>Station</th>
-                <td>{{ fiche_maintenance.station }}</td>
-            </tr>
-            <tr>
-                <th>Formation</th>
-                <td>{{ fiche_maintenance.formation }}</td>
-            </tr>
-            <tr>
-                <th>Maint</th>
-                <td>{{ fiche_maintenance.maint }}</td>
-            </tr>
-            <tr>
-                <th>Process</th>
-                <td>{{ fiche_maintenance.process }}</td>
-            </tr>
-            <tr>
-                <th>ValiseCNOMO</th>
-                <td>{{ fiche_maintenance.valiseCNOMO ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>CuproBrasage</th>
-                <td>{{ fiche_maintenance.cuproBrasage ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>BesoinFormation</th>
-                <td>{{ fiche_maintenance.besoinFormation ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>SondageMonoFace</th>
-                <td>{{ fiche_maintenance.sondageMonoFace ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>QualiteElectrique</th>
-                <td>{{ fiche_maintenance.QualiteElectrique }}</td>
-            </tr>
-            <tr>
-                <th>DateProchaine</th>
-                <td>{{ fiche_maintenance.dateProchaine ? fiche_maintenance.dateProchaine|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<aside class=''>
+		{% if utilisateur.roles[0] == "ROLE_ADMIN" %}
 
-    <a href="{{ path('fiche_maintenance_index') }}">back to list</a>
+			{% include "Templates_parts/aside.html.twig" %}
 
-    <a href="{{ path('fiche_maintenance_edit', {'id': fiche_maintenance.id}) }}">edit</a>
+		{% elseif utilisateur.roles[0] == "ROLE_USER" %}
+			{% include "Templates_parts/aside2.html.twig" %}
+		{% endif %}
+	</aside>
+	<main>
+		{% if utilisateur.roles[0] == "ROLE_ADMIN" %}
+			<nav id="menu_admin" class="mt-3">
 
-    {{ include('fiche_maintenance/_delete_form.html.twig') }}
+
+				{% include "Templates_parts/_nav.html.twig" %}
+
+
+			</nav>
+		{% else %}
+			<nav style='height: 9vh;
+																						    width: 80vw;'></nav>
+		{% endif %}
+		<hr>
+		{% if utilisateur.roles[0] == "ROLE_ADMIN" %}
+
+			<a class="btn btn-secondary ml-2" href="{{ path('fiche_maintenance_index')}}">
+			<i class="fa fa-chevron-left"></i>
+			Retour</a>
+
+		{% elseif utilisateur.roles[0] == "ROLE_USER" %}
+			<a class="btn btn-secondary ml-2" href="{{ path('dashboard')}}">
+			<i class="fa fa-chevron-left"></i>
+			Retour</a>
+		{% endif %}
+		
+		<h2 class="mt-4 ml-4 d-flex justify-content-center text-light">Fiche de maintenance n°
+			{{fiche_maintenance.id}}</h2>
+		<section id="show_fiche_maintenance" class=" container-fluid">
+			<br>
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>Id</th>
+						<td>{{ fiche_maintenance.id }}</td>
+					</tr>
+					<tr>
+						<th>Client</th>
+						<td>{{fiche_maintenance.atelier.client}}</td>
+					</tr>
+					<tr>
+						<th>Atelier</th>
+						<td>{{fiche_maintenance.atelier}}</td>
+					</tr>
+
+					<tr>
+						<th>Machine</th>
+						{% for machines in fiche_maintenance.machine %}
+
+							<td>{{machines}}</td>
+						{% endfor %}
+					</tr>
+
+					<tr>
+						<th>Date Intervention</th>
+						<td>{{ fiche_maintenance.dateIntervention ? fiche_maintenance.dateIntervention|date('Y-m-d') : '' }}</td>
+					</tr>
+					<tr>
+						<th>Commande EBP</th>
+						<td>{{ fiche_maintenance.CommandeEBP }}</td>
+					</tr>
+					<tr>
+						<th>Montant HT</th>
+						<td>{{ fiche_maintenance.montantHT }}</td>
+					</tr>
+					<tr>
+						<th>Montant Consommable</th>
+						<td>{{ fiche_maintenance.montantConsommable }}</td>
+					</tr>
+					<tr>
+						<th>Station</th>
+						<td>{{ fiche_maintenance.station }}</td>
+					</tr>
+					<tr>
+						<th>Formation</th>
+						<td>{{ fiche_maintenance.formation }}</td>
+					</tr>
+					<tr>
+						<th>Maintenance</th>
+						<td>{{ fiche_maintenance.maint }}</td>
+					</tr>
+					<tr>
+						<th>Process</th>
+						<td>{{ fiche_maintenance.process }}</td>
+					</tr>
+					<tr>
+						<th>Valise CNOMO</th>
+						{% if fiche_maintenance.valiseCNOMO == 1 %}
+							<td>
+								<i class="fa fa-check text-success" aria-hidden="true"></i>
+							</td>
+						{% else %}
+							<td>
+								<i class="fa fa-times text-danger" aria-hidden="true"></i>
+							</td>
+						{% endif %}
+						{# <td>{{ fiche_maintenance.valiseCNOMO ? 'Yes' : 'No' }}</td> #}
+					</tr>
+					<tr>
+						<th>Cupro Brasage</th>
+
+						{% if fiche_maintenance.cuproBrasage == 1 %}
+							<td>
+								<i class="fa fa-check text-success" aria-hidden="true"></i>
+							</td>
+						{% else %}
+							<td>
+								<i class="fa fa-times text-danger" aria-hidden="true"></i>
+							</td>
+						{% endif %}
+
+						{# <td>{{  ? 'Yes' : 'No' }}</td> #}
+					</tr>
+					<tr>
+						<th>Besoin Formation</th>
+						{% if fiche_maintenance.besoinFormation == 1 %}
+							<td>
+								<i class="fa fa-check text-success" aria-hidden="true"></i>
+							</td>
+						{% else %}
+							<td>
+								<i class="fa fa-times text-danger" aria-hidden="true"></i>
+							</td>
+						{% endif %}
+						{# <td>{{  ? 'Yes' : 'No' }}</td> #}
+					</tr>
+					<tr>
+						<th>Sondage MonoFace</th>
+
+						{% if fiche_maintenance.sondageMonoFace == 1 %}
+							<td>
+								<i class="fa fa-check text-success" aria-hidden="true"></i>
+							</td>
+						{% else %}
+							<td>
+								<i class="fa fa-times text-danger" aria-hidden="true"></i>
+							</td>
+						{% endif %}
+						{# <td>{{  ? 'Yes' : 'No' }}</td> #}
+					</tr>
+					<tr>
+						<th>Qualité Electrique</th>
+						<td>{{ fiche_maintenance.QualiteElectrique }}</td>
+					</tr>
+					<tr>
+						<th>Date Prévue</th>
+						<td>{{ fiche_maintenance.dateProchaine ? fiche_maintenance.dateProchaine|date('Y-m-d') : '' }}</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+		</section>
+		<div id="zone_boutton">
+			{% if utilisateur.roles[0] == "ROLE_ADMIN" %}
+				<a id="boutton_show" class="btn " href="{{ path('fiche_maintenance_edit', {'id': fiche_maintenance.id}) }}">Modifier
+					<i class="fa fa-pen text-secondary"></i>
+				</a>
+				{{ include('fiche_maintenance/_delete_form.html.twig') }}
+			{% endif %}
+			<a id="boutton_show" href="" class="btn btn">Export
+				<i class="fa fa-file text-secondary"></i>
+			</a>
+		</div>
+	</main>
+
 {% endblock %}
