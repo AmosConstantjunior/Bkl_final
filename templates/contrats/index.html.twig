@@ -15,9 +15,9 @@
 			<a class="btn btn-secondary float-right mt-3 mr-4 mb-4" href="{{ path('contrats_new') }}">
 				<i class="fa fa-plus"></i>
 				Ajouter un contrat</a>
+		<section id="liste_des_Contacts" style='background-color:white' class=" container-fluid">
 			<h3 class="mt-4 ml-4 d-flex justify-content-center">Liste de tout les Contrats
 			</h3>
-		<section id="liste_des_Contacts" class=" container-fluid">
 
 			<table class="table table-striped">
         <thead>
@@ -33,8 +33,8 @@
                 <td scope="row">{{ contrat.id }}</td>
                 <td scope="row">{{ contrat.TypeContrat }}</td>
                 <td scope="row" >
-                    <a href="{{ path('contrats_show', {'id': contrat.id}) }}">show</a>
-                    <a href="{{ path('contrats_edit', {'id': contrat.id}) }}">edit</a>
+                    {# <a href="{{ path('contrats_show', {'id': contrat.id}) }}">show</a> #}
+                    <a href="{{ path('contrats_edit', {'id': contrat.id}) }}"><fa class="fa fa-pen text-danger"></fa></a>
                 </td>
             </tr>
         {% else %}

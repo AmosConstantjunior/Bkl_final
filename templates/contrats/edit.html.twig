@@ -1,13 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Contrats{% endblock %}
+{% block title %}Edit Contrats
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Contrats</h1>
+	{% if utilisateur != null %}
+		<aside class=''>
 
-    {{ include('contrats/_form.html.twig', {'button_label': 'Update'}) }}
+			{% include "Templates_parts/aside.html.twig" %}
+		</aside>
+		<main>
+			<nav id="menu_admin" class="mt-4">
+				{% include "Templates_parts/_nav.html.twig" %}
+			</nav>
+			<hr>
+			<a class="btn btn-secondary ml-2" href="{{ path('contrats_index') }}">
+				<i class="fa fa-chevron-left"></i>
+				Retour</a>
+			<section id="liste_des_ateliers" style='background-color:white' class=" mt-2 container-fluid">
+				<h2 class=" ml-4 d-flex justify-content-center text-dark">Modification du type de contrat
+				</h2>
+				<br>
 
-    <a href="{{ path('contrats_index') }}">back to list</a>
 
-    {{ include('contrats/_delete_form.html.twig') }}
+				<article class="mt-4 container-fluid">
+
+					{{ form_start(form) }}
+					<div class="form-group">
+						{{form_label(form.TypeContrat, 'Type de contrat ')}}
+						{{form_widget(form.TypeContrat, {'attr':{'class':'form-control'}})}}
+					</div>
+					<button class="btn ">{{ button_label|default('Enregistrer') }}
+						<i class="fa fa-save"></i>
+					</button>
+					{{ form_end(form) }}
+
+
+				</article>
+				{{ include('contrats/_delete_form.html.twig') }}
+			</section>
+		</main>
+		{% else %}
+	{% endif %}
 {% endblock %}

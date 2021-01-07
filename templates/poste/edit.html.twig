@@ -1,13 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Poste{% endblock %}
+{% block title %}Edit Poste
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Poste</h1>
+	{% if utilisateur != null %}
+		<aside class=''>
 
-    {{ include('poste/_form.html.twig', {'button_label': 'Update'}) }}
+			{% include "Templates_parts/aside.html.twig" %}
+		</aside>
+		<main>
+			<nav id="menu_admin" class="mt-4">
+				{% include "Templates_parts/_nav.html.twig" %}
+			</nav>
+			<hr>
+			<a class="btn btn-secondary ml-2" href="{{ path('poste_index') }}">
+				<i class="fa fa-chevron-left"></i>
+				Retour</a>
+			<section id="liste_des_ateliers" style='background-color:white' class=" mt-2 container-fluid">
+				<h2 class=" ml-4 d-flex justify-content-center text-dark">Modification des données du poste
+				</h2>
+				<br>
 
-    <a href="{{ path('poste_index') }}">back to list</a>
 
-    {{ include('poste/_delete_form.html.twig') }}
+				<article class="mt-4 container-fluid">
+					{{ form_start(form) }}
+					<div class="form-group col">
+						{{form_label(form.IntitulerPoste, 'Intituler du poste')}}
+						{{form_widget(form.IntitulerPoste, {'attr':{'class':'form-control'}})}}
+					</div>
+
+					<button class="btn ">{{ button_label|default('Sauvegarder') }}
+						<fa class="fa fa-save"></fa>
+					</button>
+					{{ form_end(form) }}
+
+
+				</article>
+				{{ include('poste/_delete_form.html.twig') }}
+
+			</section>
+		</main>
+		{% else %}
+	{% endif %}
 {% endblock %}

@@ -3,9 +3,34 @@
 {% block title %}New Poste{% endblock %}
 
 {% block body %}
-    <h1>Create new Poste</h1>
+    <aside class=''>
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
 
-    {{ include('poste/_form.html.twig') }}
+			<a class="btn btn-secondary" href="{{ path('poste_index') }}">
+				<i class="fa fa-chevron-left"></i>
+				Retour</a>
+		<section id="ajouter_technicien" style="background-color:white; height:60vh" class=" container-fluid">
+			<h2 class="mt-4 ml-4 d-flex justify-content-center ">Créer un poste </h2>
+		<br>
+			<article class="mt-4 container-fluid">
 
-    <a href="{{ path('poste_index') }}">back to list</a>
+    {{ form_start(form) }}
+    <div class="form-group col">
+                    {{form_label(form.IntitulerPoste, 'Intituler du poste')}}
+                    {{form_widget(form.IntitulerPoste, {'attr':{'class':'form-control'}})}}
+                    </div>
+   
+    <button class="btn btn-success">{{ button_label|default('Sauvegarder') }} <fa class="fa fa-save"></fa> </button>
+{{ form_end(form) }}
+
+
+    	</article>
+		</section>
+	</main>
 {% endblock %}

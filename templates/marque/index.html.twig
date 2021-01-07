@@ -34,8 +34,8 @@
 							<td scope="row">{{ marque.id }}</td>
 							<td scope="row">{{ marque.NomMarque }}</td>
 							<td scope="row">
-								<a href="{{ path('marque_show', {'id': marque.id}) }}">show</a>
-								<a href="{{ path('marque_edit', {'id': marque.id}) }}">edit</a>
+								{# <a href="{{ path('marque_show', {'id': marque.id}) }}"><fa class="fa fa-eye text-danger"></fa></a> #}
+								<a href="{{ path('marque_edit', {'id': marque.id}) }}"><fa class="fa fa-pen text-danger"></a>
 							</td>
 						</tr>
 					{% else %}

@@ -3,6 +3,16 @@
 {% block title %}Marque{% endblock %}
 
 {% block body %}
+{% if utilisateur != null %}
+	<aside class=''>
+
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
     <h1>Marque</h1>
 
     <table class="table">
@@ -23,4 +33,8 @@
     <a href="{{ path('marque_edit', {'id': marque.id}) }}">edit</a>
 
     {{ include('marque/_delete_form.html.twig') }}
+
+    </main>
+{% else %}
+	{% endif %}
 {% endblock %}

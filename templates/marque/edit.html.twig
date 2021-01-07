@@ -1,13 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Marque{% endblock %}
+{% block title %}Edit Marque
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Marque</h1>
+	{% if utilisateur != null %}
+		<aside class=''>
 
-    {{ include('marque/_form.html.twig', {'button_label': 'Update'}) }}
+			{% include "Templates_parts/aside.html.twig" %}
+		</aside>
+		<main>
+			<nav id="menu_admin" class="mt-4">
+				{% include "Templates_parts/_nav.html.twig" %}
+			</nav>
+			<hr>
+			<a class="btn btn-secondary ml-2" href="{{ path('marque_index') }}">
+				<i class="fa fa-chevron-left"></i>
+				Retour</a>
+			<section id="liste_des_ateliers" style='background-color:white' class=" mt-2 container-fluid">
+				<h2 class=" ml-4 d-flex justify-content-center text-dark">Modification de la marque
+				</h2>
+				<br>
 
-    <a href="{{ path('marque_index') }}">back to list</a>
 
-    {{ include('marque/_delete_form.html.twig') }}
+				<article class="mt-4 container-fluid">
+					{{ form_start(form) }}
+					<div class="form-group">
+						{{form_label(form.NomMarque, 'Nom de la marque')}}
+						{{form_widget(form.NomMarque, {'attr':{'class':'form-control'}})}}
+					</div>
+					<button class="btn ">{{ button_label|default('Enregistrer') }}
+						<i class="fa fa-save"></i>
+					</button>
+					{{ form_end(form) }}
+				</article>
+				{{ include('marque/_delete_form.html.twig') }}
+
+			</section>
+		</main>
+		{% else %}
+	{% endif %}
 {% endblock %}

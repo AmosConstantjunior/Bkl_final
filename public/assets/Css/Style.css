@@ -1030,3 +1030,18 @@ overflow-x: auto;
     overflow-y: scroll;
     overflow-x: initial;
 }
+
+#image_nav{
+    width: 50vw;
+}
+
+#utilisation_generale{
+    
+    height: 55vh;
+    overflow-y: auto;
+}
+#contenu_guide{
+
+height: 75vh;
+overflow-y: auto;
+}

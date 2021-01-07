@@ -1,0 +1,152 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GuidesController!
+{% endblock %}
+
+{% block body %}
+	<aside class=''>
+		{% include "Templates_parts/aside.html.twig" %}
+	</aside>
+	<main>
+		<nav id="menu_admin" class="mt-4">
+			{% include "Templates_parts/_nav.html.twig" %}
+		</nav>
+		<hr>
+		<section id="liste_des_marque" style="background-color:white" class=" container-fluid">
+			<h3 class="mt-4 ml-4 d-flex justify-content-center ">Manuel d'utilisation
+			</h3>
+			<article id="contenu_guide">
+			<div>
+			
+				<p>bbjjjjjjjjjj</p>
+			</div>
+				<div id="accordion">
+				
+					<div class="card">
+						<div class="card-header" id="headingOne">
+							<h5 class="mb-0">
+								<button class="btn btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+									Utilisation générale
+								</button>
+							</h5>
+						</div>
+
+						<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+							<div class="card-body" id="utilisation_generale">
+							<p></p>
+								<h5>stucture</h5>
+								<div>
+								<img id="image_nav" src="{{asset('assets/Img/dossier_guide/nav_2.png')}}" alt="" srcset="">
+								
+								<p></p>
+								</div>
+
+								
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header" id="headingTwo">
+							<h5 class="mb-0">
+								<button class="btn btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+									Clients et Techniciens
+								</button>
+							</h5>
+						</div>
+						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+							<div class="card-body" id="utilisation_generale">
+								<h5>Clients</h5>
+								<div>
+								<p></p>
+								<h6>Liste</h6>
+								<img id="image_nav" src="{{asset('assets/Img/dossier_guide/liste_des_client_1.png')}}" alt="" srcset="">
+								<p></p>
+								<h6>Gestion</h6>
+								<p>Creation de client</p>
+								<img id="image_nav" src="{{asset('assets/Img/dossier_guide/ajouter_clients_1.png')}}" alt="" srcset="">
+								<p>Affichage des données clients</p>
+								<img id="image_nav" src="{{asset('assets/Img/dossier_guide/details_clients_1.png')}}" alt="" srcset="">
+								<p>La modification des données client</p>
+								<img id="image_nav" src="{{asset('assets/Img/dossier_guide/ajouter_clients_1.png')}}" alt="" srcset="">
+								</div>
+
+								<h5>Techniciens</h5>
+								<div>
+								<p></p>
+								<h6>Liste</h6>
+								<img id="image_nav" src="{{asset('assets/Img/dossier_guide/listes_tech.png')}}" alt="" srcset="">
+								<p></p>
+								<h6>Gestion</h6>
+								<p>Creation de technicien</p>
+								<img id="image_nav" src="{{asset('assets/Img/dossier_guide/ajouter_tech.png')}}" alt="" srcset="">
+								<p>Affichage des données du technicien</p>
+								<img id="image_nav" src="{{asset('assets/Img/dossier_guide/details_tech.png')}}" alt="" srcset="">
+								
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header" id="headingThree">
+							<h5 class="mb-0">
+								<button class="btn btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+									Fiche de maintenances
+								</button>
+							</h5>
+						</div>
+						<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+							<div class="card-body" id="utilisation_generale">
+								<h5>Création</h5>
+								<div></div>
+								<h5>Modification</h5>
+								<div></div>
+								<h5>Suppression</h5>
+								<div></div>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header" id="headingfour">
+							<h5 class="mb-0">
+								<button class="btn btn collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+									Attestation CQS
+								</button>
+							</h5>
+						</div>
+						<div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
+							<div class="card-body" id="utilisation_generale">
+								<h5>Création</h5>
+								<div>
+								
+								</div>
+								<h5>Modification</h5>
+								<div></div>
+								<h5>Suppression</h5>
+								<div></div>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header" id="headingfive">
+							<h5 class="mb-0">
+								<button class="btn btn collapsed" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
+									Paramètre
+								</button>
+							</h5>
+						</div>
+						<div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordion">
+							<div class="card-body" id="utilisation_generale">
+								<h5>Détails machine</h5>
+								<div></div>
+								<h5>Contrats</h5>
+								<div></div>
+								<h5>Poste</h5>
+								<div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+	</main>
+{% endblock %}

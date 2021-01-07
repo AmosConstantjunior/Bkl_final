@@ -17,14 +17,33 @@
 			<a class="btn btn-secondary ml-2" href="{{ path('techniciens_index') }}">
 				<i class="fa fa-chevron-left"></i>
 				Retour</a>
-			<h2 class="mt-4 ml-4 d-flex justify-content-center text-light">Ajouter un technicien</h2>
 		<section id="ajouter-technicien" class=" container-fluid">
+			<h2 class="mt-4 ml-4 d-flex justify-content-center ">Modification des données du technicien</h2>
 			<article class="mt-4 container-fluid">
-				<h1>Edit Techniciens</h1>
+				
 
-				{{ include('techniciens/_form.html.twig', {'button_label': 'Update'}) }}
+								{{ form_start(form) }}
+                <div class="form-group">
+				{{form_label(form.NomTechnicien, 'Nom : ')}}
+                {{form_widget(form.NomTechnicien, {'attr':{'class':'form-control'}})}}
+                </div>
+                <div class="form-group">
+                {{form_label(form.PrenomTechnicien, 'Prénom :')}}
+                {{form_widget(form.PrenomTechnicien, {'attr':{'class':'form-control'}})}}
+                </div>
+                <div class="form-group">
+                {{form_label(form.email, 'Email :')}}
+                {{form_widget(form.email, {'attr':{'class':'form-control'}})}}
+                </div>
+                <div class="form-group">
+                {{form_label(form.plainPassword, 'Mot de passe :')}}
+                {{form_widget(form.plainPassword, {'attr':{'class':'form-control'}})}}
+                </div>
+				<button class="btn btn">{{ button_label|default('Sauvegarder') }} <i class="fa fa-save"></i>
+                </button>
+				{{ form_end(form) }}
 
-				<a href="{{ path('techniciens_index') }}">back to list</a>
+				
 
 				{{ include('techniciens/_delete_form.html.twig') }}
 			</article>
